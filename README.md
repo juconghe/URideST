@@ -4,9 +4,9 @@ This is the project for CS320 Umass Special Transit
 # 1 clone Repo
 git clone https://github.com/juconghe/URideST.git
 # 2 install framework for frontend
-cd client
+cd client <br />
 npm install
 
 # 3 install framework for backend
-cd server
+cd server <br />
 npm install
