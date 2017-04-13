@@ -10,11 +10,15 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+    <!-- Material Design fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-
+    <!-- Bootstrap Material Design -->
+    <link href="css/bootstrap-material-design.css" rel="stylesheet">
+    <link href="css/ripples.min.css" rel="stylesheet">
     <!-- Custom CSS goes here -->
-    <link href="css/calendar.css" rel="stylesheet">
+    <!-- <link href="css/custom.css" rel="stylesheet"> -->
 </head>
 
 <body>
@@ -31,7 +35,7 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-
+    <div class="container">
     <div class="col-md-4">
     </div>
     <div class="container">
@@ -49,11 +53,42 @@
     <div class="col-md-4">
     </div>
 
+    </div>
+    <footer class="footer" style="
+            bottom: 0;
+            position: absolute;
+            width: 100%;
+            /* Set the fixed height of the footer here */
+            height: 60px;
+            line-height: 60px; /* Vertically center the text there */
+            background-color: #f5f5f5;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1">
+                    <a href="requestdate.html" type="button" class="btn btn-sm btn-default">Back</a>
+                </div>
+                <div class="col-md-1">
+                    <a href="passengerindex.html" type="button" class="btn btn-sm btn-default">Cancel</a>
+                </div>
+                <div class="col-md-10" align="right">
+                    <a href="dropoff.html" type="button" class="btn btn-sm btn-default">Next</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <!-- Material Design for Bootstrap -->
+    <script src="js/material.js"></script>
+    <script src="js/ripples.min.js"></script>
+    <script>
+      $.material.init();
+    </script>
     <!-- App code -->
+    <script src="js/app.js"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js">
     </script>

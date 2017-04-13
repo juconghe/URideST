@@ -34,26 +34,34 @@
       </div>
         <!-- /.container-fluid -->
     </nav>
-    <div class="col-md-3">
+    <div class="container">
+      <div class="col-md-3">
+      </div>
+      <div class="col-md-6">
+          <div class="text-center">
+              <div class="row">
+                  <div class="panel panel-default">
+                      <div class="panel-body">
+                          Enter your special accessibility options
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <textarea style="resize:vertical" placeholder="Enter custom message here ..." class="form-control"></textarea>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3">
+      </div>
     </div>
-    <div class="col-md-6">
-        <div class="text-center">
-            <div class="row">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        Enter your special accessibility options
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <textarea style="resize:vertical" placeholder="Enter custom message here ..." class="form-control"></textarea>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-    </div>
-
-    <footer class="footer">
+    <footer class="footer" style="
+            bottom: 0;
+            position: absolute;
+            width: 100%;
+            /* Set the fixed height of the footer here */
+            height: 60px;
+            line-height: 60px; /* Vertically center the text there */
+            background-color: #f5f5f5;">
       <div class="container">
         <div class="row">
           <div class="col-md-1">
@@ -68,7 +76,6 @@
         </div>
       </div>
     </footer>
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
