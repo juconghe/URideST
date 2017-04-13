@@ -10,9 +10,15 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <!-- Bootstrap Material Design -->
+    <link href="css/bootstrap-material-design.css" rel="stylesheet">
+    <link href="css/ripples.min.css" rel="stylesheet">
     <!-- Custom CSS goes here -->
-    <link href="css/custom.css" rel="stylesheet">
+    <!-- <link href="css/custom.css" rel="stylesheet"> -->
 </head>
 
 <body>
@@ -21,11 +27,10 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="passengerindex.html">
                     <img src="img/umass.png" height="30" width="90">
                 </a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
         </div>
         <!-- /.container-fluid -->
     </nav>
@@ -34,21 +39,31 @@
     <div class="col-md-4">
         <div class="text-center">
             <div class="btn-group-vertical" role="group">
-                <button type="button" class="btn btn-lg btn-default">
-            <h1><light>Request a New Ride</light></h1>
-          </button>
-                <button type="button" class="btn btn-lg btn-default">
-            <h1>View Your Ride</h1>
-          </button>
+                <button type="button" class="btn btn-lg btn-raised btn-default">
+                  <h1>Request a New Ride</h1>
+                </button>
+                <button type="button" class="btn btn-lg btn-raised btn-default">
+                  <h1>View Your Ride</h1>
+                </button>
+              </div>
             </div>
-        </div>
-    </div>
     <div class="col-md-4">
     </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+      </div>
+    </footer>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <!-- Material Design for Bootstrap -->
+    <script src="js/material.js"></script>
+    <script src="js/ripples.min.js"></script>
+    <script>
+      $.material.init();
+    </script>
     <!-- App code -->
     <script src="js/app.js"></script>
 </body>

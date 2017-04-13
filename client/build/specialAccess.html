@@ -10,23 +10,28 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <!-- Bootstrap Material Design -->
+    <link href="css/bootstrap-material-design.css" rel="stylesheet">
+    <link href="css/ripples.min.css" rel="stylesheet">
     <!-- Custom CSS goes here -->
-    <link href="css/custom.css" rel="stylesheet">
+    <!-- <link href="css/custom.css" rel="stylesheet"> -->
 </head>
 
 <body>
     <!-- Custom HTML goes here -->
     <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                    <img src="img/umass.png" height="30" width="90">
-                </a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="passengerindex.html">
+          <img src="img/umass.png" height="30" width="90">
+          </a>
         </div>
+      </div>
         <!-- /.container-fluid -->
     </nav>
     <div class="col-md-3">
@@ -47,10 +52,33 @@
     </div>
     <div class="col-md-3">
     </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-1">
+            <a href="dropoff.html" type="button" class="btn btn-sm btn-default">Back</a>
+          </div>
+          <div class="col-md-1">
+            <a href="passengerindex.html" type="button" class="btn btn-sm btn-default">Cancel</a>
+          </div>
+          <div class="col-md-10" align="right">
+            <a href="availableTime.html" type="button" class="btn btn-sm btn-default">Next</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <!-- Material Design for Bootstrap -->
+    <script src="js/material.js"></script>
+    <script src="js/ripples.min.js"></script>
+    <script>
+      $.material.init();
+    </script>
     <!-- App code -->
     <script src="js/app.js"></script>
 </body>
