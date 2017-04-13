@@ -11,7 +11,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS goes here -->
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/calendar.css" rel="stylesheet">
   </head>
   <body>
     <!-- Custom HTML goes here -->
@@ -26,52 +26,49 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
       </div><!-- /.container-fluid -->
     </nav>
+
     <div class="col-md-4">
     </div>
-    <div class="col-md-4">
-      <div class="text-center">
-        <div class="container-fluid">
-          <div class="row">
-           <div class="col-md-6 col-sm-6 col-xs-12">
-            <form method="post">
-             <div class="form-group ">
-              <label class="control-label requiredField" for="select">
-               Select a dropoff location
-               <span class="asteriskField">
-                *
-               </span>
-              </label>
-              <select class="select form-control" id="select" name="select">
-               <option value="Army ROTC">
-                Army ROTC
-               </option>
-               <option value="Library">
-                Library
-               </option>
-               <option value="Studio Arts Buidling">
-                Studio Arts Buidling
-               </option>
-               <option value="Arnold House">
-                Arnold House
-               </option>
-              </select>
-             </div>
-             <div class="form-group ">
-              <input class="form-control" id="text" name="text" placeholder="Enter custom address here" type="text"/>
-             </div>
-            </form>
-           </div>
-          </div>
-         </div>
-      </div>
-      </div>
-    <div class="col-md-4">
+
+    <div class="container">
+    <div class="row vertical-center-row">
+      <div class="row">
+       <div class="form-group ">
+        <label class="control-label " for="date">
+         Pick a date for your trip
+        </label>
+        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
+       </div>
+     </div>
     </div>
+   </div>
+   <div class="col-md-4">
+   </div>
+
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <!-- App code -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+<script>
+    $(document).ready(function(){
+        var date_input=$('input[name="date"]'); //our date input has the name "date"
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        date_input.datepicker({
+            format: 'mm/dd/yyyy',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+        })
+    })
+</script>
+
+
     <script src="js/bundle.js"></script>
   </body>
 </html>
