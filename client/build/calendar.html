@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,42 +10,44 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
 
 
     <!-- Custom CSS goes here -->
     <link href="css/calendar.css" rel="stylesheet">
-  </head>
-  <body>
+</head>
+
+<body>
     <!-- Custom HTML goes here -->
     <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">
-          <img src="img/umass.png" height="30" width="90">
-          </a>
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img src="img/umass.png" height="30" width="90">
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-      </div><!-- /.container-fluid -->
+        <!-- /.container-fluid -->
     </nav>
 
     <div class="col-md-4">
-      </div>
+    </div>
     <div class="container">
-      <div class="row vertical-center-row">
-        <div class="row">
-         <div class="form-group ">
-          <label class="control-label " for="date">
+        <div class="row vertical-center-row">
+            <div class="row">
+                <div class="form-group ">
+                    <label class="control-label " for="date">
            Pick a date for your trip
           </label>
-          <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
-         </div>
-       </div>
-      </div>
-     </div>
+                    <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text" />
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="col-md-4">
-  </div>
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
@@ -52,14 +55,13 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- App code -->
 
-    <script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js">
     </script>
 
     <script>
-        $(document).ready(function(){
-            var date_input=$('input[name="date"]'); //our date input has the name "date"
-            var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        $(document).ready(function() {
+            var date_input = $('input[name="date"]'); //our date input has the name "date"
+            var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
             date_input.datepicker({
                 format: 'mm/dd/yyyy',
                 container: container,
@@ -69,5 +71,6 @@
         })
     </script>
     <script src="js/bundle.js"></script>
-  </body>
+</body>
+
 </html>
