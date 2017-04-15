@@ -3,9 +3,11 @@ html, body, .container{
 }
 .container{
     display: table;
-    vertical-align: middle;
+    width: 200px;
 }
 .vertical-center-row{
     display: table-cell;
-    vertical-align: middle;
+}
+.padding{
+  margin-top: 50px;
 }
