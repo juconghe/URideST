@@ -23,7 +23,13 @@
 	transform: translate(-50%, -90%);
 }
 
+.padding {
+	position: fixed;
+	left: 10%;
+	top: 20%;
+}
+
 .footer > .container > .row >a{
 	color: grey !important;
-	margin-left: 10px !important; 
+	margin-left: 10px !important;
 }
