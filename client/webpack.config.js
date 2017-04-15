@@ -25,21 +25,25 @@ module.exports = {
     // are a recent addition to JavaScript that are not supported by all browsers.
     // In the future, this transformation step will not be necessary.
     // (The babel-loader will also compile your React templates to JavaScript.)
-    loaders: [
-      {
-        // Only transform *.js files.
-        test: /\.js$/,
-        // Don't transform any of the modules you depend on -- just transform
-        // *your* code.
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader',
-        query: {
-          // es2015 == ECMAScript 2015. Lets you use new JavaScript features.
-          // The React module runs the React compiler, which translates the
-          // HTML in your React modules into code.
-          presets: ['es2015', 'react']
-        }
-      }
+    // loaders: [
+    //   {
+    //     // Only transform *.js files.
+    //     test: /\.js$/,
+    //     // Don't transform any of the modules you depend on -- just transform
+    //     // *your* code.
+    //     exclude: /(node_modules|bower_components)/,
+    //     loader: 'babel-loader',
+    //     query: {
+    //       // es2015 == ECMAScript 2015. Lets you use new JavaScript features.
+    //       // The React module runs the React compiler, which translates the
+    //       // HTML in your React modules into code.
+    //       presets: ['es2015', 'react']
+    //     }
+    //   }
+    // ]
+    rules: [
+      {test: /\.(js)$/, use:'babel-loader'},
+      {test: /\.css$/,use:['style-loader','css-loader']}
     ]
   }
 };
