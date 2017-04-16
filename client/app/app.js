@@ -32,7 +32,11 @@ class Client extends React.Component{
 }
 
 class ViewRide extends React.Component {
-
+  render() {
+    return (
+      <div>Hello World</div>
+    );
+  }
 }
 
 class PickUp extends React.Component{
@@ -69,8 +73,7 @@ class Dispatcher extends React.Component {
 
 ReactDOM.render(
   <Router history={hashHistory}>
-    <Route path="/" component={App}>
-        <IndexRoute component={Client}/>
+        <Route exact path="/" component={App} />
         <Route path="/calendar" component={Calendar}/>
         <Route path="/pickUp" component={PickUp}/>
         <Route path="/dropOff" component={DropOff}/>
@@ -78,7 +81,6 @@ ReactDOM.render(
         <Route path="/availableTime" component={AvailableTime}/>
         <Route path="/finished" component={Finished}/>
         <Route path="/viewRide" component={ViewRide}/>
-    </Route>
   </Router>,
   document.getElementById('App')
 );
