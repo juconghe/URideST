@@ -1,4 +1,5 @@
 import Navbar from './navbar';
+import Footer from './Footer'
 const React = require('react');
 
 $(document).ready(function() {
@@ -40,6 +41,8 @@ export default class Calendar extends React.Component {
           <div className="col-md-4">
           </div>
         </div>
+
+      <Footer />
 
       </div>
     );
