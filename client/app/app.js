@@ -1,4 +1,5 @@
 import {IndexRoute, Router, Route, hashHistory} from 'react-router';
+import Navbar from './components/navbar';
 const React = require('react');
 const ReactDOM = require('react-dom');
 
@@ -6,15 +7,7 @@ class App extends React.Component{
   render() {
     return (
       <div>
-        <nav className="navbar navbar-default">
-            <div className="container-fluid">
-                <div className="navbar-header">
-                    <a className="navbar-brand" href="index.html">
-                        <img src="img/umass.png" height="30" width="90" />
-                    </a>
-                </div>
-            </div>
-        </nav>
+        <Navbar />
           <div className="container centered">
             <div className="col-md-4">
             </div>
