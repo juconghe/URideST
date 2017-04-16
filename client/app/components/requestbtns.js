@@ -1,4 +1,5 @@
 const React = require('react');
+import {Link} from 'react-router';
 
 export default class RequestBtns extends React.Component {
   render() {
@@ -9,12 +10,12 @@ export default class RequestBtns extends React.Component {
         <div className="col-md-4">
             <div className="text-center">
                 <div className="btn-group-vertical" role="group">
-                    <a href="calendar.html" type="button" className="btn btn-lg btn-raised btn-default">
+                    <Link to="/calendar" type="button" className="btn btn-lg btn-raised btn-default">
                       <h1>Request a New Ride</h1>
-                    </a>
-                    <a href="viewRide.html" type="button" className="btn btn-lg btn-raised btn-default">
+                    </Link>
+                    <Link to="/viewRide" type="button" className="btn btn-lg btn-raised btn-default">
                       <h1>View Your Ride</h1>
-                    </a>
+                    </Link>
                   </div>
                 </div>
         </div>
