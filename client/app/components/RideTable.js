@@ -1,6 +1,5 @@
 const React = require('react');
 
-
 export default class RideTable extends React.Component {
   render() {
     return (

@@ -1,6 +1,7 @@
 import Navbar from './navbar';
-import Footer from './Footer'
+import Footer from './footer'
 const React = require('react');
+
 
 $(document).ready(function() {
     var date_input = $('input[name="date"]'); //our date input has the name "date"
@@ -13,7 +14,7 @@ $(document).ready(function() {
     })
 })
 
-export default class Calendar extends React.Component {
+export default class PickDate extends React.Component {
   render() {
     return (
       <div>

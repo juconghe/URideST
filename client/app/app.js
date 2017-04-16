@@ -1,6 +1,8 @@
 import {IndexRoute, Router, Route, hashHistory} from 'react-router';
 import Navbar from './components/navbar';
 import RequestBtns from './components/requestbtns';
+import PickDate from './components/pickdate';
+import Footer from './components/footer';
 const React = require('react');
 const ReactDOM = require('react-dom');
 
@@ -18,13 +20,7 @@ class Client extends React.Component{
       <div>
         <Navbar />
         <RequestBtns />
-          <footer className="footer">
-            <div className="container-fluid">
-              <div className="row">
-                <a href="index.html" type="button" className="btn btn-default align-left">Home</a>
-              </div>
-            </div>
-          </footer>
+        <Footer />
       </div>
     );
   }
@@ -33,7 +29,7 @@ class Client extends React.Component{
 class ViewRide extends React.Component {
   render() {
     return (
-      <ViewRide /> 
+      <ViewRide />
     );
   }
 }
@@ -46,7 +42,7 @@ class DropOff extends React.Component {
 
 }
 
-class Calendar extends React.Component {
+class PickDate extends React.Component {
 
 }
 
@@ -72,16 +68,15 @@ class Dispatcher extends React.Component {
 
 ReactDOM.render(
   <Router history={hashHistory}>
-    <Route path="/" component={App}>
-        <IndexRoute component={Client}/>
+        <Route exact path="/" component={App} />
         <Route path="/calendar" component={Calendar}/>
+        <Route path="/pickDate" component={PickDate}/>
         <Route path="/pickUp" component={PickUp}/>
         <Route path="/dropOff" component={DropOff}/>
         <Route path="/specialAccess" component={SpecialAccess}/>
         <Route path="/availableTime" component={AvailableTime}/>
         <Route path="/finished" component={Finished}/>
         <Route path="/viewRide" component={ViewRide}/>
-    </Route>
   </Router>,
   document.getElementById('App')
 );
