@@ -1,6 +1,7 @@
 import {IndexRoute, Router, Route, hashHistory} from 'react-router';
 import Navbar from './components/navbar';
 import RequestBtns from './components/requestbtns';
+import PickDate from './components/pickdate'
 const React = require('react');
 const ReactDOM = require('react-dom');
 
@@ -42,7 +43,7 @@ class DropOff extends React.Component {
 
 }
 
-class Calendar extends React.Component {
+class PickDate extends React.Component {
 
 }
 
