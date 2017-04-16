@@ -11,7 +11,7 @@ export default class RequestBtns extends React.Component {
         <div className="col-md-4">
             <div className="text-center">
                 <div className="btn-group-vertical" role="group">
-                    <Link to="/calendar" type="button" className="btn btn-lg btn-raised btn-default">
+                    <Link to="/requestDate" type="button" className="btn btn-lg btn-raised btn-default">
                       <h1>Request a New Ride</h1>
                     </Link>
                     <Link to="/viewRide" type="button" className="btn btn-lg btn-raised btn-default">
