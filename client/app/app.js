@@ -31,7 +31,11 @@ class Client extends React.Component{
 }
 
 class ViewRide extends React.Component {
-
+  render() {
+    return (
+      <div>Hello World</div>
+    );
+  }
 }
 
 class PickUp extends React.Component{
