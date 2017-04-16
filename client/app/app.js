@@ -8,6 +8,8 @@ import PickUp from './components/pickup';
 import DropOff from './components/dropoff';
 import Finished from './components/finished';
 import AvaliableTime from './components/availableTime';
+
+
 const React = require('react');
 const ReactDOM = require('react-dom');
 
@@ -34,7 +36,11 @@ class Client extends React.Component{
 class ViewRidePage extends React.Component {
   render() {
     return (
+      <div>
+      <Navbar />
       <ViewRide />
+      <Footer />
+      </div>
     );
   }
 }
@@ -75,8 +81,12 @@ class AvaliableTimePage extends React.Component {
   }
 }
 
-class RequestDate extends React.Component {
-
+class RequestDatePage extends React.Component {
+  render() {
+    return (
+      <PickDate />
+    );
+  }
 }
 
 class FinishedPage extends React.Component {
@@ -103,7 +113,7 @@ class Dispatcher extends React.Component {
 ReactDOM.render(
   <Router history={hashHistory}>
         <Route exact path="/" component={App} />
-        <Route path="/requestDate" component={RequestDate}/>
+        <Route path="/requestDate" component={RequestDatePage}/>
         <Route path="/dropOff" component={DropOff}/>
         <Route path="/pickUp" component={PickUp}/>
         <Route path="/specialAccess" component={SpecialAccess}/>
