@@ -1,7 +1,9 @@
 import Navbar from './navbar';
-import Footer from './footer'
-const React = require('react');
-
+import Footer from './footer';
+import React from 'react';
+var DatePicker = require('react-datepicker');
+var moment = require('moment');
+require('react-datepicker/dist/react-datepicker.css');
 
 $(document).ready(function() {
     var date_input = $('input[name="date"]'); //our date input has the name "date"
@@ -14,7 +16,9 @@ $(document).ready(function() {
     })
 })
 
+
 export default class PickDate extends React.Component {
+
   render() {
     return (
       <div>
@@ -32,7 +36,7 @@ export default class PickDate extends React.Component {
                         <div className="well">
                             Select a Date
                         </div>
-                        <input className="form-control input-lg" id="date" name="date" placeholder="MM/DD/YYYY" type="text" />
+                        <input class="form-control input-lg" id="date" name="date" placeholder="MM/DD/YYYY" type="text" />
                       </div>
                     </form>
                   </div>
@@ -44,7 +48,6 @@ export default class PickDate extends React.Component {
         </div>
 
       <Footer />
-
       </div>
     );
   }

@@ -4,6 +4,7 @@ import RequestBtns from './components/requestbtns';
 import PickDate from './components/pickdate';
 import Footer from './components/footer';
 import ViewRide from './components/ViewRide'
+import SpecialAccess from './components/SpecialAccess'
 // import PickUp from './components/pickup.js';
 const React = require('react');
 const ReactDOM = require('react-dom');
@@ -71,7 +72,12 @@ class Finished extends React.Component {
 
 }
 
-class SpecialAccess extends React.Component {
+class SpecialAccessPage extends React.Component {
+  render() {
+    return (
+      <SpecialAccess />
+    );
+  }
 
 }
 
