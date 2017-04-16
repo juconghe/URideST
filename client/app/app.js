@@ -79,6 +79,7 @@ ReactDOM.render(
         <Route path="/specialAccess" component={SpecialAccess}/>
         <Route path="/availableTime" component={AvailableTime}/>
         <Route path="/finished" component={Finished}/>
+        <Route path="/viewRide" component={ViewRide}/>
   </Router>,
   document.getElementById('App')
 );
