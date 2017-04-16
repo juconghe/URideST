@@ -9,7 +9,7 @@ export default class DropOff extends React.Component {
       </div>
       <div className="col-md-4 centered">
           <div className="text-center">
-              <div className="container-fluid" style="max-width:450px">
+              <div className="container-fluid">
                   <div className="row">
                           <form method="post">
                               <div className="form-group ">

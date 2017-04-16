@@ -8,13 +8,12 @@ export default class SpecialAccess extends React.Component {
     return (
       <div>
         <Navbar />
-
         <div className="container">
           <div className="col-md-4">
           </div>
           <div className="col-md-4 centered">
               <div className="text-center">
-                  <div className="container-fluid" style="max-width:450px">
+                  <div className="container-fluid">
                       <div className="row">
                         <form method="post">
                             <div className="form-group ">
@@ -24,7 +23,7 @@ export default class SpecialAccess extends React.Component {
                                   </div>
                               </div>
                               <div className="row">
-                                  <textarea style="resize:vertical" placeholder="Enter custom message here ..." className="form-control"></textarea>
+                                  <textarea placeholder="Enter custom message here ..." className="form-control" />
                               </div>
                             </div>
                         </form>
@@ -35,9 +34,7 @@ export default class SpecialAccess extends React.Component {
           <div className="col-md-4">
           </div>
         </div>
-
         <Footer />
-
       </div>
     );
   }

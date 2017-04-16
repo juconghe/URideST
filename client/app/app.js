@@ -1,4 +1,4 @@
-import {IndexRoute, Router, Route, hashHistory} from 'react-router';
+import {IndexRoute, Router, Route, hashHistory, Link} from 'react-router';
 import Navbar from './components/navbar';
 import RequestBtns from './components/requestbtns';
 import PickDate from './components/pickdate';
@@ -7,7 +7,8 @@ import ViewRide from './components/viewRide';
 import PickUp from './components/pickup';
 import DropOff from './components/dropoff';
 import Finished from './components/finished';
-import AvaliableTime from './components/availableTime';
+import SpecialAccess from './components/SpecialAccess';
+// import AvaliableTime from './components/availableTime';
 
 
 const React = require('react');
@@ -74,7 +75,6 @@ class AvaliableTimePage extends React.Component {
     return (
       <div>
         <Navbar />
-        <AvailableTime />
         <Footer />
       </div>
     );
@@ -102,8 +102,12 @@ class FinishedPage extends React.Component {
 
 }
 
-class SpecialAccess extends React.Component {
-
+class SpecialAccessPage extends React.Component {
+  render() {
+    return(
+      <SpecialAccess />
+    );
+  }
 }
 
 class Dispatcher extends React.Component {
@@ -114,10 +118,10 @@ ReactDOM.render(
   <Router history={hashHistory}>
         <Route exact path="/" component={App} />
         <Route path="/requestDate" component={RequestDatePage}/>
-        <Route path="/dropOff" component={DropOff}/>
-        <Route path="/pickUp" component={PickUp}/>
-        <Route path="/specialAccess" component={SpecialAccess}/>
-        <Route path="/availableTime" component={AvailableTime}/>
+        <Route path="/dropOff" component={DropOffPage}/>
+        <Route path="/pickUp" component={PickUpPage}/>
+        <Route path="/specialAccess" component={SpecialAccessPage}/>
+        <Route path="/availableTime" component={AvaliableTimePage}/>
         <Route path="/finished" component={Finished}/>
         <Route path="/viewRide" component={ViewRidePage}/>
   </Router>,

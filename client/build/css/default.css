@@ -13,3 +13,7 @@
 .centered > .text-center >.container-fluid {
 	max-width: 450px;
 }
+
+textarea {
+	resize: vertical;
+}
