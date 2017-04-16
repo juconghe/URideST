@@ -34,6 +34,7 @@ class ViewRidePage extends React.Component {
       <div>
       <Navbar />
       <ViewRide />
+      <Footer />
       </div>
     );
   }
