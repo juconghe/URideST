@@ -3,6 +3,7 @@ import Navbar from './components/navbar';
 import RequestBtns from './components/requestbtns';
 import PickDate from './components/pickdate';
 import Footer from './components/footer';
+import ViewRide from './components/viewRide';
 const React = require('react');
 const ReactDOM = require('react-dom');
 
@@ -26,7 +27,7 @@ class Client extends React.Component{
   }
 }
 
-class ViewRide extends React.Component {
+class ViewRidePage extends React.Component {
   render() {
     return (
       <ViewRide />
@@ -71,7 +72,7 @@ ReactDOM.render(
         <Route path="/specialAccess" component={SpecialAccess}/>
         <Route path="/availableTime" component={AvailableTime}/>
         <Route path="/finished" component={Finished}/>
-        <Route path="/viewRide" component={ViewRide}/>
+        <Route path="/viewRide" component={ViewRidePage}/>
   </Router>,
   document.getElementById('App')
 );
