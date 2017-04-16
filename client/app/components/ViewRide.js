@@ -8,8 +8,6 @@ export default class ViewRide extends React.Component {
   render() {
     return (
       <Navbar />
-      <RideTable />
-      <RideTable />
     );
   }
 }
