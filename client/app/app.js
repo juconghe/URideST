@@ -9,6 +9,7 @@ import DropOff from './components/dropoff';
 import Finished from './components/finished';
 import SpecialAccess from './components/SpecialAccess';
 // import AvaliableTime from './components/availableTime';
+import AvaliableTime from './components/avaliableTime';
 
 
 const React = require('react');
