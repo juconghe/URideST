@@ -1,0 +1,8 @@
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+.navbar-default {
+	background-color: #881c1c !important;
+}
