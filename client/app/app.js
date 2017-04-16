@@ -3,6 +3,7 @@ import Navbar from './components/navbar';
 import RequestBtns from './components/requestbtns';
 import PickDate from './components/pickdate';
 import Footer from './components/footer';
+import ViewRide from './components/ViewRide'
 const React = require('react');
 const ReactDOM = require('react-dom');
 
