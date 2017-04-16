@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default class Pickup extends React.component {
+export default class PickUp extends React.component {
   render() {
     return (
       <div class="container">

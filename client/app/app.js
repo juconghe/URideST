@@ -3,6 +3,7 @@ import Navbar from './components/navbar';
 import RequestBtns from './components/requestbtns';
 import PickDate from './components/pickdate';
 import Footer from './components/footer';
+import PickUp from './components/pickup.js';
 const React = require('react');
 const ReactDOM = require('react-dom');
 
@@ -35,7 +36,15 @@ class ViewRide extends React.Component {
 }
 
 class PickUp extends React.Component{
-
+  render() {
+    return (
+      <div>
+        <Navbar />
+        <PickUp />
+        <Footer />
+      </div>
+    );
+  }
 }
 
 class DropOff extends React.Component {
