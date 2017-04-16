@@ -1,6 +1,6 @@
 const React = require('react');
 
-export default class PickUp extends React.component {
+export default class PickUp extends React.Component {
   render() {
     // return (
     //   <div class="container">

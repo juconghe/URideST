@@ -1,17 +1,17 @@
 import React from 'react';
 
 
-export default class Finished extends React.component {
+export default class Finished extends React.Component {
   render() {
     return (
-      <div class="container">
-        <div class="col-md-4">
+      <div className="container">
+        <div className="col-md-4">
         </div>
-        <div class="col-md-4 centered">
-            <div class="text-center">
-              <div class="container-fluid" style="max-width:450px">
-                <div class="row">
-                    <div class="well">
+        <div className="col-md-4 centered">
+            <div className="text-center">
+              <div className="container-fluid" style="max-width:450px">
+                <div className="row">
+                    <div className="well">
                       <h1>Your ride has been requested.
                         It is currently pending. The dispatcher will review your request
                         as soon as possible
@@ -21,7 +21,7 @@ export default class Finished extends React.component {
               </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div className="col-md-4">
         </div>
       </div>
     );

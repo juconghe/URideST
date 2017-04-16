@@ -1,22 +1,22 @@
 import React from 'react';
 
 
-export default class AvaliableTime extends React.component{
+export default class AvaliableTime extends React.Component{
   render(){
     return(
-      <div class="container">
-        <div class="col-md-4">
+      <div className="container">
+        <div className="col-md-4">
         </div>
-        <div class="col-md-4 centered">
-            <div class="text-center">
-                <div class="container-fluid" style="max-width:450px">
-                    <div class="row">
+        <div className="col-md-4 centered">
+            <div className="text-center">
+                <div className="container-fluid" style="max-width:450px">
+                    <div className="row">
                       <form method="post">
-                          <div class="form-group ">
-                            <div class="well">
+                          <div className="form-group ">
+                            <div className="well">
                               Select an Available Time
                             </div>
-                              <select class="select form-control" id="select" name="select">
+                              <select className="select form-control" id="select" name="select">
                                 <option value="Army ROTC">
                                   2:15pm-3:15pm
                                 </option>
@@ -36,7 +36,7 @@ export default class AvaliableTime extends React.component{
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div className="col-md-4">
         </div>
       </div>
     );
