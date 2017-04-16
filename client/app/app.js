@@ -3,7 +3,7 @@ import Navbar from './components/navbar';
 import RequestBtns from './components/requestbtns';
 import PickDate from './components/pickdate';
 import Footer from './components/footer';
-import ViewRide from './components/viewRide';
+import ViewRide from './components/ViewRide'
 // import PickUp from './components/pickup.js';
 const React = require('react');
 const ReactDOM = require('react-dom');
@@ -31,7 +31,10 @@ class Client extends React.Component{
 class ViewRidePage extends React.Component {
   render() {
     return (
+      <div>
+      <Navbar />
       <ViewRide />
+      </div>
     );
   }
 }

@@ -6,7 +6,11 @@ import RideTable from './rideTable';
 export default class ViewRide extends React.Component {
   render() {
     return (
-      <Navbar />
-    );
+      <div>
+      <RideTable />
+      <RideTable />
+      <RideTable />
+      </div>
+  );
   }
 }
