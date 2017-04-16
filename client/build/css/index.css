@@ -1,35 +1,4 @@
-/*.btn {
-	background-color: #d80d2e;
-}
-
-.btn > h1 {
-	color: white;
-	text-align: center;
-}*/
-
-.navbar-default {
-	background-color: #881c1c !important;
-}
-
 .btn-group-vertical > .btn{
 	margin-bottom: 20px !important;
 	background-color: #881c1c !important;
-}
-
-.centered {
-	position: fixed;
-  top: 50%;
-  left: 50%;
-	transform: translate(-50%, -90%);
-}
-
-.padding {
-	position: fixed;
-	left: 10%;
-	top: 20%;
-}
-
-.footer > .container > .row >a{
-	color: grey !important;
-	margin-left: 10px !important;
 }

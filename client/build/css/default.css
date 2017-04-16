@@ -1,0 +1,11 @@
+
+.navbar-default {
+	background-color: #881c1c !important;
+}
+
+.centered {
+	position: fixed;
+  top: 30%;
+  left: 50%;
+	transform: translate(-50%, -90%);
+}
