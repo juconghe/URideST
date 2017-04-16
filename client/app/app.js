@@ -68,16 +68,13 @@ class Dispatcher extends React.Component {
 
 ReactDOM.render(
   <Router history={hashHistory}>
-    <Route path="/" component={App}>
-        <IndexRoute component={Client}/>
+        <Route exact path="/" component={App} />
         <Route path="/calendar" component={Calendar}/>
         <Route path="/pickUp" component={PickUp}/>
         <Route path="/dropOff" component={DropOff}/>
         <Route path="/specialAccess" component={SpecialAccess}/>
         <Route path="/availableTime" component={AvailableTime}/>
         <Route path="/finished" component={Finished}/>
-        <Route path="/viewRide" component={ViewRide}/>
-    </Route>
   </Router>,
   document.getElementById('App')
 );
