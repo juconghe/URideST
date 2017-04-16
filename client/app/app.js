@@ -7,7 +7,7 @@ import ViewRide from './components/viewRide';
 import PickUp from './components/pickup';
 import DropOff from './components/dropoff';
 import Finished from './components/finished';
-import AvaliableTime from './components/availableTime';
+import AvaliableTime from './components/avaliableTime';
 
 
 const React = require('react');
@@ -117,7 +117,7 @@ ReactDOM.render(
         <Route path="/dropOff" component={DropOff}/>
         <Route path="/pickUp" component={PickUp}/>
         <Route path="/specialAccess" component={SpecialAccess}/>
-        <Route path="/availableTime" component={AvailableTime}/>
+        <Route path="/avaliableTime" component={AvaliableTime}/>
         <Route path="/finished" component={Finished}/>
         <Route path="/viewRide" component={ViewRidePage}/>
   </Router>,
