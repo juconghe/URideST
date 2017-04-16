@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default class Pickup extends React.component {
+export default class Dropoff extends React.component {
   render() {
-    return (
+    return(
       <div class="container">
       <div class="col-md-4">
       </div>
@@ -13,7 +13,7 @@ export default class Pickup extends React.component {
                           <form method="post">
                               <div class="form-group ">
                                 <div class="well">
-                                  Select a Pickup Location
+                                  Select a Dropoff Location
                                 </div>
                                 <select class="select form-control" id="select" name="select">
                                   <option value="Army ROTC">
