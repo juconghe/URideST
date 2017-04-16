@@ -59,8 +59,12 @@ class AvailableTime extends React.Component {
 
 }
 
-class RequestDate extends React.Component {
-
+class RequestDatePage extends React.Component {
+  render() {
+    return (
+      <PickDate />
+    );
+  }
 }
 
 class Finished extends React.Component {
@@ -78,7 +82,7 @@ class Dispatcher extends React.Component {
 ReactDOM.render(
   <Router history={hashHistory}>
         <Route exact path="/" component={App} />
-        <Route path="/requestDate" component={RequestDate}/>
+        <Route path="/requestDate" component={RequestDatePage}/>
         <Route path="/dropOff" component={DropOff}/>
         <Route path="/specialAccess" component={SpecialAccess}/>
         <Route path="/availableTime" component={AvailableTime}/>
