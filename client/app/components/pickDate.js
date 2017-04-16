@@ -36,7 +36,7 @@ export default class PickDate extends React.Component {
                         <div className="well">
                             Select a Date
                         </div>
-                        <input class="form-control input-lg" id="date" name="date" placeholder="MM/DD/YYYY" type="text" />
+                        <input className="form-control input-lg" id="date" name="date" placeholder="MM/DD/YYYY" type="text" />
                       </div>
                     </form>
                   </div>

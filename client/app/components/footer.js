@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from 'react-router';
 
 export default class Footer extends React.Component {
   render() {
@@ -9,11 +9,11 @@ export default class Footer extends React.Component {
             <div className="container-fluid">
                 <div className="row">
                   <div className="btn-group" role="group">
-                    <a href="pickup.html" type="button" className="btn btn-default">Back</a>
-                    <a href="index.html" type="button" className="btn btn-default">Cancel</a>
+                    <Link to="/" type="button" className="btn btn-default">Back</Link>
+                    <Link to="/" type="button" className="btn btn-default">Cancel</Link>
                   </div>
                   <div className="btn-group left-btn pull-right" role="group">
-                    <a href="specialAccess.html" type="button" className="btn btn-default">Next</a>
+                    <Link to="/pickUp" type="button" className="btn btn-default">Next</Link>
                   </div>
                 </div>
             </div>
