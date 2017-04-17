@@ -5,14 +5,30 @@ class DropOff extends React.Component {
   constructor(props) {
     super(props);
     this.handleSwitch = this.handleSwitch.bind(this);
+    this.state={
+      dropOffLocation: "Army ROTC"
+    }
+    this.handleDropOffLocation = this.handleDropOffLocation.bind(this);
   }
 
   handleSwitch(newpage) {
     const data = {
       currentPage:newpage.currentPage
     }
-    this.props.switch(data);
+    if (newpage.currentPage == "specialAccess"){
+      this.props.save("dropOff",this.state.dropOffLocation);
+      this.props.switch(data);
+    } else {
+      // go back to previous, disregard data
+      this.props.switch(data);
+    }
   }
+
+  handleDropOffLocation(e){
+    e.preventDefault(e);
+    this.setState({dropOffLocation: e.target.value});
+  }
+
   render() {
     return (
       <div>
@@ -28,7 +44,8 @@ class DropOff extends React.Component {
                                     <div className="well">
                                       Select a Dropoff Location
                                     </div>
-                                    <select className="select form-control" id="select" name="select">
+                                    <select className="select form-control" value={this.state.dropOffLocation} id="select" name="select"
+                                      onChange={this.handleDropOffLocation}>
                                       <option value="Army ROTC">
                                         Army ROTC
                                       </option>
