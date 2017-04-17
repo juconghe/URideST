@@ -27,7 +27,7 @@ class ViewRidePage extends React.Component {
               <div className="row">
                   <Link to="/" type="button"
                     className="btn btn-default align-left">
-                    REQUEST A RIDE
+                    BACK
                   </Link>
               </div>
             </div>
