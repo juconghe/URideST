@@ -16,8 +16,7 @@ $(document).ready(function() {
     })
 })
 
-
-export default class PickDate extends React.Component {
+class PickDate extends React.Component {
 
   render() {
     return (
@@ -52,3 +51,4 @@ export default class PickDate extends React.Component {
     );
   }
 }
+module.exports = PickDate;

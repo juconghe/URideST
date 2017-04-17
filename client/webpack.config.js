@@ -18,6 +18,9 @@ module.exports = {
   // We use the "inline-source-map" setting (as opposed to external source maps)
   // so this works in a foolproof way.
   devtool: 'inline-source-map',
+  devServer: {
+    historyApiFallback:true,
+  },
   module: {
     // Transforms your application's code using Babel.
     // Babel lets you use new JavaScript features in browsers that do not

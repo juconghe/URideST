@@ -1,9 +1,6 @@
 const React = require('react');
-const ReactDOM = require('react-dom');
-import Navbar from './navbar';
-import RideTable from './rideTable';
-
-export default class ViewRide extends React.Component {
+const RideTable = require('./rideTable');
+class ViewRide extends React.Component {
   render() {
     return (
       <div>
@@ -14,3 +11,4 @@ export default class ViewRide extends React.Component {
   );
   }
 }
+module.exports = ViewRide;

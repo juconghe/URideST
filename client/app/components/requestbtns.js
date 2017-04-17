@@ -1,8 +1,6 @@
 const React = require('react');
 import {Link} from 'react-router-dom';
-
-
-export default class RequestBtns extends React.Component {
+class RequestBtns extends React.Component {
   render() {
     return (
       <div className="container centered">
@@ -26,3 +24,4 @@ export default class RequestBtns extends React.Component {
     );
   }
 }
+module.exports = RequestBtns;

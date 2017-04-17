@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default class AvaliableTime extends React.Component{
+class AvaliableTime extends React.Component{
   render(){
     return(
       <div className="container">
@@ -42,3 +42,5 @@ export default class AvaliableTime extends React.Component{
     );
   }
 }
+
+module.exports = AvaliableTime;

@@ -1,7 +1,5 @@
 const React = require('react');
-
-
-export default class Navbar extends React.Component {
+class Navbar extends React.Component {
   render() {
     return (
       <nav className="navbar navbar-default">
@@ -16,3 +14,4 @@ export default class Navbar extends React.Component {
     );
   }
 }
+module.exports = Navbar;

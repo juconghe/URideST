@@ -1,36 +1,34 @@
 import React from 'react';
-
-
-export default class VanDay extends React.component {
+class VanDay extends React.component {
   render(){
     return(
-      <div class="col-md-2 nopadding">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-              <div class="btn-group btn-group-justified" role="group">
-                <a href="#" type="button" class="btn btn-raised btn-default">
+      <div className="col-md-2 nopadding">
+        <div className="panel panel-default">
+            <div className="panel-heading">
+              <div className="btn-group btn-group-justified" role="group">
+                <a href="#" type="button" className="btn btn-raised btn-default">
                   VAN
                 </a>
-                <a href="#" type="button" class="btn btn-raised btn-default">
+                <a href="#" type="button" className="btn btn-raised btn-default">
                   DAY
                 </a>
               </div>
             </div>
-            <div class="panel-body">
-                <ul class="list-group">
-                    <li class="list-group-item">
+            <div className="panel-body">
+                <ul className="list-group">
+                    <li className="list-group-item">
                         <a href="#">Dapibus ac facilisis in</a>
                     </li>
-                    <br>
-                    <li class="list-group-item">
+                    <br/>
+                    <li className="list-group-item">
                         <a href="#">Cras sit amet nibh libero</a>
                     </li>
-                    <br>
-                    <li class="list-group-item">
+                    <br/>
+                    <li className="list-group-item">
                         <a href="#">Porta ac consectetur ac</a>
                     </li>
-                    <br>
-                    <li class="list-group-item">
+                    <br/>
+                    <li className="list-group-item">
                         <a href="#">Vestibulum at eros</a>
                     </li>
                 </ul>
@@ -40,3 +38,4 @@ export default class VanDay extends React.component {
     );
   }
 }
+module.exports = VanDay;

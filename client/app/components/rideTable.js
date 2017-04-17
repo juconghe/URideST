@@ -1,6 +1,5 @@
 const React = require('react');
-
-export default class RideTable extends React.Component {
+class RideTable extends React.Component {
   render() {
     return (
       <div className="col-md-4">
@@ -34,3 +33,4 @@ export default class RideTable extends React.Component {
     );
   }
 }
+module.exports = RideTable;

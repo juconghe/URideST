@@ -1,19 +1,18 @@
-import Navbar from './components/navbar';
-import RequestBtns from './components/requestbtns';
-import PickDate from './components/pickdate';
-import Footer from './components/footer';
-import ViewRide from './components/viewRide';
-import PickUp from './components/pickup';
-import DropOff from './components/dropoff';
-import Finished from './components/finished';
-import SpecialAccess from './components/SpecialAccess';
-// import AvaliableTime from './components/availableTime';
-import AvaliableTime from './components/avaliableTime';
-
+const Navbar = require('./components/navbar');
+const RequestBtns = require('./components/requestbtns');
+const PickDate = require('./components/pickdate');
+const Footer = require('./components/footer');
+const ViewRide = require('./components/viewRide');
+const PickUp = require('./components/pickup');
+const DropOff = require('./components/dropoff');
+const Finished = require('./components/finished');
+const SpecialAccess = require('./components/SpecialAccess');
+const AvaliableTime = require('./components/avaliableTime');
 const React = require('react');
 const ReactDOM = require('react-dom');
-const HashRouter = require('react-router-dom').HashRouter;
+const BrowserRouter = require('react-router-dom').BrowserRouter;
 const Route = require('react-router-dom').Route;
+
 class App extends React.Component{
   render() {
     return (
@@ -115,7 +114,7 @@ class Dispatcher extends React.Component {
 }
 
 ReactDOM.render(
-  <HashRouter>
+  <BrowserRouter>
     <div>
         <Route exact path="/" component={App} />
         <Route path="/requestDate" component={RequestDatePage}/>
@@ -126,6 +125,6 @@ ReactDOM.render(
         <Route path="/finished" component={FinishedPage}/>
         <Route path="/viewRide" component={ViewRidePage}/>
     </div>
-  </HashRouter>,
+  </BrowserRouter>,
   document.getElementById('App')
 );

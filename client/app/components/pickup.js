@@ -1,6 +1,5 @@
 const React = require('react');
-
-export default class PickUp extends React.Component {
+class PickUp extends React.Component {
   render() {
     return (
       <div className="container">
@@ -44,3 +43,4 @@ export default class PickUp extends React.Component {
     );
   }
 }
+module.exports = PickUp;

@@ -1,7 +1,5 @@
 import React from 'react';
-
-
-export default class DropOff extends React.Component {
+class DropOff extends React.Component {
   render() {
     return(
       <div className="container">
@@ -45,3 +43,4 @@ export default class DropOff extends React.Component {
     );
   }
 }
+module.exports = DropOff;

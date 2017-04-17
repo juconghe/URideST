@@ -1,9 +1,7 @@
 import Navbar from './navbar';
 import Footer from './footer'
 const React = require('react');
-
-
-export default class SpecialAccess extends React.Component {
+class SpecialAccess extends React.Component {
   render() {
     return (
       <div>
@@ -39,3 +37,4 @@ export default class SpecialAccess extends React.Component {
     );
   }
 }
+module.exports = SpecialAccess;

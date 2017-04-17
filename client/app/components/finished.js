@@ -1,7 +1,5 @@
 import React from 'react';
-
-
-export default class Finished extends React.Component {
+class Finished extends React.Component {
   render() {
     return (
       <div className="container">
@@ -27,3 +25,4 @@ export default class Finished extends React.Component {
     );
   }
 }
+module.exports = Finished;
