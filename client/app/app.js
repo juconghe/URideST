@@ -1,11 +1,11 @@
 const Navbar = require('./components/navbar');
-const Footer = require('./components/footer');
 const ViewRide = require('./components/viewRide');
 const Container = require('./components/container');
 const React = require('react');
 const ReactDOM = require('react-dom');
 const BrowserRouter = require('react-router-dom').BrowserRouter;
 const Route = require('react-router-dom').Route;
+const Link = require('react-router-dom').Link;
 
 class App extends React.Component{
   render() {
@@ -21,7 +21,16 @@ class ViewRidePage extends React.Component {
       <div>
       <Navbar />
       <ViewRide />
-      <Footer />
+        <footer className="footer">
+            <div className="container-fluid">
+              <div className="row">
+                  <Link to="/" type="button"
+                    className="btn btn-default align-left">
+                    REQUEST A RIDE
+                  </Link>
+              </div>
+            </div>
+        </footer>
       </div>
     );
   }

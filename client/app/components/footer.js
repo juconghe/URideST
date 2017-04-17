@@ -70,7 +70,7 @@ class Footer extends React.Component {
     const currentPage = this.props.currentPage;
     if (currentPage == "Home" || currentPage == "finished") {
       row = <div className="row">
-            <a href="#" type="button" className="btn btn-sm btn-default align-left"
+            <a href="#" type="button" className="btn btn-default align-left"
               onClick={this.handleRootPage}>
               Home
             </a>
