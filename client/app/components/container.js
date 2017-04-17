@@ -7,6 +7,7 @@ const DropOff = require('./dropoff');
 const Finished = require('./finished');
 const SpecialAccess = require('./SpecialAccess');
 const AvailableTime = require('./avaliableTime');
+import {getRideData,submitRequest} from '../server';
 
 class Container extends React.Component {
   constructor(props) {
@@ -15,7 +16,6 @@ class Container extends React.Component {
       currentPage:this.props.currentPage,
     }
     this.handleSwitchPage = this.handleSwitchPage.bind(this);
-    // console.log(this.props);
   }
 
   handleSwitchPage(nextPage){

@@ -64,25 +64,21 @@ function sendXHR(verb, resource, body, cb) {
     }
   }
 
-export function getFeedData(user,type, cb) {
-  sendXHR('GET','/user/1/feed/'+type,undefined,(xhr) => {
-    cb(JSON.parse(xhr.responseText));
-  });
+export function getRideData(user,type, cb) {
+  // sendXHR('GET','/user/1/feed/'+type,undefined,(xhr) => {
+  //   cb(JSON.parse(xhr.responseText));
+  // });
+  cb("This is a ride")
 }
 
-export function postStatusUpdate(user, contents,type, cb) {
-  sendXHR('POST','/feeditem/'+type,{
-    "author": user,
-    "request": contents.title,
-    "contents": contents.value,
-    "imgUrl":contents.imgUrl
-  },(xhr) => {
-    cb(JSON.parse(xhr.responseText));
-  });
-}
-
-export function resetDatabase() {
-  sendXHR('POST',"/restdb",undefined,()=>{
-
-  });
+export function submitRequest(user, contents,cb) {
+  // sendXHR('POST','/feeditem/'+type,{
+  //   "author": user,
+  //   "request": contents.title,
+  //   "contents": contents.value,
+  //   "imgUrl":contents.imgUrl
+  // },(xhr) => {
+  //   cb(JSON.parse(xhr.responseText));
+  // });
+  cb("Got you");
 }
