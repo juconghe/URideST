@@ -21,8 +21,8 @@ class Footer extends React.Component {
     } else if (currentPage == "dropOff") {
       nextPage = "specialAccess";
     } else if (currentPage == "specialAccess") {
-      nextPage = "avaliableTime"
-    } else if (currentPage == "avaliableTime") {
+      nextPage = "availableTime"
+    } else if (currentPage == "availableTime") {
       nextPage = "finished";
     } else {
       nextPage = "Home";
@@ -75,7 +75,16 @@ class Footer extends React.Component {
               Home
             </a>
             </div>
-    } else {
+    }
+    else if (currentPage=="availableTime"){
+      row = <div className="row">
+            <a href="#" type="button" className="btn btn-default pull-right"
+              onClick={this.handleNextPage}>
+              Submit
+            </a>
+            </div>
+    }
+    else {
       row = <div className="row">
               <div className="btn-group" role="group">
                 <a ref="#" type="button"
