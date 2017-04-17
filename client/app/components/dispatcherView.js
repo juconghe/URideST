@@ -1,5 +1,7 @@
 const React = require('react');
 const ListGoup = require('./listGroup');
+const RideGrid = require('./rideGrid');
+const ReactDataGrid = require('react-data-grid');
 
 class DispatcherView extends React.Component {
   constructor(props) {
@@ -77,7 +79,7 @@ class DispatcherView extends React.Component {
 
             <div className="col-md-7 nopadding">
               <div className="panel panel-default">
-                <ListGoup items={items}/>
+                <RideGrid />
               </div>
             </div>
           </div>
