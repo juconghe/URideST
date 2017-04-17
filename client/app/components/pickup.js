@@ -4,6 +4,9 @@ class PickUp extends React.Component {
   constructor(props) {
     super(props);
     this.handleSwitch = this.handleSwitch.bind(this);
+    this.state={
+      pickupLocation: ""
+    }
   }
 
   handleSwitch(newpage) {
@@ -12,6 +15,12 @@ class PickUp extends React.Component {
     }
     this.props.switch(data);
   }
+
+  handlePickupLocation(e){
+    e.preventDefault(e);
+    this.setState({pickupLocation: e.target.value});
+  }
+
   render() {
     return (
       <div>
@@ -43,7 +52,7 @@ class PickUp extends React.Component {
                                     </select>
                                   </div>
                                   <div className="form-group ">
-                                      <input className="form-control input-lg" id="text" name="text" placeholder="Enter custom address here" type="text" />
+                                      <input className="form-control input-lg" id="text" name="pickupLocation" placeholder="Enter custom address here" type="text" onChange={(e)=>this.handlePickupLocation(e)} />
                                   </div>
                               </form>
                       </div>
