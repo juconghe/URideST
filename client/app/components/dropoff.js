@@ -1,4 +1,4 @@
-import React from 'react';
+const React = require('react');
 import Footer from './footer';
 
 class DropOff extends React.Component {
@@ -14,7 +14,7 @@ class DropOff extends React.Component {
     this.props.switch(data);
   }
   render() {
-    return(
+    return (
       <div>
         <div className="container">
           <div className="col-md-4">
@@ -35,8 +35,8 @@ class DropOff extends React.Component {
                                       <option value="Library">
                                         Library
                                       </option>
-                                      <option value="Studio Arts Buidling">
-                                        Studio Arts Buidling
+                                      <option value="Studio Arts Building">
+                                        Studio Arts Building
                                       </option>
                                       <option value="Arnold House">
                                         Arnold House
