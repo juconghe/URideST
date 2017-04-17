@@ -1,21 +1,26 @@
 const React = require('react');
-const Navbar = require('./navbar');
 const Footer = require('./footer');
 import {Link} from 'react-router-dom';
 class RequestBtns extends React.Component {
   constructor(props) {
     super(props);
-    this.handleNextPage = this.handleNextPage.bind(this);
+    this.handleRequestPage = this.handleRequestPage.bind(this);
+    this.handleSwitch = this.handleSwitch.bind(this);
   }
 
-  handleNextPage() {
+  handleRequestPage() {
     const data = {
-      previousPage:this.props.currentPage,
       currentPage:"requestDate"
     }
-    this.props.next(data);
+    this.props.swtich(data);
   }
 
+  handleSwitch(newpage) {
+    const data = {
+      currentPage:newpage.currentPage
+    }
+    this.props.swtich(data);
+  }
   render() {
     return (
       <div>
@@ -27,7 +32,7 @@ class RequestBtns extends React.Component {
                   <div className="btn-group-vertical" role="group">
                       <a ref="#" type="button"
                         className="btn btn-lg btn-raised btn-default"
-                        onClick={this.handleNextPage}>
+                        onClick={this.handleRequestPage}>
                         <h1>Request a New Ride</h1>
                       </a>
                       <Link to="/viewRide" type="button" className="btn btn-lg btn-raised btn-default">
@@ -39,7 +44,7 @@ class RequestBtns extends React.Component {
           <div className="col-md-4">
           </div>
         </div>
-        <Footer />
+        <Footer currentPage={this.props.currentPage} switch={this.handleSwitch}/>
       </div>
     );
   }

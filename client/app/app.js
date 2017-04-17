@@ -10,7 +10,7 @@ const Route = require('react-router-dom').Route;
 class App extends React.Component{
   render() {
     return (
-      <Container previousPage="Home" currentPage="Home"/>
+      <Container currentPage="Home"/>
     );
   }
 }

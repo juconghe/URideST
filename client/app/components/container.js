@@ -2,7 +2,6 @@ const React = require('react');
 const Navbar = require('./navbar');
 const RequestBtns = require('./requestbtns');
 const PickDate = require('./pickdate');
-const Footer = require('./footer');
 const PickUp = require('./pickup');
 const DropOff = require('./dropoff');
 const Finished = require('./finished');
@@ -14,57 +13,49 @@ class Container extends React.Component {
     super(props);
     this.state = {
       currentPage:this.props.currentPage,
-      previousPage:this.props.previousPage,
     }
+    this.handleSwtichPage = this.handleSwtichPage.bind(this);
     // console.log(this.props);
   }
 
-  handleNextPage(nextPage){
+  handleSwtichPage(nextPage){
     // console.log(nextPage);
     this.setState({
       currentPage:nextPage.currentPage,
-      previousPage:nextPage.previousPage
-    });
-  }
-
-  handlePreviousPage(prevPage){
-    this.setState({
-      currentPage:prevPage
     });
   }
 
   render() {
     let currentPage = this.state.currentPage;
-    let previousPage = this.state.previousPage;
     let page = null;
+    console.log(currentPage);
     if (currentPage == "Home") {
-      page = <RequestBtns previousPage={previousPage} currentPage={currentPage}
-        next={(nextPage) => this.handleNextPage(nextPage)} prev={(prevPage) => this.handlePreviousPage(prevPage)}/>
+      page = <RequestBtns  currentPage={currentPage}
+        swtich={this.handleSwtichPage}/>
     } else if (currentPage == "requestDate"){
-      page = <PickDate previousPage={previousPage} currentPage={currentPage}
-         next={(nextPage) => this.handleNextPage(nextPage)} prev={(prevPage) => this.handlePreviousPage(prevPage)}/>
+      page = <PickDate  currentPage={currentPage}
+         swtich={this.handleSwtichPage}/>
     } else if (currentPage == "pickUp") {
-      page = <PickUp previousPage={previousPage} currentPage={currentPage}
-        next={(nextPage) => this.handleNextPage(nextPage)} prev={(prevPage) => this.handlePreviousPage(prevPage)}/>
+      page = <PickUp  currentPage={currentPage}
+        swtich={this.handleSwtichPage}/>
     } else if (currentPage == "dropOff") {
-      page = <DropOff previousPage={previousPage} currentPage={currentPage}
-        next={(nextPage) => this.handleNextPage(nextPage)} prev={(prevPage) => this.handlePreviousPage(prevPage)}/>
+      page = <DropOff  currentPage={currentPage}
+        swtich={this.handleSwtichPage}/>
     } else if (currentPage == "specialAccess") {
-      page = <SpecialAccess previousPage={previousPage} currentPage={currentPage}
-        next={(nextPage) => this.handleNextPage(nextPage)} prev={(prevPage) => this.handlePreviousPage(prevPage)}/>
+      page = <SpecialAccess  currentPage={currentPage}
+        swtich={this.handleSwtichPage}/>
     } else if (currentPage == "avaliableTime") {
-      page = <AvaliableTime previousPage={previousPage} currentPage={currentPage}
-        next={(nextPage) => this.handleNextPage(nextPage)} prev={(prevPage) => this.handlePreviousPage(prevPage)}/>
+      page = <AvaliableTime  currentPage={currentPage}
+        swtich={this.handleSwtichPage}/>
     } else {
-      page = <Finished previousPage={previousPage} currentPage={currentPage}
-        next={(nextPage) => this.handleNextPage(nextPage)} prev={(prevPage) => this.handlePreviousPage(prevPage)}/>
+      page = <Finished  currentPage={currentPage}
+        swtich={this.handleSwtichPage}/>
     }
 
     return(
       <div>
         <Navbar />
         {page}
-        <Footer />
       </div>
     );
   }

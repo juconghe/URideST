@@ -1,11 +1,20 @@
-import Navbar from './navbar';
 import Footer from './footer'
 const React = require('react');
 class SpecialAccess extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSwitch = this.handleSwitch.bind(this);
+  }
+
+  handleSwitch(newpage) {
+    const data = {
+      currentPage:newpage.currentPage
+    }
+    this.props.swtich(data);
+  }
   render() {
     return (
       <div>
-        <Navbar />
         <div className="container">
           <div className="col-md-4">
           </div>
@@ -32,7 +41,7 @@ class SpecialAccess extends React.Component {
           <div className="col-md-4">
           </div>
         </div>
-        <Footer />
+        <Footer currentPage={this.props.currentPage} switch={this.handleSwitch}/>
       </div>
     );
   }
