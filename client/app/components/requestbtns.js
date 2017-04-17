@@ -1,5 +1,5 @@
 const React = require('react');
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 
 
 export default class RequestBtns extends React.Component {

@@ -1,4 +1,3 @@
-import {Router, Route, hashHistory} from 'react-router';
 import Navbar from './components/navbar';
 import RequestBtns from './components/requestbtns';
 import PickDate from './components/pickdate';
@@ -13,7 +12,8 @@ import AvaliableTime from './components/avaliableTime';
 
 const React = require('react');
 const ReactDOM = require('react-dom');
-
+const HashRouter = require('react-router-dom').HashRouter;
+const Route = require('react-router-dom').Route;
 class App extends React.Component{
   render() {
     return (
@@ -115,7 +115,8 @@ class Dispatcher extends React.Component {
 }
 
 ReactDOM.render(
-  <Router history={hashHistory}>
+  <HashRouter>
+    <div>
         <Route exact path="/" component={App} />
         <Route path="/requestDate" component={RequestDatePage}/>
         <Route path="/dropOff" component={DropOffPage}/>
@@ -124,6 +125,7 @@ ReactDOM.render(
         <Route path="/availableTime" component={AvaliableTimePage}/>
         <Route path="/finished" component={FinishedPage}/>
         <Route path="/viewRide" component={ViewRidePage}/>
-  </Router>,
+    </div>
+  </HashRouter>,
   document.getElementById('App')
 );
