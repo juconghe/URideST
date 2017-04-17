@@ -21,8 +21,8 @@ class Footer extends React.Component {
     } else if (currentPage == "dropOff") {
       nextPage = "specialAccess";
     } else if (currentPage == "specialAccess") {
-      nextPage = "avaliableTime"
-    } else if (currentPage == "avaliableTime") {
+      nextPage = "availableTime"
+    } else if (currentPage == "availableTime") {
       nextPage = "finished";
     } else {
       nextPage = "Home";
