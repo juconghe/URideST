@@ -55,39 +55,53 @@ class RideGrid extends React.Component {
         columns={[
             {
               key: 'id',
-              name: 'ID',
+              name: 'Student ID',
               width: 80
             },
             {
-              key: 'task',
-              name: 'Title',
+              key: 'firstName',
+              name: 'First Name',
+              width: 90
+            },
+            {
+              key: 'lastName',
+              name: 'Last Name',
+              width: 90
+            },
+            {
+              key: 'date',
+              name: 'Date',
+              width: 80,
               editable: true
             },
             {
-              key: 'priority',
-              name: 'Priority',
+              key: 'time',
+              name: 'Time',
+              width: 80,
               editable: true
             },
             {
-              key: 'issueType',
-              name: 'Issue Type',
+              key: 'pickupLocation',
+              name: 'Pickup Location',
               editable: true
             },
             {
-              key: 'complete',
-              name: '% Complete',
+              key: 'dropoffLocation',
+              name: 'Dropoff Location',
               editable: true
             },
             {
-              key: 'startDate',
-              name: 'Start Date',
+              key: 'van',
+              name: 'Van #',
+              width: 80,
               editable: true
             },
             {
-              key: 'completeDate',
-              name: 'Expected Complete',
+              key: 'isApproved',
+              name: 'Approved',
+              width: 70,
               editable: true
-            }
+            },
           ]}
         rowGetter={this.rowGetter}
         rowsCount={this.state.rows.length}
