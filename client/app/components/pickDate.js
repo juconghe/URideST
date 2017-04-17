@@ -25,7 +25,7 @@ class PickDate extends React.Component {
     const data = {
       currentPage:newpage.currentPage
     }
-    this.props.swtich(data);
+    this.props.switch(data);
   }
 
   render() {

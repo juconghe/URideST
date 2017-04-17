@@ -22,7 +22,7 @@ class ViewRidePage extends React.Component {
       <Navbar />
       <ViewRide />
         <footer className="footer">
-            <div className="container-fluid">
+            <div className="switch-fluid">
               <div className="row">
                   <Link to="/" type="button"
                     className="btn btn-default align-left">

@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from './footer';
 
-class AvaliableTime extends React.Component{
+class AvailableTime extends React.Component{
   constructor(props) {
     super(props);
     this.handleSwitch = this.handleSwitch.bind(this);
@@ -11,7 +11,7 @@ class AvaliableTime extends React.Component{
     const data = {
       currentPage:newpage.currentPage
     }
-    this.props.swtich(data);
+    this.props.switch(data);
   }
   render(){
     return(
@@ -35,7 +35,7 @@ class AvaliableTime extends React.Component{
                                 <option value="Library">
                                   3:15pm-4:15pm
                                 </option>
-                                <option value="Studio Arts Buidling">
+                                <option value="Studio Arts Building">
                                   4:15pm-5:15pm
                                 </option>
                                 <option value="Arnold House">
@@ -57,4 +57,4 @@ class AvaliableTime extends React.Component{
   }
 }
 
-module.exports = AvaliableTime;
+module.exports = AvailableTime;
