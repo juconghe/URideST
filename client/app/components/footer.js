@@ -46,10 +46,10 @@ class Footer extends React.Component {
       previousPage = "pickUp";
     } else if (currentPage == "specialAccess") {
         previousPage = "dropOff"
-    } else if (currentPage == "avaliableTime") {
+    } else if (currentPage == "availableTime") {
       previousPage = "specialAccess";
     } else {
-      previousPage = "avaliableTime";
+      previousPage = "availableTime";
     }
     const data = {
       currentPage:previousPage
@@ -82,6 +82,9 @@ class Footer extends React.Component {
               onClick={this.handleNextPage}>
               Submit
             </a>
+            <a ref="/" type="button"
+              className="btn btn-default"
+              onClick={this.handlePrevPage}>Back</a>
             <a ref="/" type="button"
               className="btn btn-default"
               onClick={this.handleRootPage}>Cancel</a>

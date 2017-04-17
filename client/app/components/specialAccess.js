@@ -3,14 +3,29 @@ const React = require('react');
 class SpecialAccess extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+     specialAccess: ""
+   };
     this.handleSwitch = this.handleSwitch.bind(this);
+    this.handleSpecialAccess = this.handleSpecialAccess.bind(this);
   }
 
   handleSwitch(newpage) {
     const data = {
       currentPage:newpage.currentPage
     }
-    this.props.switch(data);
+    if (newpage.currentPage == "availableTime"){
+      this.props.save("specialAccess",this.state.specialAccess);
+      this.props.switch(data);
+    } else {
+      // go back to previous, disregard data
+      this.props.switch(data);
+    }
+  }
+
+  handleSpecialAccess(sa) {
+    sa.preventDefault(sa);
+    this.setState({specialAccess: sa.target.value});
   }
   render() {
     return (
@@ -30,7 +45,8 @@ class SpecialAccess extends React.Component {
                                   </div>
                               </div>
                               <div className="row">
-                                  <textarea placeholder="Enter custom message here ..." className="form-control" />
+                                  <textarea placeholder="Enter custom message here ..."
+                                    className="form-control"  onChange={this.handleSpecialAccess}/>
                               </div>
                             </div>
                         </form>
