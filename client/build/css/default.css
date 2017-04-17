@@ -26,7 +26,10 @@ textarea {
 	height: calc(100vh - 180px);
 	overflow-y: auto;
 }
-
+.react-grid-Grid {
+	height: calc(100vh - 104px);
+	overflow-y: auto;
+}
 .margin-left {
 	margin-left: 5px;
 }
