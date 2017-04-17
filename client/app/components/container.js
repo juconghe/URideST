@@ -6,7 +6,7 @@ const PickUp = require('./pickup');
 const DropOff = require('./dropoff');
 const Finished = require('./finished');
 const SpecialAccess = require('./SpecialAccess');
-const AvailableTime = require('./avaliableTime');
+const AvailableTime = require('./availableTime');
 
 class Container extends React.Component {
   constructor(props) {
@@ -44,7 +44,7 @@ class Container extends React.Component {
     } else if (currentPage == "specialAccess") {
       page = <SpecialAccess  currentPage={currentPage}
         switch={this.handleSwitchPage}/>
-    } else if (currentPage == "avaliableTime") {
+    } else if (currentPage == "availableTime") {
       page = <AvailableTime currentPage={currentPage}
                             switch={this.handleSwitchPage}/>
     } else {
