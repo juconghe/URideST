@@ -1,4 +1,3 @@
-
 .navbar-default {
 	background-color: #881c1c !important;
 }
@@ -21,4 +20,9 @@ textarea {
 .nopadding {
    padding: 0 !important;
    margin: 0 !important;
+}
+
+.nopadding > .panel >.panel-body {
+	height: calc(100vh - 180px);
+	overflow-y: auto;
 }
