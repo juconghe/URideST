@@ -1,4 +1,3 @@
-import Navbar from './navbar';
 import Footer from './footer';
 import React from 'react';
 var DatePicker = require('react-datepicker');
@@ -21,8 +20,6 @@ class PickDate extends React.Component {
   render() {
     return (
       <div>
-        <Navbar />
-
         <div className="container">
           <div className="col-md-4">
           </div>
@@ -45,8 +42,7 @@ class PickDate extends React.Component {
           <div className="col-md-4">
           </div>
         </div>
-
-      <Footer />
+        <Footer/>
       </div>
     );
   }

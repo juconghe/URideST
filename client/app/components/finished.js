@@ -7,7 +7,7 @@ class Finished extends React.Component {
         </div>
         <div className="col-md-4 centered">
             <div className="text-center">
-              <div className="container-fluid" style="max-width:450px">
+              <div className="container-fluid">
                 <div className="row">
                     <div className="well">
                       <h1>Your ride has been requested.
