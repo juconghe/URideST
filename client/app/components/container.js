@@ -6,8 +6,8 @@ const PickUp = require('./pickup');
 const DropOff = require('./dropoff');
 const Finished = require('./finished');
 const SpecialAccess = require('./SpecialAccess');
-const AvailableTime = require('./avaliableTime');
-import {getRideData,submitRequest} from '../server';
+const AvailableTime = require('./availableTime');
+import {submitRequest} from '../server';
 class Container extends React.Component {
   constructor(props) {
     super(props);
@@ -15,6 +15,7 @@ class Container extends React.Component {
       currentPage:this.props.currentPage,
     }
     this.handleSwitchPage = this.handleSwitchPage.bind(this);
+    this.handlePost = this.handlePost.bind(this);
   }
 
   handleSwitchPage(nextPage){
@@ -24,10 +25,16 @@ class Container extends React.Component {
     });
   }
 
+  handlePost() {
+    submitRequest(1,this.state,(data)=>{
+      console.log(data);
+    });
+  }
+  
   render() {
     let currentPage = this.state.currentPage;
     let page = null;
-    console.log(currentPage);
+    // console.log(currentPage);
     if (currentPage == "Home") {
       page = <RequestBtns  currentPage={currentPage}
         switch={this.handleSwitchPage}/>
@@ -48,7 +55,7 @@ class Container extends React.Component {
                             switch={this.handleSwitchPage}/>
     } else {
       page = <Finished  currentPage={currentPage}
-        switch={this.handleSwitchPage}/>
+        switch={this.handleSwitchPage} onPost={this.handlePost}/>
     }
 
     return(

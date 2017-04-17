@@ -64,11 +64,51 @@ function sendXHR(verb, resource, body, cb) {
     }
   }
 
-export function getRideData(user,type, cb) {
+export function getRideData(user,cb) {
   // sendXHR('GET','/user/1/feed/'+type,undefined,(xhr) => {
   //   cb(JSON.parse(xhr.responseText));
   // });
-  cb("This is a ride")
+  const rideData = [{
+    _id:1,
+    pickupTime:"11:00 AM - 11:15 AM",
+    pickupDate:"Tuesday, March 19, 2017",
+    isConfirmed:true,
+    dropoff:"LGRC",
+    pickup:"FAC",
+    van:20,
+    user:"Jucong"
+  },
+  {
+    _id:2,
+    pickupTime:"11:00 AM - 11:15 AM",
+    pickupDate:"Tuesday, March 19, 2017",
+    isConfirmed:true,
+    dropoff:"LGRC",
+    pickup:"FAC",
+    van:20,
+    user:"Jucong"
+  },
+  {
+    _id:3,
+    pickupTime:"11:00 AM - 11:15 AM",
+    pickupDate:"Tuesday, March 19, 2017",
+    isConfirmed:true,
+    dropoff:"LGRC",
+    pickup:"FAC",
+    van:20,
+    user:"Jucong"
+  },
+  {
+    _id:4,
+    pickupTime:"11:00 AM - 11:15 AM",
+    pickupDate:"Tuesday, March 19, 2017",
+    isConfirmed:true,
+    dropoff:"LGRC",
+    pickup:"FAC",
+    van:20,
+    user:"Jucong"
+  }];
+  cb(rideData);
 }
 
 export function submitRequest(user, contents,cb) {

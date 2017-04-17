@@ -6,6 +6,9 @@ class Finished extends React.Component {
     this.handleSwitch = this.handleSwitch.bind(this);
   }
 
+componentDidMount() {
+  this.props.onPost();
+}
   handleSwitch(newpage) {
     const data = {
       currentPage:newpage.currentPage
