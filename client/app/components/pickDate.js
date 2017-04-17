@@ -17,7 +17,14 @@ class PickDate extends React.Component {
     const data = {
       currentPage:newpage.currentPage
     }
-    this.props.switch(data);
+    if (newpage.currentPage == "pickUp"){
+      this.props.save("pickupDate",this.state.startDate);
+      this.props.switch(data);
+    } else {
+      // go back to previous, disregard data
+      this.props.switch(data);
+    }
+
   }
 
   handleChange(date) {

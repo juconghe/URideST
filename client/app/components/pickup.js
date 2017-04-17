@@ -6,15 +6,22 @@ class PickUp extends React.Component {
     super(props);
     this.handleSwitch = this.handleSwitch.bind(this);
     this.state={
-      pickupLocation: ""
+      pickupLocation: "Army ROTC"
     }
+    this.handlePickupLocation = this.handlePickupLocation.bind(this);
   }
 
   handleSwitch(newpage) {
     const data = {
       currentPage:newpage.currentPage
     }
-    this.props.switch(data);
+    if (newpage.currentPage == "dropOff"){
+      this.props.save("pickup",this.state.pickupLocation);
+      this.props.switch(data);
+    } else {
+      // go back to previous, disregard data
+      this.props.switch(data);
+    }
   }
 
   handlePickupLocation(e){
@@ -37,7 +44,8 @@ class PickUp extends React.Component {
                                     <div className="well">
                                       Select a Pickup Location
                                     </div>
-                                    <select className="select form-control" id="select" name="select">
+                                    <select className="select form-control" value={this.state.pickupLocation} id="select" name="select"
+                                      onChange={this.handlePickupLocation}>
                                       <option value="Army ROTC">
                                         Army ROTC
                                       </option>

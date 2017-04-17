@@ -8,14 +8,26 @@ const Finished = require('./finished');
 const SpecialAccess = require('./SpecialAccess');
 const AvailableTime = require('./availableTime');
 import {submitRequest} from '../server';
+
 class Container extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       currentPage:this.props.currentPage,
-    }
+      rideData: {
+        pickUpTime: null,
+        pickUpDate: null,
+        isRecurring: false,
+        isConfirmed: false,
+        dropOff: null,
+        pickUp: null,
+        van: null,
+        user: null
+      }
+    };
     this.handleSwitchPage = this.handleSwitchPage.bind(this);
     this.handlePost = this.handlePost.bind(this);
+    this.handleDataChange = this.handleDataChange.bind(this);
   }
 
   handleSwitchPage(nextPage){
@@ -30,7 +42,15 @@ class Container extends React.Component {
       console.log(data);
     });
   }
-  
+
+  handleDataChange(action,newData) {
+    if(action == "pickupDate"){
+      console.log(newData.toDate());
+    } else {
+      console.log(newData);
+    }
+  }
+
   render() {
     let currentPage = this.state.currentPage;
     let page = null;
@@ -40,19 +60,24 @@ class Container extends React.Component {
         switch={this.handleSwitchPage}/>
     } else if (currentPage == "requestDate"){
       page = <PickDate  currentPage={currentPage}
-         switch={this.handleSwitchPage}/>
+         switch={this.handleSwitchPage}
+         save={this.handleDataChange}/>
     } else if (currentPage == "pickUp") {
       page = <PickUp  currentPage={currentPage}
-        switch={this.handleSwitchPage}/>
+        switch={this.handleSwitchPage}
+        save={this.handleDataChange}/>
     } else if (currentPage == "dropOff") {
       page = <DropOff  currentPage={currentPage}
-        switch={this.handleSwitchPage}/>
+        switch={this.handleSwitchPage}
+        save={this.handleDataChange}/>
     } else if (currentPage == "specialAccess") {
       page = <SpecialAccess  currentPage={currentPage}
-        switch={this.handleSwitchPage}/>
+        switch={this.handleSwitchPage}
+        save={this.handleDataChange}/>
     } else if (currentPage == "availableTime") {
       page = <AvailableTime currentPage={currentPage}
-                            switch={this.handleSwitchPage}/>
+        switch={this.handleSwitchPage}
+        save={this.handleDataChange}/>
     } else {
       page = <Finished  currentPage={currentPage}
         switch={this.handleSwitchPage} onPost={this.handlePost}/>
