@@ -1,21 +1,24 @@
 {
   "extends": "eslint:recommended",
-  "ecmaFeatures": {
-    "arrowFunctions": true,
-    "binaryLiterals": true,
-    "blockBindings": true,
-    "classes": true,
-    "defaultParams": true,
-    "destructuring": true,
-    "forOf": true,
-    "modules": true,
-    "octalLiterals": true,
-    "restParams": true,
-    "spread": true,
-    "templateStrings": true,
-    "unicodeCodePointEscape": true,
-    "jsx": true
+  "parserOptions": {
+    "ecmaFeatures": {
+      "arrowFunctions": true,
+      "binaryLiterals": true,
+      "blockBindings": true,
+      "classes": true,
+      "defaultParams": true,
+      "destructuring": true,
+      "forOf": true,
+      "modules": true,
+      "octalLiterals": true,
+      "restParams": true,
+      "spread": true,
+      "templateStrings": true,
+      "unicodeCodePointEscape": true,
+      "jsx": true
+    }
   },
+  "parser": "babel-eslint",
   "env": {
     "browser": true,
     "node": true,
@@ -31,8 +34,8 @@
     "react/jsx-no-undef": 1,
     "react/jsx-uses-react": 1,
     "react/jsx-uses-vars": 1,
-    "react/no-deprecated": [1, {"react": "0.14.6"}],
     "react/no-direct-mutation-state": 1,
+    "react/no-deprecated": 1,
     "react/no-is-mounted": 1
   }
 }

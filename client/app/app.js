@@ -1,4 +1,4 @@
-import {IndexRoute, Router, Route, hashHistory, Link} from 'react-router';
+import {Router, Route, hashHistory} from 'react-router';
 import Navbar from './components/navbar';
 import RequestBtns from './components/requestbtns';
 import PickDate from './components/pickdate';
@@ -122,7 +122,7 @@ ReactDOM.render(
         <Route path="/pickUp" component={PickUpPage}/>
         <Route path="/specialAccess" component={SpecialAccessPage}/>
         <Route path="/availableTime" component={AvaliableTimePage}/>
-        <Route path="/finished" component={Finished}/>
+        <Route path="/finished" component={FinishedPage}/>
         <Route path="/viewRide" component={ViewRidePage}/>
   </Router>,
   document.getElementById('App')
