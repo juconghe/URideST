@@ -12,14 +12,14 @@ class RequestBtns extends React.Component {
     const data = {
       currentPage:"requestDate"
     }
-    this.props.swtich(data);
+    this.props.switch(data);
   }
 
   handleSwitch(newpage) {
     const data = {
       currentPage:newpage.currentPage
     }
-    this.props.swtich(data);
+    this.props.switch(data);
   }
   render() {
     return (

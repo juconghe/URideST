@@ -6,7 +6,7 @@ const PickUp = require('./pickup');
 const DropOff = require('./dropoff');
 const Finished = require('./finished');
 const SpecialAccess = require('./SpecialAccess');
-const AvaliableTime = require('./avaliableTime');
+const AvailableTime = require('./avaliableTime');
 
 class Container extends React.Component {
   constructor(props) {
@@ -14,11 +14,11 @@ class Container extends React.Component {
     this.state = {
       currentPage:this.props.currentPage,
     }
-    this.handleSwtichPage = this.handleSwtichPage.bind(this);
+    this.handleSwitchPage = this.handleSwitchPage.bind(this);
     // console.log(this.props);
   }
 
-  handleSwtichPage(nextPage){
+  handleSwitchPage(nextPage){
     // console.log(nextPage);
     this.setState({
       currentPage:nextPage.currentPage,
@@ -31,25 +31,25 @@ class Container extends React.Component {
     console.log(currentPage);
     if (currentPage == "Home") {
       page = <RequestBtns  currentPage={currentPage}
-        swtich={this.handleSwtichPage}/>
+        switch={this.handleSwitchPage}/>
     } else if (currentPage == "requestDate"){
       page = <PickDate  currentPage={currentPage}
-         swtich={this.handleSwtichPage}/>
+         switch={this.handleSwitchPage}/>
     } else if (currentPage == "pickUp") {
       page = <PickUp  currentPage={currentPage}
-        swtich={this.handleSwtichPage}/>
+        switch={this.handleSwitchPage}/>
     } else if (currentPage == "dropOff") {
       page = <DropOff  currentPage={currentPage}
-        swtich={this.handleSwtichPage}/>
+        switch={this.handleSwitchPage}/>
     } else if (currentPage == "specialAccess") {
       page = <SpecialAccess  currentPage={currentPage}
-        swtich={this.handleSwtichPage}/>
+        switch={this.handleSwitchPage}/>
     } else if (currentPage == "avaliableTime") {
-      page = <AvaliableTime  currentPage={currentPage}
-        swtich={this.handleSwtichPage}/>
+      page = <AvailableTime currentPage={currentPage}
+                            switch={this.handleSwitchPage}/>
     } else {
       page = <Finished  currentPage={currentPage}
-        swtich={this.handleSwtichPage}/>
+        switch={this.handleSwitchPage}/>
     }
 
     return(
