@@ -1,7 +1,20 @@
 const React = require('react');
+const ListGoup = require('./listGroup');
 
 class DispatcherView extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      items:[[0,"Dapibus ac facilisis","HAHAHAH"],
+            [1,"Dapibus ac facilisis","HAHAHAH"],
+            [2,"Dapibus ac facilisis","HAHAHAH"],
+            [3,"Dapibus ac facilisis","HAHAHAH"],
+            [4,"Dapibus ac facilisis","HAHAHAH"]]
+    }
+    console.log(this.state);
+  }
   render() {
+    let items = this.state.items;
     return(
       <div>
         <nav className="navbar navbar-default">
@@ -40,27 +53,7 @@ class DispatcherView extends React.Component {
                     </div>
                   </div>
                   <div className="panel-body">
-                      <ul className="list-group">
-                          <li className="list-group-item">
-                              <a href="#">Dapibus ac facilisis in</a>
-                              <a className="pull-right" href="#">HAHAHAH</a>
-                          </li>
-                          <br />
-                          <li className="list-group-item">
-                              <a href="#">Cras sit amet nibh libero</a>
-                              <a className="pull-right" href="#">HAHAHAH</a>
-                          </li>
-                          <br />
-                          <li className="list-group-item">
-                              <a href="#">Porta ac consectetur ac</a>
-                              <a className="pull-right" href="#">HAHAHAH</a>
-                          </li>
-                          <br />
-                          <li className="list-group-item">
-                              <a href="#">Vestibulum at eros</a>
-                              <a className="pull-right" href="#">HAHAHAH</a>
-                          </li>
-                      </ul>
+                    <ListGoup items={items}/>
                   </div>
               </div>
             </div>
@@ -77,44 +70,14 @@ class DispatcherView extends React.Component {
                     </div>
                   </div>
                   <div className="panel-body">
-                      <ul className="list-group">
-                          <li className="list-group-item">
-                              <a href="#">Dapibus ac facilisis in</a>
-                          </li>
-                          <br />
-                          <li className="list-group-item">
-                              <a href="#">Cras sit amet nibh libero</a>
-                          </li>
-                          <br/>
-                          <li className="list-group-item">
-                              <a href="#">Porta ac consectetur ac</a>
-                          </li>
-                          <br />
-                          <li className="list-group-item">
-                              <a href="#">Vestibulum at eros</a>
-                          </li>
-                      </ul>
+                    <ListGoup items={items} />
                   </div>
               </div>
             </div>
 
             <div className="col-md-7 nopadding">
               <div className="panel panel-default">
-                <ul>
-                  <li><span>This will be done in react</span></li>
-                  <li><span>This will be done in react</span></li>
-                  <li><span>This will be done in react</span></li>
-                  <li><span>This will be done in react</span></li>
-                  <li><span>This will be done in react</span></li>
-                  <li><span>This will be done in react</span></li>
-                  <li><span>This will be done in react</span></li>
-                  <li><span>This will be done in react</span></li>
-                  <li><span>This will be done in react</span></li>
-                  <li><span>This will be done in react</span></li>
-                  <li><span>This will be done in react</span></li>
-                  <li><span>This will be done in react</span></li>
-                  <li><span>This will be done in react</span></li>
-                </ul>
+                <ListGoup items={items}/>
               </div>
             </div>
           </div>
