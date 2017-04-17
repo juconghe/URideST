@@ -35,8 +35,8 @@ class PickUp extends React.Component {
                                       <option value="Library">
                                         Library
                                       </option>
-                                      <option value="Studio Arts Buidling">
-                                        Studio Arts Buidling
+                                      <option value="Studio Arts Building">
+                                        Studio Arts Building
                                       </option>
                                       <option value="Arnold House">
                                         Arnold House
