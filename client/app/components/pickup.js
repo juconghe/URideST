@@ -1,5 +1,6 @@
 const React = require('react');
 import Footer from './footer';
+
 class PickUp extends React.Component {
   constructor(props) {
     super(props);
