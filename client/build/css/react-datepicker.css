@@ -180,7 +180,8 @@
 
 .react-datepicker__input-container {
   position: relative;
-  display: inline-block; }
+  display: inline-block;
+}
 
 .react-datepicker__year-read-view,
 .react-datepicker__month-read-view {
