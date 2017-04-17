@@ -5,7 +5,7 @@ class Navbar extends React.Component {
       <nav className="navbar navbar-default">
           <div className="container-fluid">
               <div className="navbar-header">
-                  <a className="navbar-brand" href="index.html">
+                  <a className="navbar-brand" href="https://www.umass.edu/transportation/transit">
                       <img src="img/umass.png" height="30" width="90" />
                   </a>
               </div>

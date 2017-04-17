@@ -37,6 +37,7 @@
     "react/no-direct-mutation-state": 1,
     "react/no-deprecated": 1,
     "react/no-is-mounted": 1,
-    "no-unused-vars": 1
+    "no-unused-vars": 1,
+    "no-console": 1
   }
 }
