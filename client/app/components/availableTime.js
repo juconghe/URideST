@@ -5,14 +5,30 @@ class AvailableTime extends React.Component{
   constructor(props) {
     super(props);
     this.handleSwitch = this.handleSwitch.bind(this);
+    this.state = {
+      availableTime: "2:15pm-3:15pm"
+    };
+    this.handleAvailableTime = this.handleAvailableTime.bind(this);
   }
 
   handleSwitch(newpage) {
     const data = {
       currentPage:newpage.currentPage
     }
-    this.props.switch(data);
+    if (newpage.currentPage == "finished"){
+      this.props.save("availableTime",this.state.availableTime);
+      this.props.switch(data);
+    } else {
+      // go back to previous, disregard data
+      this.props.switch(data);
+    }
   }
+
+  handleAvailableTime(at) {
+    at.preventDefault(at);
+    this.setState({availableTime: at.target.value});
+  }
+
   render(){
     return(
     <div>
@@ -28,18 +44,19 @@ class AvailableTime extends React.Component{
                             <div className="well">
                               Select an Available Time
                             </div>
-                              <select className="select form-control" id="select" name="select">
-                                <option value="Army ROTC">
-                                  2:15pm-3:15pm
+                              <select className="select form-control" value={this.state.availableTime}
+                                id="select" name="select" onChange={this.handleAvailableTime}>
+                                <option value="2:15pm-3:15pm">
+                                2:15pm-3:15pm
                                 </option>
-                                <option value="Library">
-                                  3:15pm-4:15pm
+                                <option value="3:15pm-4:15pm">
+                                3:15pm-4:15pm
                                 </option>
-                                <option value="Studio Arts Building">
-                                  4:15pm-5:15pm
+                                <option value="4:15pm-5:15pm">
+                                4:15pm-5:15pm
                                 </option>
-                                <option value="Arnold House">
-                                  5:15pm-6:15pm
+                                <option value="5:15pm-6:15pm">
+                                5:15pm-6:15pm
                                 </option>
                               </select>
                           </div>
