@@ -82,6 +82,9 @@ class Footer extends React.Component {
               onClick={this.handleNextPage}>
               Submit
             </a>
+            <a ref="#" type="button"
+              className="btn btn-default"
+              onClick={this.handlePrevPage}>Back</a>          
             <a ref="/" type="button"
               className="btn btn-default"
               onClick={this.handleRootPage}>Cancel</a>
