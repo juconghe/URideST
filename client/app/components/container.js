@@ -8,7 +8,6 @@ const Finished = require('./finished');
 const SpecialAccess = require('./SpecialAccess');
 const AvailableTime = require('./avaliableTime');
 import {getRideData,submitRequest} from '../server';
-
 class Container extends React.Component {
   constructor(props) {
     super(props);
@@ -44,7 +43,7 @@ class Container extends React.Component {
     } else if (currentPage == "specialAccess") {
       page = <SpecialAccess  currentPage={currentPage}
         switch={this.handleSwitchPage}/>
-    } else if (currentPage == "avaliableTime") {
+    } else if (currentPage == "availableTime") {
       page = <AvailableTime currentPage={currentPage}
                             switch={this.handleSwitchPage}/>
     } else {
