@@ -1,31 +1,29 @@
-import Footer from './footer';
-import React from 'react';
+var Footer = require('./footer');
+var React = require('react');
 var DatePicker = require('react-datepicker');
 var moment = require('moment');
-require('react-datepicker/dist/react-datepicker.css');
-
-$(document).ready(function() {
-    var date_input = $('input[name="date"]'); //our date input has the name "date"
-    var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
-    date_input.datepicker({
-        format: 'mm/dd/yyyy',
-        container: container,
-        todayHighlight: true,
-        autoclose: true,
-    })
-})
 
 class PickDate extends React.Component {
   constructor(props) {
     super(props);
-    this.handleSwitch = this.handleSwitch.bind(this);
-  }
+    this.state = {
+     startDate: moment()
+   };
+   this.handleChange = this.handleChange.bind(this);
+   this.handleSwitch = this.handleSwitch.bind(this);
+ }
 
   handleSwitch(newpage) {
     const data = {
       currentPage:newpage.currentPage
     }
     this.props.switch(data);
+  }
+
+  handleChange(date) {
+    this.setState({
+      startDate: date
+    });
   }
 
   render() {
@@ -43,7 +41,10 @@ class PickDate extends React.Component {
                         <div className="well">
                             Select a Date
                         </div>
-                        <input className="form-control input-lg" id="date" name="date" placeholder="MM/DD/YYYY" type="text" />
+                        <DatePicker
+                            selected={this.state.startDate}
+                            onChange={this.handleChange}
+                        />
                       </div>
                     </form>
                   </div>
