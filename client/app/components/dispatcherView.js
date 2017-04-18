@@ -1,7 +1,5 @@
 const React = require('react');
-const ListGoup = require('./listGroup');
 const RideGrid = require('./rideGrid');
-const ReactDataGrid = require('react-data-grid');
 const VanDay = require('./vanDay');
 const RequestPassengerBox = require('./requestPassengerBox');
 
@@ -21,7 +19,6 @@ class DispatcherView extends React.Component {
   }
 
   render() {
-    let items = this.state.items;
     return(
       <div>
         <nav className="navbar navbar-default">

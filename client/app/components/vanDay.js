@@ -1,5 +1,6 @@
 const React = require('react');
 const ListGoup = require('./listGroup');
+
 class VanDay extends React.Component {
   constructor(props){
     super(props);
@@ -16,60 +17,39 @@ class VanDay extends React.Component {
              [2, "Van 3"],
              [3, "Van 4"],
              [4, "Van 5"]],
-      vanView: true,
-      dayView: false
+      vanView: true
     }
     this.handleSwitchTab = this.handleSwitchTab.bind(this);
   }
 
-  handleSwitchTab(tab) {
-    this.setState({
-      days: tab.days,
-      vans: tab.vans,
-      vanView: tab.vanView,
-      dayView: tab.dayView
-    });
+  handleSwitchTab() {
+    this.setState(prevState => ({
+      vanView:!prevState.vanView
+    }));
   }
-
-  handleVanClick(event){
-    event.preventDefault();
-    this.setState({
-      vanView: true,
-      dayView: false
-    });
-  }
-
-  handleDayClick(event){
-    event.preventDefault();
-    this.setState({
-      dayView: true,
-      vanView: false
-    });
-  }
-
 
   render(){
     let list = null;
     let days = this.state.days;
     let vans = this.state.vans;
     let vanView = this.state.vanView;
-    let dayView = this.state.dayView;
-    if(dayView== true){
-      list = <ListGoup items={days} switch={this.handleSwitchTab}/>
+    if(vanView){
+      list = <ListGoup items={days}/>
 
-      }
-    else {
-      list = <ListGoup items={vans} switch={this.handleSwitchTab}/>
+    } else {
+      list = <ListGoup items={vans}/>
     }
     return(
       <div className="col-md-2 nopadding">
         <div className="panel panel-default">
             <div className="panel-heading">
               <div className="btn-group btn-group-justified" role="group">
-                <a href="#" type="button" className="btn btn-raised btn-default" onClick={this.handleVanClick}>
+                <a type="button" className="btn btn-raised btn-default"
+                  onClick={this.handleSwitchTab}>
                   VAN
                 </a>
-                <a href="#" type="button" className="btn btn-raised btn-default" onClick={this.handleDayClick}>
+                <a type="button" className="btn btn-raised btn-default"
+                  onClick={this.handleSwitchTab}>
                   DAY
                 </a>
               </div>
