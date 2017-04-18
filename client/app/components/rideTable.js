@@ -12,7 +12,7 @@ class RideTable extends React.Component {
           <div className="panel panel-default">
               <div className="panel-heading">{title}</div>
               <div className="panel-body full-height">
-                  <ul className="nav nav-pills nav-stacked">
+                  <ul className="nav nav-tabs nav-stacked">
                     {rideData.map((ride) =>
                        <li className="list-group-item" key={ride._id}>
                          <div className="row">
