@@ -16,8 +16,7 @@ class SpecialAccess extends React.Component {
       currentPage:newpage.currentPage
     }
     if (newpage.currentPage == "availableTime"){
-      this.props.save("specialAccess",this.state.specialAccess);
-      this.props.switch(data);
+      this.props.save("specialAccess",this.state.specialAccess,data);
     } else {
       // go back to previous, disregard data
       this.props.switch(data);

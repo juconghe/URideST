@@ -16,8 +16,7 @@ class AvailableTime extends React.Component{
       currentPage:newpage.currentPage
     }
     if (newpage.currentPage == "finished"){
-      this.props.save("availableTime",this.state.availableTime);
-      this.props.switch(data);
+      this.props.save("availableTime",this.state.availableTime,data);
     } else {
       // go back to previous, disregard data
       this.props.switch(data);

@@ -16,8 +16,7 @@ class DropOff extends React.Component {
       currentPage:newpage.currentPage
     }
     if (newpage.currentPage == "specialAccess"){
-      this.props.save("dropOff",this.state.dropOffLocation);
-      this.props.switch(data);
+      this.props.save("dropOff",this.state.dropOffLocation,data);
     } else {
       // go back to previous, disregard data
       this.props.switch(data);

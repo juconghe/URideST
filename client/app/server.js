@@ -120,5 +120,17 @@ export function submitRequest(user, contents,cb) {
   // },(xhr) => {
   //   cb(JSON.parse(xhr.responseText));
   // });
+  const rideData = {
+    pickUpTime: contents.pickUpTime,
+    pickUpDate: contents.pickUpDate,
+    isRecurring: contents.isRecurring,
+    isConfirmed: contents.isConfirmed,
+    dropOff: contents.dropOff,
+    pickUp: contents.pickUp,
+    van: contents.van,
+    user: contents.user,
+    specialAccess:contents.specialAccess
+  }
+  console.log(rideData);
   cb("Got you");
 }
