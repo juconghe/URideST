@@ -16,7 +16,7 @@ class RequestPassengerBox extends React.Component{
     this.state = {
       passengers:passengerData,
       requests:requestData,
-      passengerView: true
+      passengerView: false
     }
     this.handleSwitchTab = this.handleSwitchTab.bind(this);
   }
@@ -45,13 +45,13 @@ class RequestPassengerBox extends React.Component{
                 <div className="panel-heading">
                   <div className="btn-group btn-group-justified" role="group">
                     <a type="button"
-                      className={passengerView ? "btn btn-raised btn-default active" :"btn btn-raised btn-default"}
-                      onClick={!passengerView ? this.handleSwitchTab:null}>
+                      className={!passengerView ? "btn btn-raised btn-default active" :"btn btn-raised btn-default"}
+                      onClick={passengerView ? this.handleSwitchTab:null}>
                       REQUESTs
                     </a>
                     <a type="button"
-                      className={!passengerView ? "btn btn-raised btn-default active" :"btn btn-raised btn-default"}
-                      onClick={passengerView ? this.handleSwitchTab:null}>
+                      className={passengerView ? "btn btn-raised btn-default active" :"btn btn-raised btn-default"}
+                      onClick={!passengerView ? this.handleSwitchTab:null}>
                       PASSENGERS
                     </a>
                   </div>
