@@ -34,22 +34,24 @@ class VanDay extends React.Component {
     let vans = this.state.vans;
     let vanView = this.state.vanView;
     if(vanView){
-      list = <ListGoup items={days}/>
+      list = <ListGoup items={vans}/>
 
     } else {
-      list = <ListGoup items={vans}/>
+      list = <ListGoup items={days}/>
     }
     return(
       <div className="col-md-2 nopadding">
         <div className="panel panel-default">
             <div className="panel-heading">
               <div className="btn-group btn-group-justified" role="group">
-                <a type="button" className="btn btn-raised btn-default"
-                  onClick={this.handleSwitchTab}>
+                <a type="button"
+                  className={vanView ? "btn btn-raised btn-default active" :"btn btn-raised btn-default"}
+                  onClick={!vanView ? this.handleSwitchTab:null}>
                   VAN
                 </a>
-                <a type="button" className="btn btn-raised btn-default"
-                  onClick={this.handleSwitchTab}>
+                <a type="button"
+                  className={!vanView ? "btn btn-raised btn-default active" :"btn btn-raised btn-default"}
+                  onClick={vanView ? this.handleSwitchTab:null}>
                   DAY
                 </a>
               </div>

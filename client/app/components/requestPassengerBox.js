@@ -44,12 +44,14 @@ class RequestPassengerBox extends React.Component{
             <div className="panel panel-default">
                 <div className="panel-heading">
                   <div className="btn-group btn-group-justified" role="group">
-                    <a type="button" className="btn btn-raised btn-default"
-                      onClick={this.handleSwitchTab}>
+                    <a type="button"
+                      className={passengerView ? "btn btn-raised btn-default active" :"btn btn-raised btn-default"}
+                      onClick={!passengerView ? this.handleSwitchTab:null}>
                       REQUESTs
                     </a>
-                    <a type="button" className="btn btn-raised btn-default"
-                      onClick={this.handleSwitchTab}>
+                    <a type="button"
+                      className={!passengerView ? "btn btn-raised btn-default active" :"btn btn-raised btn-default"}
+                      onClick={passengerView ? this.handleSwitchTab:null}>
                       PASSENGERS
                     </a>
                   </div>

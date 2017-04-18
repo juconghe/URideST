@@ -4,7 +4,7 @@ const ReactDataGrid = require('react-data-grid');
 class RideGrid extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {rows: this.createRows(1000)}
+    this.state = {rows: this.createRows(30)}
     this.getRandomDate = this.getRandomDate.bind(this);
     this.createRows = this.createRows.bind(this);
     this.rowGetter = this.rowGetter.bind(this);
@@ -18,15 +18,18 @@ class RideGrid extends React.Component {
 
   createRows(numberOfRows) {
     let rows = [];
+    const locations = ['FAC', 'LGRC','ILC','Morill'];
     for (let i = 1; i < numberOfRows; i++) {
       rows.push({
         id: i,
-        task: 'Task ' + i,
-        complete: Math.min(100, Math.round(Math.random() * 110)),
-        priority: ['Critical', 'High', 'Medium', 'Low'][Math.floor((Math.random() * 3) + 1)],
-        issueType: ['Bug', 'Improvement', 'Epic', 'Story'][Math.floor((Math.random() * 3) + 1)],
-        startDate: this.getRandomDate(new Date(2015, 3, 1), new Date()),
-        completeDate: this.getRandomDate(new Date(), new Date(2016, 0, 1))
+        firstName: 'First Name' + i,
+        lastName: 'Last Name' + i,
+        date:this.getRandomDate(new Date(2015, 3, 1), new Date()),
+        time:"Now",
+        pickupLocation:locations[Math.floor((Math.random() * 4))],
+        dropoffLocation: ['FAC', 'LGRC','ILC', 'Morill'][Math.floor((Math.random() * 4))],
+        van: Math.floor((Math.random() * 20)),
+        isApproved:['Approved', 'Pending','Deny'][Math.floor((Math.random() * 3))]
       });
     }
     return rows;
@@ -55,23 +58,23 @@ class RideGrid extends React.Component {
         columns={[
             {
               key: 'id',
-              name: 'Student ID',
-              width: 80
+              name: 'ID',
+              width: 50
             },
             {
               key: 'firstName',
               name: 'First Name',
-              width: 90
+              width: 120
             },
             {
               key: 'lastName',
               name: 'Last Name',
-              width: 90
+              width: 120
             },
             {
               key: 'date',
               name: 'Date',
-              width: 80,
+              width: 100,
               editable: true
             },
             {
@@ -82,24 +85,26 @@ class RideGrid extends React.Component {
             },
             {
               key: 'pickupLocation',
-              name: 'Pickup Location',
+              name: 'Pickup',
+              width:100,
               editable: true
             },
             {
               key: 'dropoffLocation',
-              name: 'Dropoff Location',
+              name: 'Dropoff',
+              width:100,
               editable: true
             },
             {
               key: 'van',
               name: 'Van #',
-              width: 80,
+              width: 50,
               editable: true
             },
             {
               key: 'isApproved',
               name: 'Approved',
-              width: 70,
+              width: 100,
               editable: true
             },
           ]}
