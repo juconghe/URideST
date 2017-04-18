@@ -17,11 +17,16 @@ class RideTable extends React.Component {
               <div className="panel-heading">{title}</div>
               <div className="panel-body">
                   <ul className="nav nav-pills nav-stacked">
-                      {rideData.map((ride) =>
-                        <li className="list-group-item" key={ride._id}>
-                            <span href="#">{ride.pickupDate} - {ride.pickupTime}</span>
-                            <span className="pull-right" href="#">{ride.pickup} -> {ride.dropoff}</span>
-                        </li>)}
+                    {rideData.map((ride) =>
+                       <li className="list-group-item" key={ride._id}>
+                         <div className="row">
+                           <span className="margin-left">{ride.pickupDate}</span>
+                           <span className="pull-right margin-right">{ride.pickup} -> {ride.dropoff}</span>
+                         </div>
+                         <div className="row">
+                           <span className="margin-left">{ride.pickupTime}</span>
+                         </div>
+                       </li>)}
                   </ul>
               </div>
           </div>
