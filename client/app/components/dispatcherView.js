@@ -2,6 +2,7 @@ const React = require('react');
 const ListGoup = require('./listGroup');
 const RideGrid = require('./rideGrid');
 const ReactDataGrid = require('react-data-grid');
+const VanDay = require('./vanDay');
 
 class DispatcherView extends React.Component {
   constructor(props) {
@@ -12,9 +13,11 @@ class DispatcherView extends React.Component {
             [2,"Dapibus ac facilisis","HAHAHAH"],
             [3,"Dapibus ac facilisis","HAHAHAH"],
             [4,"Dapibus ac facilisis","HAHAHAH"]]
+
     }
     console.log(this.state);
   }
+
   render() {
     let items = this.state.items;
     return(
@@ -59,24 +62,9 @@ class DispatcherView extends React.Component {
                   </div>
               </div>
             </div>
-            <div className="col-md-2 nopadding">
-              <div className="panel panel-default">
-                  <div className="panel-heading">
-                    <div className="btn-group btn-group-justified" role="group">
-                      <a href="#" type="button" className="btn btn-raised btn-default">
-                        VAN
-                      </a>
-                      <a href="#" type="button" className="btn btn-raised btn-default">
-                        DAY
-                      </a>
-                    </div>
-                  </div>
-                  <div className="panel-body">
-                    <ListGoup items={items} />
-                  </div>
-              </div>
+            <div>
+              <VanDay/>
             </div>
-
             <div className="col-md-7 nopadding">
               <div className="panel panel-default">
                 <RideGrid />
