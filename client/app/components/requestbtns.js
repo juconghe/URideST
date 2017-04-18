@@ -1,6 +1,7 @@
 const React = require('react');
 const Footer = require('./footer');
 import {Link} from 'react-router-dom';
+
 class RequestBtns extends React.Component {
   constructor(props) {
     super(props);

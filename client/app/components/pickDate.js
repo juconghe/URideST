@@ -1,7 +1,7 @@
-var Footer = require('./footer');
-var React = require('react');
-var DatePicker = require('react-datepicker');
-var moment = require('moment');
+const Footer = require('./footer');
+const React = require('react');
+const DatePicker = require('react-datepicker');
+const moment = require('moment');
 
 class PickDate extends React.Component {
   constructor(props) {
@@ -18,8 +18,7 @@ class PickDate extends React.Component {
       currentPage:newpage.currentPage
     }
     if (newpage.currentPage == "pickUp"){
-      this.props.save("pickupDate",this.state.startDate);
-      this.props.switch(data);
+      this.props.save("pickupDate",this.state.startDate,data);
     } else {
       // go back to previous, disregard data
       this.props.switch(data);
@@ -28,9 +27,7 @@ class PickDate extends React.Component {
   }
 
   handleChange(date) {
-    this.setState({
-      startDate: date
-    });
+    this.setState({startDate:date});
   }
 
   render() {
@@ -48,7 +45,7 @@ class PickDate extends React.Component {
                         <div className="well">
                             Select a Date
                         </div>
-                        <DatePicker
+                        <DatePicker dateFormat="YYYY/MM/DD"
                             selected={this.state.startDate}
                             onChange={this.handleChange}
                         />

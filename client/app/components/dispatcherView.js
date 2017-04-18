@@ -4,6 +4,7 @@ const RideGrid = require('./rideGrid');
 const ReactDataGrid = require('react-data-grid');
 const VanDay = require('./vanDay');
 
+
 class DispatcherView extends React.Component {
   constructor(props) {
     super(props);

@@ -7,6 +7,7 @@ const DropOff = require('./dropoff');
 const Finished = require('./finished');
 const SpecialAccess = require('./SpecialAccess');
 const AvailableTime = require('./availableTime');
+const moment = require('moment');
 import {submitRequest} from '../server';
 
 class Container extends React.Component {
@@ -14,16 +15,15 @@ class Container extends React.Component {
     super(props);
     this.state = {
       currentPage:this.props.currentPage,
-      rideData: {
-        pickUpTime: null,
-        pickUpDate: null,
-        isRecurring: false,
-        isConfirmed: false,
-        dropOff: null,
-        pickUp: null,
-        van: null,
-        user: null
-      }
+      pickUpTime: null,
+      pickUpDate: null,
+      isRecurring: false,
+      isConfirmed: false,
+      dropOff: null,
+      pickUp: null,
+      van: null,
+      user: 1,
+      specialAccess:null
     };
     this.handleSwitchPage = this.handleSwitchPage.bind(this);
     this.handlePost = this.handlePost.bind(this);
@@ -33,21 +33,35 @@ class Container extends React.Component {
   handleSwitchPage(nextPage){
     // console.log(nextPage);
     this.setState({
-      currentPage:nextPage.currentPage,
+      currentPage:nextPage.currentPage
     });
   }
 
   handlePost() {
+    // console.log(this.state);
     submitRequest(1,this.state,(data)=>{
       console.log(data);
     });
   }
 
-  handleDataChange(action,newData) {
-    if(action == "pickupDate"){
-      console.log(newData.toDate());
+  handleDataChange(action,newData,nextPage) {
+    if(action == "pickupDate") {
+      // console.log(newData.toDate());
+      this.setState({pickUpDate:moment(newData).format("MMM Do YY"),
+      currentPage:nextPage.currentPage});
+    } else if(action == "pickup") {
+      // console.log(newData);
+      this.setState({pickUp:newData,
+      currentPage:nextPage.currentPage});
+    } else if (action == "dropOff") {
+      this.setState({dropOff:newData,
+      currentPage:nextPage.currentPage});
+    } else if (action == "specialAccess") {
+      this.setState({specialAccess:newData,
+      currentPage:nextPage.currentPage});
     } else {
-      console.log(newData);
+      this.setState({pickUpTime:newData,
+      currentPage:nextPage.currentPage});
     }
   }
 
