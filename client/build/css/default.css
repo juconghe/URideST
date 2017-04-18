@@ -22,14 +22,21 @@ textarea {
    margin: 0 !important;
 }
 
-.nopadding > .panel >.panel-body {
+.nopadding > .panel >.panel-body
+{
 	height: calc(100vh - 180px);
 	overflow-y: auto;
 }
-.react-grid-Grid {
+.react-grid-Grid
+{
 	height: calc(100vh - 104px);
 	overflow-y: auto;
 }
+.full-height {
+	height: calc(100vh - 200px);
+	overflow-y: auto;
+}
+
 .margin-left {
 	margin-left: 5px;
 }
