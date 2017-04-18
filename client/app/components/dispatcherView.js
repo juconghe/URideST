@@ -38,8 +38,8 @@ class DispatcherView extends React.Component {
                       Previous Week
                     </a></li>
                     <li><a href="#">
-                      <span className="glyphicon glyphicon-arrow-right"></span>
                       Next Week
+                      <span className="glyphicon glyphicon-arrow-right"></span>
                     </a></li>
                   </ul>
                 </div>
