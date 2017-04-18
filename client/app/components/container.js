@@ -46,8 +46,7 @@ class Container extends React.Component {
 
   handleDataChange(action,newData,nextPage) {
     if(action == "pickupDate") {
-      // console.log(newData.toDate());
-      this.setState({pickUpDate:moment(newData).format("MMM Do YY"),
+      this.setState({pickUpDate:newData.valueOf(),
       currentPage:nextPage.currentPage});
     } else if(action == "pickup") {
       // console.log(newData);
