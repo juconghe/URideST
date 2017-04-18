@@ -1,8 +1,4 @@
-const ReactDataGrid = require('react-data-grid');
 const React = require('react');
-
-
-
 
 class RideTable extends React.Component {
   constructor(props) {

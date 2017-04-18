@@ -1,5 +1,6 @@
 import Footer from './footer'
 const React = require('react');
+
 class SpecialAccess extends React.Component {
   constructor(props) {
     super(props);
