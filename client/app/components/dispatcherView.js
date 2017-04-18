@@ -3,6 +3,7 @@ const ListGoup = require('./listGroup');
 const RideGrid = require('./rideGrid');
 const ReactDataGrid = require('react-data-grid');
 const VanDay = require('./vanDay');
+const RequestPassengerBox = require('./requestPassengerBox');
 
 
 class DispatcherView extends React.Component {
@@ -46,23 +47,7 @@ class DispatcherView extends React.Component {
         </nav>
         <div className="col-md-12">
           <div className="container-fluid">
-            <div className="col-md-3 nopadding">
-              <div className="panel panel-default">
-                  <div className="panel-heading">
-                    <div className="btn-group btn-group-justified" role="group">
-                      <a href="#" type="button" className="btn btn-raised btn-default">
-                        REQUESTs
-                      </a>
-                      <a href="#" type="button" className="btn btn-raised btn-default">
-                        PASSENGERS
-                      </a>
-                    </div>
-                  </div>
-                  <div className="panel-body">
-                    <ListGoup items={items}/>
-                  </div>
-              </div>
-            </div>
+            <RequestPassengerBox/>
             <div>
               <VanDay/>
             </div>

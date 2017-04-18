@@ -55,10 +55,11 @@ class VanDay extends React.Component {
     let vanView = this.state.vanView;
     let dayView = this.state.dayView;
     if(dayView== true){
-      list = <ListGoup items={days}/>
+      list = <ListGoup items={days} switch={this.handleSwitchTab}/>
+
       }
     else {
-      list = <ListGoup items={vans}/>
+      list = <ListGoup items={vans} switch={this.handleSwitchTab}/>
     }
     return(
       <div className="col-md-2 nopadding">
