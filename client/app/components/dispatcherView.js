@@ -15,7 +15,18 @@ class DispatcherView extends React.Component {
             [4,"Dapibus ac facilisis","HAHAHAH"]]
 
     }
+    this.handlePreviousweek = this.handlePreviousweek.bind(this);
+    this.handleNextweek = this.handleNextweek.bind(this);
     console.log(this.state);
+  }
+
+
+  handlePreviousweek(){
+    console.log("handlePrevousWeek");
+  }
+
+  handleNextweek(){
+    console.log("handleNextweek");
   }
 
   render() {
@@ -24,17 +35,17 @@ class DispatcherView extends React.Component {
         <nav className="navbar navbar-default">
             <div className="container-fluid">
                 <div className="navbar-header">
-                    <a className="navbar-brand" href="dispatcherView.html">
+                    <a className="navbar-brand" href="https://www.umass.edu/transportation/transit">
                         <img src="img/umass.png" height="30" width="90" />
                     </a>
                 </div>
                 <div className="navbar-collapse collapse navbar-responsive-collapse">
                   <ul className="nav navbar-nav navbar-right">
-                    <li><a href="#">
+                    <li><a href="#" onClick = {this.handlePreviousweek}>
                       <span className="glyphicon glyphicon-arrow-left"></span>
                       Previous Week
                     </a></li>
-                    <li><a href="#">
+                  <li><a href="#" onClick = {this.handleNextweek}>
                       Next Week
                       <span className="glyphicon glyphicon-arrow-right"></span>
                     </a></li>

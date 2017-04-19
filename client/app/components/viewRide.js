@@ -20,7 +20,7 @@ class ViewRide extends React.Component {
   }
   componentWillMount() {
     getRideData(1,(data)=> {
-      console.log(data);
+      // console.log(data);
       this.setState({rideArray:data});
     });
   }
