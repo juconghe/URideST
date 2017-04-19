@@ -7,6 +7,8 @@ var initialData = {
   "users":{
     "1": {
       "_id":new ObjectID("000000000000000000000001"),
+      "firsname":"Jucong",
+      "lastname":"He",
       "confirmedRides":[new ObjectID("000000000000000000000001")],
       "pendingRides": [new ObjectID("000000000000000000000001")]
     }
@@ -21,7 +23,7 @@ var initialData = {
       "dropoff":"LGRC",
       "pickup":"FAC",
       "van":20,
-      "user":"Jucong"
+      "user":new ObjectID("000000000000000000000001")
     }
   },
 
@@ -34,7 +36,7 @@ var initialData = {
         "dropoff":"LGRC",
         "pickup":"FAC",
         "van":20,
-        "user":"Jucong"
+        "user":new ObjectID("000000000000000000000001")
       }
     },
 

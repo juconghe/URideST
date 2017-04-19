@@ -3,6 +3,7 @@
  * authorization token, and other needed properties.
  */
 function sendXHR(verb, resource, body, cb) {
+  console.log("Sending data");
   var xhr = new XMLHttpRequest();
   xhr.open(verb, resource);
   // xhr.setRequestHeader('Authorization', 'Bearer ' + token);
@@ -65,35 +66,28 @@ function sendXHR(verb, resource, body, cb) {
   }
 
 export function getRideData(user,cb) {
-  // sendXHR('GET','/user/1/feed/'+type,undefined,(xhr) => {
-  //   cb(JSON.parse(xhr.responseText));
-  // });
-  var array = [];
-  for (var i = 0; i < 30; i++) {
-    const rideData ={
-      _id:i,
-      pickupTime:"11:00 AM - 11:15 AM",
-      pickupDate:"Tuesday, March 19, 2017",
-      isConfirmed:true,
-      dropoff:"LGRC",
-      pickup:"FAC",
-      van:20,
-      user:"Jucong"
-    }
-    array.push(rideData);
-  }
-  cb(array);
+  sendXHR('GET','/ride/'+user,undefined,(xhr) => {
+    console.log(xhr.responseText);
+    cb(JSON.parse(xhr.responseText));
+  });
+  // var array = [];
+  // for (var i = 0; i < 30; i++) {
+  //   const rideData ={
+  //     _id:i,
+  //     pickupTime:"11:00 AM - 11:15 AM",
+  //     pickupDate:"Tuesday, March 19, 2017",
+  //     isConfirmed:true,
+  //     dropoff:"LGRC",
+  //     pickup:"FAC",
+  //     van:20,
+  //     user:"Jucong"
+  //   }
+  //   array.push(rideData);
+  // }
+  // cb(array);
 }
 
 export function submitRequest(user, contents,cb) {
-  // sendXHR('POST','/feeditem/'+type,{
-  //   "author": user,
-  //   "request": contents.title,
-  //   "contents": contents.value,
-  //   "imgUrl":contents.imgUrl
-  // },(xhr) => {
-  //   cb(JSON.parse(xhr.responseText));
-  // });
   const rideData = {
     pickUpTime: contents.pickUpTime,
     pickUpDate: contents.pickUpDate,
@@ -105,6 +99,9 @@ export function submitRequest(user, contents,cb) {
     user: contents.user,
     specialAccess:contents.specialAccess
   }
-  console.log(rideData);
+  sendXHR('POST','/ride',rideData,(xhr) => {
+    console.log(xhr.responseText);
+    cb(JSON.parse(xhr.responseText));
+  });
   cb("Got you");
 }
