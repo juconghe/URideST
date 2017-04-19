@@ -6,14 +6,15 @@ class ListGroup extends React.Component {
   render() {
     const items = this.props.items;
     return (
-      <ul className="list-group">
+      <div>
           {items.map((i)=>
-            <li className="list-group-item" key={i[0]}>
-                <a href="#">{i[1]}</a>
-                <a className="pull-right" href="#">{i[2]}</a>
-            </li>
+              <button className="btn btn-raised btn-default btn-block" key={i}>
+                <span>{i[1]}</span>
+                <br/>
+                <span href="#">{i[2]}</span>
+              </button>
           )}
-      </ul>
+      </div>
     );
   }
 }
