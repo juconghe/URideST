@@ -1,6 +1,8 @@
 const React = require('react');
 const RideTable = require('./rideTable');
 import {getRideData} from '../server';
+import {getConfirmedRideData} from '../server';
+import {getPendingRideData} from '../server';
 
 class ViewRide extends React.Component {
   constructor(props) {
