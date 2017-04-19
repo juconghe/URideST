@@ -1,8 +1,6 @@
 const React = require('react');
 const RideTable = require('./rideTable');
-import {getPreviousRideData} from '../server';
-import {getConfirmedRideData} from '../server';
-import {getPendingRideData} from '../server';
+import {getRideData} from '../server';
 
 class ViewRide extends React.Component {
   constructor(props) {
@@ -22,7 +20,7 @@ class ViewRide extends React.Component {
   }
   componentWillMount() {
     getRideData(1,(data)=> {
-      console.log(data);
+      // console.log(data);
       this.setState({rideArray:data});
     });
   }
