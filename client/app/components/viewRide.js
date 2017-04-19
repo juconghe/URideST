@@ -8,7 +8,6 @@ class ViewRide extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        rideArray:[{
             pendingRideArray:[{
                 _id:null,
                 pickupTime:null,
@@ -39,7 +38,6 @@ class ViewRide extends React.Component {
                 van:null,
                 user:null
             }]
-        }]
     }
   }
   componentWillMount() {
@@ -58,12 +56,14 @@ class ViewRide extends React.Component {
   }
 
   render() {
-    let rideData = this.state.rideArray;
+    let rideDataPrev = this.state.pendingRideArray;
+    let rideDataPend = this.state.previousRideArray;
+    let rideDataCon = this.state.confirmedRideArray;
     return (
       <div>
-      <RideTable title="Previous Ride" rideData={rideData[2]}/>
-      <RideTable title="Pending Ride" rideData={rideData[0]}/>
-      <RideTable title="Confirmed Ride" rideData={rideData[1]}/>
+      <RideTable title="Previous Ride" rideData={rideDataPrev}/>
+      <RideTable title="Pending Ride" rideData={rideDataPend}/>
+      <RideTable title="Confirmed Ride" rideData={rideDataCon}/>
       </div>
   );
   }

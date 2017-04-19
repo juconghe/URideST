@@ -3,6 +3,8 @@ const React = require('react');
 class RideTable extends React.Component {
   constructor(props) {
     super(props);
+
+
   }
   render() {
     let title = this.props.title;
