@@ -87,7 +87,58 @@ var initialData = {
     "10": {
       "_id":new ObjectID("000000000000000000000010"),
       "building":"Berkshire Dining Common"
+    },
+
+    "11": {
+      "_id":new ObjectID("000000000000000000000011"),
+      "building":"Blaisdell"
+    },
+
+    "12": {
+      "_id":new ObjectID("000000000000000000000012"),
+      "building":"Bowditch Hall"
+    },
+
+    "13": {
+      "_id":new ObjectID("000000000000000000000013"),
+      "building":"Bowditch Lodge"
+    },
+
+    "14": {
+      "_id":new ObjectID("000000000000000000000014"),
+      "building":"Boyden"
+    },
+
+    "15": {
+      "_id":new ObjectID("000000000000000000000015"),
+      "building":"Brett (Offices)"
+    },
+
+    "16": {
+      "_id":new ObjectID("000000000000000000000016"),
+      "building":"Campus Center"
+    },
+
+    "17": {
+      "_id":new ObjectID("000000000000000000000017"),
+      "building":"Cance (offices)"
+    },
+
+    "18": {
+      "_id":new ObjectID("000000000000000000000018"),
+      "building":"Central Heating Plant"
+    },
+
+    "19": {
+      "_id":new ObjectID("000000000000000000000019"),
+      "building":"Champions Center"
+    },
+
+    "20": {
+      "_id":new ObjectID("000000000000000000000020"),
+      "building":"Chancellor's House"
     }
+
   }
 };
 
