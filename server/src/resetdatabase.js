@@ -42,7 +42,103 @@ var initialData = {
     "1": {
       "_id":new ObjectID("000000000000000000000001"),
       "building":"Agricultural Engineering Bldg"
+    },
+
+    "2": {
+      "_id":new ObjectID("000000000000000000000002"),
+      "building":"Agricultural Experiment Station (Alterations)"
+    },
+
+    "3": {
+      "_id":new ObjectID("000000000000000000000003"),
+      "building":"Army ROTC Bldg"
+    },
+
+    "4": {
+      "_id":new ObjectID("000000000000000000000004"),
+      "building":"Arnold House"
+    },
+
+    "5": {
+      "_id":new ObjectID("000000000000000000000005"),
+      "building":"(Studio) Arts Building"
+    },
+
+    "6": {
+      "_id":new ObjectID("000000000000000000000006"),
+      "building":"Auxiliary Services Warehouse"
+    },
+
+    "7": {
+      "_id":new ObjectID("000000000000000000000007"),
+      "building":"Baker House (offices)"
+    },
+
+    "8": {
+      "_id":new ObjectID("000000000000000000000008"),
+      "building":"Bartlett Hall"
+    },
+
+    "9": {
+      "_id":new ObjectID("000000000000000000000009"),
+      "building":"Berkshire House"
+    },
+
+    "10": {
+      "_id":new ObjectID("000000000000000000000010"),
+      "building":"Berkshire Dining Common"
+    },
+
+    "11": {
+      "_id":new ObjectID("000000000000000000000011"),
+      "building":"Blaisdell"
+    },
+
+    "12": {
+      "_id":new ObjectID("000000000000000000000012"),
+      "building":"Bowditch Hall"
+    },
+
+    "13": {
+      "_id":new ObjectID("000000000000000000000013"),
+      "building":"Bowditch Lodge"
+    },
+
+    "14": {
+      "_id":new ObjectID("000000000000000000000014"),
+      "building":"Boyden"
+    },
+
+    "15": {
+      "_id":new ObjectID("000000000000000000000015"),
+      "building":"Brett (Offices)"
+    },
+
+    "16": {
+      "_id":new ObjectID("000000000000000000000016"),
+      "building":"Campus Center"
+    },
+
+    "17": {
+      "_id":new ObjectID("000000000000000000000017"),
+      "building":"Cance (offices)"
+    },
+
+    "18": {
+      "_id":new ObjectID("000000000000000000000018"),
+      "building":"Central Heating Plant"
+    },
+
+    "19": {
+      "_id":new ObjectID("000000000000000000000019"),
+      "building":"Champions Center"
+    },
+
+    "20": {
+      "_id":new ObjectID("000000000000000000000020"),
+      "building":"Chancellor's House"
     }
+
   }
 };
 

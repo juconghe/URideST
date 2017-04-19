@@ -9,7 +9,7 @@ class RideGrid extends React.Component {
     this.createRows = this.createRows.bind(this);
     this.rowGetter = this.rowGetter.bind(this);
     this.handleGridRowsUpdated = this.handleGridRowsUpdated.bind(this);
-
+    this.handleGridSort = this.handleGridSort.bind(this);
   }
 
   getRandomDate(start, end) {
@@ -50,6 +50,19 @@ class RideGrid extends React.Component {
 
     this.setState({ rows });
   }
+  handleGridSort(sortColumn, sortDirection) {
+    const comparer = (a, b) => {
+      if (sortDirection === 'ASC') {
+        return (a[sortColumn] > b[sortColumn]) ? 1 : -1;
+      } else if (sortDirection === 'DESC') {
+        return (a[sortColumn] < b[sortColumn]) ? 1 : -1;
+      }
+    };
+
+    const rows = sortDirection === 'NONE' ? this.state.originalRows.slice(0) : this.state.rows.sort(comparer);
+
+    this.setState({ rows });
+  }
 
   render() {
     return  (
@@ -59,56 +72,74 @@ class RideGrid extends React.Component {
             {
               key: 'id',
               name: 'ID',
-              width: 50
+              width: 50,
+              sortable: true
+
             },
             {
               key: 'firstName',
               name: 'First Name',
-              width: 120
+              resizable: true,
+              sortable: true
+              // width: 120
             },
             {
               key: 'lastName',
               name: 'Last Name',
-              width: 120
+              // width: 120
+              resizable: true,
+              sortable: true
             },
             {
               key: 'date',
               name: 'Date',
-              width: 100,
-              editable: true
+              // width: 100,
+              editable: true,
+              resizable: true,
+              sortable: true
             },
             {
               key: 'time',
               name: 'Time',
-              width: 80,
-              editable: true
+              // width: 80,
+              editable: true,
+              resizable: true,
+              sortable: true
             },
             {
               key: 'pickupLocation',
               name: 'Pickup',
-              width:100,
-              editable: true
+              // width:100,
+              editable: true,
+              resizable: true,
+              sortable: true
             },
             {
               key: 'dropoffLocation',
               name: 'Dropoff',
-              width:100,
-              editable: true
+              // width:100,
+              editable: true,
+              resizable: true,
+              sortable: true
             },
             {
               key: 'van',
               name: 'Van #',
               width: 50,
-              editable: true
+              editable: true,
+              sortable: true
             },
             {
               key: 'isApproved',
               name: 'Approved',
-              width: 100,
-              editable: true
+              // width: 100,
+              editable: true,
+              resizable: true,
+              sortable: true
             },
           ]}
         rowGetter={this.rowGetter}
+        onGridSort={this.handleGridSort}
         rowsCount={this.state.rows.length}
         minHeight={500}
         onGridRowsUpdated={this.handleGridRowsUpdated} />);
