@@ -81,8 +81,8 @@ export function getConfirmedRideData(user,cb) {
             user:"Jucong"
         }
         array.push(rideData);
-    }
-    cb(array);
+      }
+      cb(array);
 }
 
 export function getPendingRideData(user,cb) {
