@@ -8,7 +8,7 @@ class ViewRide extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      previousRideArray:[{
+      rideArray:[{
       _id:null,
       pickupTime:null,
       pickupDate:null,
@@ -17,41 +17,13 @@ class ViewRide extends React.Component {
       pickup:null,
       van:null,
       user:null
-    }],
-    ConfirmedRideArray:[{
-      _id:null,
-      pickupTime:null,
-      pickupDate:null,
-      isConfirmed:null,
-      dropoff:null,
-      pickup:null,
-      van:null,
-      user:null
-    }],
-    PendingRideArray:[{
-      _id:null,
-      pickupTime:null,
-      pickupDate:null,
-      isConfirmed:null,
-      dropoff:null,
-      pickup:null,
-      van:null,
-      user:null
-    }]
+      }]
     }
   }
   componentWillMount() {
     getPreviousRideData(1,(data)=> {
       console.log(data);
-      this.setState({previousRideArray:data});
-    });
-    getConfirmedRideData(1,(data)=> {
-      console.log(data);
-      this.setState({ConfirmedRideArray:data});
-    });
-    getPendingRideData(1,(data)=> {
-      console.log(data);
-      this.setState({pendingRideArray:data});
+      this.setState({rideArray:data});
     });
   }
 
