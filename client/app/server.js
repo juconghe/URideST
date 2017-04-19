@@ -65,45 +65,24 @@ function sendXHR(verb, resource, body, cb) {
   }
 
 export function getConfirmedRideData(user,cb) {
-  // sendXHR('GET','/user/1/feed/'+type,undefined,(xhr) => {
-  //   cb(JSON.parse(xhr.responseText));
-  // });
-  var array = [];
-  for (var i = 60; i < 90; i++) {
-    const rideData ={
-      _id:i,
-      pickupTime:"11:00 AM - 11:15 AM",
-      pickupDate:"Tuesday, March 19, 2017",
-      isConfirmed:true,
-      dropoff:"LGRC",
-      pickup:"FAC",
-      van:20,
-      user:"Jucong"
+    // sendXHR('GET','/user/1/feed/'+type,undefined,(xhr) => {
+    //   cb(JSON.parse(xhr.responseText));
+    // });
+    var array = [];
+    for (var i = 60; i < 90; i++) {
+        const rideData ={
+            _id:i,
+            pickupTime:"11:00 AM - 11:15 AM",
+            pickupDate:"Tuesday, March 19, 2017",
+            isConfirmed:true,
+            dropoff:"LGRC",
+            pickup:"FAC",
+            van:20,
+            user:"Jucong"
+        }
+        array.push(rideData);
     }
-    array.push(rideData);
-  }
-  cb(array);
-}
-
-export function getRideData(user,cb) {
-  // sendXHR('GET','/user/1/feed/'+type,undefined,(xhr) => {
-  //   cb(JSON.parse(xhr.responseText));
-  // });
-  var array = [];
-  for (var i = 0; i < 30; i++) {
-    const rideData ={
-      _id:i,
-      pickupTime:"11:00 AM - 11:15 AM",
-      pickupDate:"Tuesday, March 19, 2017",
-      isConfirmed:false,
-      dropoff:"LGRC",
-      pickup:"FAC",
-      van:20,
-      user:"Jucong"
-    }
-    array.push(rideData);
-  }
-  cb(array);
+    cb(array);
 }
 
 export function getPendingRideData(user,cb) {
@@ -125,6 +104,27 @@ export function getPendingRideData(user,cb) {
     array.push(rideData);
   }
   cb(array);
+}
+
+export function getPreviousRideData(user,cb) {
+    // sendXHR('GET','/user/1/feed/'+type,undefined,(xhr) => {
+    //   cb(JSON.parse(xhr.responseText));
+    // });
+    var array = [];
+    for (var i = 30; i < 60; i++) {
+        const PrevData ={
+            _id:i,
+            pickupTime:"12:15 PM - 12:30 PM",
+            pickupDate:"Wednesday, April 19, 2017",
+            isConfirmed:true,
+            dropoff:"ILC",
+            pickup:"North A",
+            van:6,
+            user:"Cody"
+        }
+        array.push(PrevData);
+    }
+    cb(array);
 }
 
 export function submitRequest(user, contents,cb) {
