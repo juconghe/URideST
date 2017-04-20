@@ -4,7 +4,7 @@ const Container = require('./components/container');
 const DispatcherView = require('./components/dispatcherView');
 const React = require('react');
 const ReactDOM = require('react-dom');
-const BrowserRouter = require('react-router-dom').BrowserRouter;
+const HashRouter = require('react-router-dom').HashRouter;
 const Route = require('react-router-dom').Route;
 const Link = require('react-router-dom').Link;
 
@@ -46,12 +46,12 @@ class DispatcherViewPage extends React.Component{
 }
 
 ReactDOM.render(
-  <BrowserRouter>
+  <HashRouter>
     <div>
         <Route exact path="/" component={App} />
         <Route path="/viewRide" component={ViewRidePage}/>
         <Route path='/dispatcherView' component={DispatcherViewPage}/>
     </div>
-  </BrowserRouter>,
+  </HashRouter>,
   document.getElementById('App')
 );

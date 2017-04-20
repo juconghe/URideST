@@ -42,17 +42,17 @@ class ViewRide extends React.Component {
   }
   componentWillMount() {
     getPreviousRideData("000000000000000000000001",(data)=> {
-      console.log(data);
+      // console.log(data);
       this.setState({previousRideArray:data});
     });
-    getPendingRideData(1,(data)=> {
-          console.log(data);
+    getPendingRideData("000000000000000000000001",(data)=> {
+          // console.log(data);
           this.setState({pendingRideArray:data});
-      });
-    getConfirmedRideData(1,(data)=> {
-          console.log(data);
+    });
+    getConfirmedRideData("000000000000000000000001",(data)=> {
+          // console.log(data);
           this.setState({confirmedRideArray:data});
-      });
+    });
   }
 
   render() {

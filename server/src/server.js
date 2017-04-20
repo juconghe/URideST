@@ -29,8 +29,9 @@ MongoClient.connect(url, function(err, db) {
     });
 
     // get ride data
-    app.get('/ride/:user_id',function(req,res) {
+    app.get('/ride/:user_id/:ride_type',function(req,res) {
       var user_id = req.params.user_id;
+      var ride_type = req.params.ride_type;
       console.log("Getting data for user "+user_id);
       db.collection('users').findOne(
         {_id:new ObjectID(user_id)}, function(err,userData) {
@@ -38,7 +39,16 @@ MongoClient.connect(url, function(err, db) {
             console.log("This is an error why getting user data");
             res.status(401).end();
           } else {
-            processNextRideItem(0, userData.pendingRides, [], function(err,resolvedContents) {
+            console.log("ride type is " + ride_type);
+            var ride_data;
+            if (ride_type == "confirmedRides") {
+              ride_data = userData.confirmedRides;
+            } else if (ride_type == "pendingRides") {
+              ride_data = userData.pendingRides;
+            } else {
+              ride_data = userData.previousRides;
+            }
+            processNextRideItem(ride_type,0,ride_data, [], function(err,resolvedContents) {
                 if (err) {
                   res.status(401).end();
                 } else {
@@ -51,12 +61,12 @@ MongoClient.connect(url, function(err, db) {
     });
 
 
-    function processNextRideItem(i, rideItems, resolvedContents, callback) {
+    function processNextRideItem(ride_type,i, rideItems, resolvedContents, callback) {
         // Asynchronously resolve a feed item.
       if (rideItems.length === 0) {
           callback(null, []);
       } else {
-        getRideItem('pendingRides',rideItems[i], function(err, feedItem) {
+        getRideItem(ride_type,rideItems[i], function(err, feedItem) {
             if (err) {
                 // Pass an error to the callback.
                 callback(err);
@@ -70,15 +80,15 @@ MongoClient.connect(url, function(err, db) {
                     callback(null, resolvedContents);
                 } else {
                     // Process the next feed item.
-                    processNextRideItem(i + 1, rideItems, resolvedContents, callback);
+                    processNextRideItem(ride_type,i + 1, rideItems, resolvedContents, callback);
                 }
               }
             });
           }
         }
 
-    function getRideItem(rideType,rideItemId, callback) {
-      db.collection(rideType).findOne({
+    function getRideItem(ride_type,rideItemId, callback) {
+      db.collection(ride_type).findOne({
           _id: rideItemId
       }, function(err, rideItem) {
           if (err) {
