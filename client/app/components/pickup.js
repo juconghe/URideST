@@ -7,6 +7,7 @@ class PickUp extends React.Component {
     super(props);
     this.handleSwitch = this.handleSwitch.bind(this);
     this.state={
+      pickupValue:'',
       pickupLocation: ["*"]
     }
     this.handlePickupLocation = this.handlePickupLocation.bind(this);
@@ -31,7 +32,7 @@ class PickUp extends React.Component {
   }
   handlePickupLocation(e){
     e.preventDefault(e);
-    this.setState({pickupLocation: e.target.value});
+    this.setState({pickupValue: e.target.value});
   }
   render() {
     const locations = this.state.pickupLocation;
@@ -49,8 +50,11 @@ class PickUp extends React.Component {
                                     <div className="well">
                                       Select a Pickup Location
                                     </div>
-                                    <select className="select form-control" value={"*"} id="select" name="select"
+                                    <select className="select form-control" value={this.state.pickupValue} id="select" name="select"
                                       onChange={this.handlePickupLocation}>
+                                      <option value="*" >
+                                          *
+                                      </option>
                                       {locations.map((location) =>
                                         <option key={location._id} value={location.building} >
                                             {location.building}
