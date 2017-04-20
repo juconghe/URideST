@@ -40,6 +40,10 @@ After that run
 ```
 node src/server.js
 ```
+In the client folder run
+```
+npm run watch
+```
 Now you should open you browser and type the follow in the browser
 ```
 localhost:3000
