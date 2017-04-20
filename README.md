@@ -26,3 +26,22 @@ mkdir db
 mongod --dbpath db
 ```
 ## 5 install [Mongo 3T](https://studio3t.com/) for viewing database
+
+## 6
+Now we move to REAL Server!!! First got to the server folder run
+```
+npm install
+```
+Then run (resetdatabase only run for the first time or whenever you change data in resetdatabase.js)
+```
+node src/resetdatabase.js
+```
+After that run
+```
+node src/server.js
+```
+Now you should open you browser and type the follow in the browser
+```
+localhost:3000
+```
+Remember not 8080!!!
