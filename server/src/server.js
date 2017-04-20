@@ -93,7 +93,7 @@ MongoClient.connect(url, function(err, db) {
                   if (err) {
                     res.status(401).end();
                   } else {
-                    // console.log(resolvedContents);
+                    console.log(resolvedContents);
                     res.status(200).send(resolvedContents);
                   }
               });
