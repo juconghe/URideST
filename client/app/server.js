@@ -86,6 +86,34 @@ export function getPreviousRideData(user,cb) {
   });
 }
 
+export function getLocationData(cb) {
+  const locations = [
+    {
+      "_id":("000000000000000000000001"),
+      "building":"Agricultural Engineering Bldg"
+    },
+
+    {
+      "_id":("000000000000000000000002"),
+      "building":"Agricultural Experiment Station (Alterations)"
+    },
+
+    {
+      "_id":("000000000000000000000003"),
+      "building":"Army ROTC Bldg"
+    },
+
+    {
+      "_id":("000000000000000000000004"),
+      "building":"Arnold House"
+    },
+
+    {
+      "_id":("000000000000000000000005"),
+      "building":"(Studio) Arts Building"
+    }];
+    cb(locations);
+}
 export function submitRequest(user, contents,cb) {
   const rideData = {
     pickupTime: contents.pickUpTime,
