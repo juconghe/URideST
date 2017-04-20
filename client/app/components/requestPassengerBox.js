@@ -1,5 +1,6 @@
 const React = require('react');
 const ListGoup = require('./listGroup');
+const CollapsibleRequests = require('./collapsibleRequests');
 const passengerData = [[0, "Dennis Reynolds", "12345534"],
              [1, "Deandra Reynolds", "3466221"],
              [2, "Charlie Kelly", "3852395"],
@@ -36,7 +37,7 @@ class RequestPassengerBox extends React.Component{
       list = <ListGoup items={passengers}/>
     }
     else {
-      list = <ListGoup items={requests} />
+      list = <CollapsibleRequests items={requests} />
     }
     return(
 
