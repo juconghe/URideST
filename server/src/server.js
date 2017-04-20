@@ -20,47 +20,6 @@ MongoClient.connect(url, function(err, db) {
     app.use(express.static('../client/build'));
     app.use('/mongo_express', mongo_express(mongo_express_config));
 
-    // post a ride request
-    app.post('/ride/:user_id', validate({
-        body: RideSchema
-    }),function(req, res) {
-        console.log(req.body);
-        res.status(201).send({serverdata:"Server received data"});
-    });
-
-    // get ride data
-    app.get('/ride/:user_id/:ride_type',function(req,res) {
-      var user_id = req.params.user_id;
-      var ride_type = req.params.ride_type;
-      console.log("Getting data for user "+user_id);
-      db.collection('users').findOne(
-        {_id:new ObjectID(user_id)}, function(err,userData) {
-          if (err) {
-            console.log("This is an error why getting user data");
-            res.status(401).end();
-          } else {
-            console.log("ride type is " + ride_type);
-            var ride_data;
-            if (ride_type == "confirmedRides") {
-              ride_data = userData.confirmedRides;
-            } else if (ride_type == "pendingRides") {
-              ride_data = userData.pendingRides;
-            } else {
-              ride_data = userData.previousRides;
-            }
-            processNextRideItem(ride_type,0,ride_data, [], function(err,resolvedContents) {
-                if (err) {
-                  res.status(401).end();
-                } else {
-                  console.log(resolvedContents);
-                  res.status(200).send(resolvedContents);
-                }
-            });
-          }
-      });
-    });
-
-
     function processNextRideItem(ride_type,i, rideItems, resolvedContents, callback) {
         // Asynchronously resolve a feed item.
       if (rideItems.length === 0) {
@@ -101,6 +60,61 @@ MongoClient.connect(url, function(err, db) {
           }
         });
       }
+      // post a ride request
+      app.post('/ride/:user_id', validate({
+          body: RideSchema
+      }),function(req, res) {
+          console.log(req.body);
+          res.status(201).send({serverdata:"Server received data"});
+      });
+
+      // get ride data
+      app.get('/ride/:user_id/:ride_type',function(req,res) {
+        var user_id = req.params.user_id;
+        var ride_type = req.params.ride_type;
+        console.log("Getting data for user "+user_id);
+        db.collection('users').findOne(
+          {_id:new ObjectID(user_id)}, function(err,userData) {
+            if (err) {
+              console.log("This is an error why getting user data");
+              res.status(401).end();
+            } else {
+              console.log("ride type is " + ride_type);
+              var ride_data;
+              if (ride_type == "confirmedRides") {
+                ride_data = userData.confirmedRides;
+              } else if (ride_type == "pendingRides") {
+                ride_data = userData.pendingRides;
+              } else {
+                ride_data = userData.previousRides;
+              }
+              processNextRideItem(ride_type,0,ride_data, [], function(err,resolvedContents) {
+                  if (err) {
+                    res.status(401).end();
+                  } else {
+                    console.log(resolvedContents);
+                    res.status(200).send(resolvedContents);
+                  }
+              });
+            }
+        });
+      });
+
+      app.get('/location',function(req,res) {
+        db.collection('locations').find(function(err,rideData) {
+          if (err) {
+            res.status(401).end();
+          }else {
+            rideData.toArray(function(err,rideDataArray) {
+              if (err) {
+                res.status(401).end();
+              } else {
+                res.status(200).send(rideDataArray);
+              }
+            });
+          }
+        });
+      });
 
     /**
      * Translate JSON Schema Validation failures into error 400s.

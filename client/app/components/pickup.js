@@ -24,7 +24,7 @@ class PickUp extends React.Component {
       currentPage:newpage.currentPage
     }
     if (newpage.currentPage == "dropOff"){
-      this.props.save("pickup",this.state.pickupLocation,data);
+      this.props.save("pickup",this.state.pickupValue,data);
     } else {
       // go back to previous, disregard data
       this.props.switch(data);
