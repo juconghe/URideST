@@ -25,17 +25,18 @@ MongoClient.connect(url, function(err, db) {
       if (rideItems.length === 0) {
           callback(null, []);
       } else {
-        getRideItem(ride_type,rideItems[i], function(err, feedItem) {
+        getRideItem(ride_type,rideItems[i], function(err, rideItem) {
             if (err) {
                 // Pass an error to the callback.
                 callback(err);
             } else {
                 // Success!
                 // console.log(feedItem);
-                resolvedContents.push(feedItem);
+                resolvedContents.push(rideItem);
                 if (resolvedContents.length === rideItems.length) {
                     // I am the final feed item; all others are resolved.
                     // Pass the resolved feed document back to the callback.
+                    // console.log("==========>"+resolvedContents);
                     callback(null, resolvedContents);
                 } else {
                     // Process the next feed item.
@@ -72,14 +73,14 @@ MongoClient.connect(url, function(err, db) {
       app.get('/ride/:user_id/:ride_type',function(req,res) {
         var user_id = req.params.user_id;
         var ride_type = req.params.ride_type;
-        console.log("Getting data for user "+user_id);
+        // console.log("Getting data for user "+user_id);
         db.collection('users').findOne(
           {_id:new ObjectID(user_id)}, function(err,userData) {
             if (err) {
               console.log("This is an error why getting user data");
               res.status(401).end();
             } else {
-              console.log("ride type is " + ride_type);
+              // console.log("ride type is " + ride_type);
               var ride_data;
               if (ride_type == "confirmedRides") {
                 ride_data = userData.confirmedRides;
@@ -92,7 +93,7 @@ MongoClient.connect(url, function(err, db) {
                   if (err) {
                     res.status(401).end();
                   } else {
-                    console.log(resolvedContents);
+                    // console.log(resolvedContents);
                     res.status(200).send(resolvedContents);
                   }
               });

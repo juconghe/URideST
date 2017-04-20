@@ -56,8 +56,8 @@ class ViewRide extends React.Component {
   }
 
   render() {
-    let rideDataPrev = this.state.pendingRideArray;
-    let rideDataPend = this.state.previousRideArray;
+    let rideDataPrev = this.state.previousRideArray;
+    let rideDataPend = this.state.pendingRideArray;
     let rideDataCon = this.state.confirmedRideArray;
     return (
       <div>
