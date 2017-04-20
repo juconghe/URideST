@@ -1,0 +1,45 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {},
+    "id": "http://example.com/example.json",
+    "properties": {
+        "dropoff": {
+            "id": "/properties/dropoff",
+            "type": "string"
+        },
+        "isConfirmed": {
+            "id": "/properties/isConfirmed",
+            "type": "boolean"
+        },
+        "pickup": {
+            "id": "/properties/pickup",
+            "type": "string"
+        },
+        "pickupDate": {
+            "id": "/properties/pickupDate",
+            "type": "integer"
+        },
+        "pickupTime": {
+            "id": "/properties/pickupTime",
+            "type": "string"
+        },
+        "specialAccess": {
+            "id": "/properties/specialAccess",
+            "type": "string"
+        },
+        "isRecurring": {
+          "id": "/properties/isRecurring",
+          "type": "boolean"
+        }
+    },
+    "required": [
+        "dropoff",
+        "pickupDate",
+        "isConfirmed",
+        "pickup",
+        "pickupTime",
+        "specialAccess",
+        "isRecurring"
+    ],
+    "type": "object"
+}

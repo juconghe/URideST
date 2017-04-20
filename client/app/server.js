@@ -130,39 +130,24 @@ export function getPendingRideData(user,cb) {
 }
 
 export function getPreviousRideData(user,cb) {
-    // sendXHR('GET','/user/1/feed/'+type,undefined,(xhr) => {
-    //   cb(JSON.parse(xhr.responseText));
-    // });
-    var array = [];
-    for (var i = 30; i < 60; i++) {
-        const PrevData ={
-            _id:i,
-            pickupTime:"12:15 PM - 12:30 PM",
-            pickupDate:"Wednesday, April 19, 2017",
-            isConfirmed:true,
-            dropoff:"ILC",
-            pickup:"North A",
-            van:6,
-            user:"Cody"
-        }
-        array.push(PrevData);
-    }
-    cb(array);
+  sendXHR('GET','/ride/'+user,undefined,(xhr) => {
+    console.log(xhr.responseText);
+    cb(JSON.parse(xhr.responseText));
+  });
 }
 
 export function submitRequest(user, contents,cb) {
   const rideData = {
-    pickUpTime: contents.pickUpTime,
-    pickUpDate: contents.pickUpDate,
+    pickupTime: contents.pickUpTime,
+    pickupDate: contents.pickUpDate,
     isRecurring: contents.isRecurring,
     isConfirmed: contents.isConfirmed,
-    dropOff: contents.dropOff,
-    pickUp: contents.pickUp,
-    van: contents.van,
-    user: contents.user,
+    dropoff: contents.dropOff,
+    pickup: contents.pickUp,
     specialAccess:contents.specialAccess
   }
-  sendXHR('POST','/ride',rideData,(xhr) => {
+  console.log(rideData);
+  sendXHR('POST','/ride/'+"user",rideData,(xhr) => {
     console.log(xhr.responseText);
     cb(JSON.parse(xhr.responseText));
   });

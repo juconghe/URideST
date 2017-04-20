@@ -21,7 +21,7 @@ class ViewRide extends React.Component {
     }
   }
   componentWillMount() {
-    getPreviousRideData(1,(data)=> {
+    getPreviousRideData("000000000000000000000001",(data)=> {
       console.log(data);
       this.setState({rideArray:data});
     });

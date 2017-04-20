@@ -10,7 +10,8 @@
     "express": "^4.15.2",
     "express-jsonschema": "^1.1.6",
     "mongodb":"^2.2.25",
-    "mongo-express":"^0.39.2"
+    "mongo-express":"^0.39.2",
+    "moment": "^2.18.1"
   },
   "devDependencies": {
     "eslint": "^3.19.0",

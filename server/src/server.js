@@ -1,31 +1,15 @@
-//import express module
 var express = require('express');
-//import JSON body parser
 var bodyParser = require('body-parser');
-//import database functions
 var mongo_express = require('mongo-express/lib/middleware');
-var ResetDatabase = require('./resetdatabase');
 var mongo_express_config = require('mongo-express/config.default.js');
 var validate = require('express-jsonschema').validate;
 var app = express();
 var MongoDB = require('mongodb');
 var MongoClient = MongoDB.MongoClient;
 var ObjectID = MongoDB.ObjectID;
-var url = 'mongodb://localhost:27017/exser';
-var categoryMap = {
-        "Computer Science": "000000000000000000000001",
-        "Math": "000000000000000000000002",
-        "Music": "000000000000000000000003",
-        "History": "000000000000000000000004",
-        "Physics": "000000000000000000000005",
-        "English": "000000000000000000000006",
-        "Pet Related": "000000000000000000000007",
-        "Home Improvement": "000000000000000000000008",
-        "Travel": "000000000000000000000009",
-        "Yard": "0000000000000000000000010",
-        "Plumer": "000000000000000000000011",
-        "Car Pool": "000000000000000000000012"
-    }
+var RideSchema = require('./schemas/rideSchema.json');
+var url = 'mongodb://localhost:27017/URideST';
+const Moment = require('moment');
     // listening on port 3000
     // Implement your server in this file.
     // We should be able to run your server with node src/server.js
@@ -36,57 +20,78 @@ MongoClient.connect(url, function(err, db) {
     app.use(express.static('../client/build'));
     app.use('/mongo_express', mongo_express(mongo_express_config));
 
-    app.post('/ride', function(req, res) {
+    // post a ride request
+    app.post('/ride/:user_id', validate({
+        body: RideSchema
+    }),function(req, res) {
         console.log(req.body);
         res.status(201).send({serverdata:"Server received data"});
     });
 
+    // get ride data
     app.get('/ride/:user_id',function(req,res) {
       var user_id = req.params.user_id;
       console.log("Getting data for user "+user_id);
-        const rideData =[
-          {
-          _id:1,
-          pickupTime:"11:00 AM - 11:15 AM",
-          pickupDate:"Tuesday, March 19, 2017",
-          isConfirmed:true,
-          dropoff:"LGRC",
-          pickup:"FAC",
-          van:20,
-          user:"Jucong"
-        },
-        {
-        _id:2,
-        pickupTime:"11:00 AM - 11:15 AM",
-        pickupDate:"Tuesday, March 19, 2017",
-        isConfirmed:true,
-        dropoff:"LGRC",
-        pickup:"FAC",
-        van:20,
-        user:"Jucong"
-        },
-        {
-        _id:3,
-        pickupTime:"11:00 AM - 11:15 AM",
-        pickupDate:"Tuesday, March 19, 2017",
-        isConfirmed:true,
-        dropoff:"LGRC",
-        pickup:"FAC",
-        van:20,
-        user:"Jucong"
-        },
-        {
-        _id:4,
-        pickupTime:"11:00 AM - 11:15 AM",
-        pickupDate:"Tuesday, March 19, 2017",
-        isConfirmed:true,
-        dropoff:"LGRC",
-        pickup:"FAC",
-        van:20,
-        user:"Jucong"
-        }]
-        res.status(200).send(rideData);
+      db.collection('users').findOne(
+        {_id:new ObjectID(user_id)}, function(err,userData) {
+          if (err) {
+            console.log("This is an error why getting user data");
+            res.status(401).end();
+          } else {
+            processNextRideItem(0, userData.pendingRides, [], function(err,resolvedContents) {
+                if (err) {
+                  res.status(401).end();
+                } else {
+                  console.log(resolvedContents);
+                  res.status(200).send(resolvedContents);
+                }
+            });
+          }
+      });
     });
+
+
+    function processNextRideItem(i, rideItems, resolvedContents, callback) {
+        // Asynchronously resolve a feed item.
+      if (rideItems.length === 0) {
+          callback(null, []);
+      } else {
+        getRideItem('pendingRides',rideItems[i], function(err, feedItem) {
+            if (err) {
+                // Pass an error to the callback.
+                callback(err);
+            } else {
+                // Success!
+                // console.log(feedItem);
+                resolvedContents.push(feedItem);
+                if (resolvedContents.length === rideItems.length) {
+                    // I am the final feed item; all others are resolved.
+                    // Pass the resolved feed document back to the callback.
+                    callback(null, resolvedContents);
+                } else {
+                    // Process the next feed item.
+                    processNextRideItem(i + 1, rideItems, resolvedContents, callback);
+                }
+              }
+            });
+          }
+        }
+
+    function getRideItem(rideType,rideItemId, callback) {
+      db.collection(rideType).findOne({
+          _id: rideItemId
+      }, function(err, rideItem) {
+          if (err) {
+              return callback(err);
+          } else if (rideItem === null) {
+              return callback(null, null);
+          } else {
+            rideItem.pickupDate = Moment(rideItem.pickupDate).format("MM-DD-YYYY");
+            return callback(null,rideItem);
+          }
+        });
+      }
+
     /**
      * Translate JSON Schema Validation failures into error 400s.
      */

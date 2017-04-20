@@ -10,13 +10,37 @@ var initialData = {
       "firsname":"Jucong",
       "lastname":"He",
       "confirmedRides":[new ObjectID("000000000000000000000001")],
-      "pendingRides": [new ObjectID("000000000000000000000001")]
+      "pendingRides": [
+        new ObjectID("000000000000000000000001"),
+        new ObjectID("000000000000000000000002"),
+        new ObjectID("000000000000000000000003")],
+      "previousRides":[new ObjectID("000000000000000000000001")]
     }
   },
 
   "pendingRides": {
     "1":{
       "_id":new ObjectID("000000000000000000000001"),
+      "pickupTime":"11:00 AM - 11:15 AM",
+      "pickupDate":1492544152941,
+      "isConfirmed":true,
+      "dropoff":"LGRC",
+      "pickup":"FAC",
+      "van":20,
+      "user":new ObjectID("000000000000000000000001")
+    },
+    "2":{
+      "_id":new ObjectID("000000000000000000000002"),
+      "pickupTime":"11:00 AM - 11:15 AM",
+      "pickupDate":1492544152941,
+      "isConfirmed":true,
+      "dropoff":"LGRC",
+      "pickup":"FAC",
+      "van":20,
+      "user":new ObjectID("000000000000000000000001")
+    },
+    "3":{
+      "_id":new ObjectID("000000000000000000000003"),
       "pickupTime":"11:00 AM - 11:15 AM",
       "pickupDate":1492544152941,
       "isConfirmed":true,
