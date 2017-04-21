@@ -1,16 +1,27 @@
 const React = require('react');
 const ListGoup = require('./listGroup');
 const CollapsibleRequests = require('./collapsibleRequests');
+import {getAllPendingRideData} from '../server';
+
 const passengerData = [[0, "Dennis Reynolds", "12345534"],
              [1, "Deandra Reynolds", "3466221"],
              [2, "Charlie Kelly", "3852395"],
              [3, "Ronald McDonald", "4235634"],
              [4, "Donald Trump", "6666666"]];
-const requestData = [[0, "Wednesday March 1", "Berk -> FAC"],
-           [1, "Monday March 10", "Arnold House -> ILC"],
-           [2, "Friday March 15", "LGRC -> Hamp"],
-           [3, "Tuesday March 11", "ISB -> Frank"],
-           [4, "Thursday March 12", "Campus Center -> Brown"]];
+const requestData = [{
+    "_id":"000000000000000000000001",
+    "pickupTime":"11:00 AM - 11:15 AM",
+    "pickupDate":1492544152941,
+    "isConfirmed":true,
+    "dropoff":"LGRC",
+    "pickup":"FAC",
+    "van":-1,
+    "user":{
+      "lastname":"He",
+      "firstname":"Jucong"
+    }
+  }]
+
 class RequestPassengerBox extends React.Component{
   constructor(props){
     super(props);
@@ -20,6 +31,13 @@ class RequestPassengerBox extends React.Component{
       passengerView: false
     }
     this.handleSwitchTab = this.handleSwitchTab.bind(this);
+  }
+
+  componentDidMount() {
+    getAllPendingRideData((pendingRides)=> {
+      console.log(pendingRides);
+      this.setState({requests:pendingRides});
+    })
   }
 
   handleSwitchTab() {

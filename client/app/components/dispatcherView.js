@@ -56,9 +56,7 @@ class DispatcherView extends React.Component {
         <div className="col-md-12">
           <div className="container-fluid">
             <RequestPassengerBox/>
-            <div>
-              <VanDay/>
-            </div>
+            <VanDay/>
             <div className="col-md-7 nopadding">
               <div className="panel panel-default">
                 <RideGrid />

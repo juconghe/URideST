@@ -86,6 +86,13 @@ export function getPreviousRideData(user,cb) {
   });
 }
 
+export function getAllPendingRideData(cb) {
+  sendXHR('GET','/allPendingRides',undefined,(xhr) => {
+    // console.log(xhr.responseText);
+    cb(JSON.parse(xhr.responseText));
+  });
+}
+
 export function getLocationData(cb) {
   sendXHR('GET','/location',undefined,(xhr) => {
     // console.log(xhr.responseText);

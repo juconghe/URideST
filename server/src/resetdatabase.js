@@ -7,7 +7,7 @@ var initialData = {
   "users":{
     "1": {
       "_id":new ObjectID("000000000000000000000001"),
-      "firsname":"Jucong",
+      "firstname":"Jucong",
       "lastname":"He",
       "confirmedRides":[new ObjectID("000000000000000000000001")],
       "pendingRides": [

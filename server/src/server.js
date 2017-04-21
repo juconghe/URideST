@@ -57,10 +57,59 @@ MongoClient.connect(url, function(err, db) {
               return callback(null, null);
           } else {
             rideItem.pickupDate = Moment(rideItem.pickupDate).format("MM-DD-YYYY");
-            return callback(null,rideItem);
+            resolvedUserObject(rideItem.user, function(err,userObject) {
+              if (err) {
+                return callback(err);
+              } else {
+                rideItem.user = userObject;
+                return callback(null,rideItem);
+              }
+            });
           }
         });
       }
+
+      function resolvedUserObject(user_id,callback) {
+        db.collection('users').findOne(
+          {_id:user_id},function(err,userItem) {
+            if (err) {
+              return callback(err);
+            } else if (userItem == null){
+              return callback(null,null);
+            } else {
+              return callback(null,userItem);
+            }
+          });
+      }
+
+      function processNextUserItem(i, rideItems, resolvedContents, callback) {
+          // Asynchronously resolve a feed item.
+        if (rideItems.length === 0) {
+            callback(null, []);
+        } else {
+          resolvedUserObject(rideItems[i].user, function(err, userObject) {
+              if (err) {
+                  // Pass an error to the callback.
+                  callback(err);
+              } else {
+                  // Success!
+                  // console.log(feedItem);
+                  rideItems[i].user = userObject
+                  rideItems[i].pickupDate = Moment(rideItems[i].pickupDate).format("MM-DD-YYYY");
+                  resolvedContents.push(rideItems[i]);
+                  if (resolvedContents.length === rideItems.length) {
+                      // I am the final feed item; all others are resolved.
+                      // Pass the resolved feed document back to the callback.
+                      // console.log("==========>"+resolvedContents);
+                      callback(null, resolvedContents);
+                  } else {
+                      // Process the next feed item.
+                      processNextUserItem(i + 1, rideItems, resolvedContents, callback);
+                  }
+                }
+              });
+            }
+          }
       // post a ride request
       app.post('/ride/:user_id', validate({
           body: RideSchema
@@ -86,16 +135,16 @@ MongoClient.connect(url, function(err, db) {
                 $push:{
                   pendingRides:result.insertedId
                 }
-              },function(err,result) {
+              },function(err) {
                 // console.log(result);
                 if (err) {
                   res.status(401).end();
                 } else {
                   res.status(200).send(newPendingRide);
                 }
-              })
+              });
           }
-        })
+        });
       });
 
       // get ride data
@@ -146,6 +195,30 @@ MongoClient.connect(url, function(err, db) {
         });
       });
 
+      app.get('/allPendingRides',function(req,res) {
+        db.collection('pendingRides').find(function(err,rideData) {
+          if (err) {
+            res.status(401).end();
+          } else {
+            rideData.toArray(function(err,rideDataArray) {
+              if (err) {
+                res.status(401).end();
+              } else {
+                // console.log(rideDataArray);
+                processNextUserItem(0,rideDataArray, [], function(err,resolvedContents)
+                {
+                  if (err) {
+                    res.status(401).end();
+                  } else {
+                    // console.log(resolvedContents);
+                    res.status(200).send(resolvedContents);
+                  }
+                });
+              }
+            });
+          }
+        });
+      });
     /**
      * Translate JSON Schema Validation failures into error 400s.
      */
