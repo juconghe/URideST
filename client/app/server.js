@@ -103,7 +103,7 @@ export function submitRequest(user, contents,cb) {
     specialAccess:contents.specialAccess
   }
   console.log(rideData);
-  sendXHR('POST','/ride/'+"user",rideData,(xhr) => {
+  sendXHR('POST','/ride/'+user,rideData,(xhr) => {
     console.log(xhr.responseText);
     cb(JSON.parse(xhr.responseText));
   });

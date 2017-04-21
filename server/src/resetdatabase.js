@@ -26,7 +26,7 @@ var initialData = {
       "isConfirmed":true,
       "dropoff":"LGRC",
       "pickup":"FAC",
-      "van":20,
+      "van":-1,
       "user":new ObjectID("000000000000000000000001")
     },
     "2":{
@@ -36,7 +36,7 @@ var initialData = {
       "isConfirmed":true,
       "dropoff":"LGRC",
       "pickup":"FAC",
-      "van":20,
+      "van":-1,
       "user":new ObjectID("000000000000000000000001")
     },
     "3":{
@@ -46,7 +46,7 @@ var initialData = {
       "isConfirmed":true,
       "dropoff":"LGRC",
       "pickup":"FAC",
-      "van":20,
+      "van":-1,
       "user":new ObjectID("000000000000000000000001")
     }
   },
@@ -63,7 +63,7 @@ var initialData = {
         "user":new ObjectID("000000000000000000000001")
       }
     },
-    
+
     "previousRides": {
         "1":{
           "_id":new ObjectID("000000000000000000000001"),

@@ -65,8 +65,37 @@ MongoClient.connect(url, function(err, db) {
       app.post('/ride/:user_id', validate({
           body: RideSchema
       }),function(req, res) {
-          console.log(req.body);
-          res.status(201).send({serverdata:"Server received data"});
+        const body = req.body;
+        var user_id = req.params.user_id;
+        var newPendingRide = {
+          "pickupTime":body.pickupTime,
+          "pickupDate":body.pickupDate,
+          "isConfirmed":body.isConfirmed,
+          "dropoff":body.dropoff,
+          "pickup":body.pickup,
+          "van":-1,
+          "user":new ObjectID(user_id)
+        }
+        db.collection('pendingRides').insertOne(newPendingRide,function (err,result){
+          if (err) {
+            res.status(401).end();
+          } else {
+            newPendingRide._id = result.insertedId;
+            db.collection('users').updateOne( {_id:new ObjectID(user_id)},
+              {
+                $push:{
+                  pendingRides:result.insertedId
+                }
+              },function(err,result) {
+                // console.log(result);
+                if (err) {
+                  res.status(401).end();
+                } else {
+                  res.status(200).send(newPendingRide);
+                }
+              })
+          }
+        })
       });
 
       // get ride data
