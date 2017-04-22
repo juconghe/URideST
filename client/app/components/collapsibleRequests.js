@@ -1,19 +1,25 @@
 const React = require('react');
 import Collapsible from 'react-collapsible';
 import ListGroup from './listGroup';
-const vans=[[0, "Van 1"],
-            [1, "Van 2"],
-            [2, "Van 3"],
-            [3, "Van 4"],
-            [4, "Van 5"]]
+import {getAvailableVan} from '../server';
 
 class CollapsibleRequests extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      availableVans:[]
+    }
   }
-
+  componentDidMount() {
+    getAvailableVan((vans)=> {
+      this.setState({availableVans:vans});
+    });
+  }
   render() {
     const items = this.props.items;
+    const vans = this.state.availableVans.map(function(van) {
+      return [van._id,"Van "+van.number];
+    });
     let listVan = <ListGroup items={vans}/>
     return (
       <div>

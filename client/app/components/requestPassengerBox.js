@@ -8,26 +8,13 @@ const passengerData = [[0, "Dennis Reynolds", "12345534"],
              [2, "Charlie Kelly", "3852395"],
              [3, "Ronald McDonald", "4235634"],
              [4, "Donald Trump", "6666666"]];
-const requestData = [{
-    "_id":"000000000000000000000001",
-    "pickupTime":"11:00 AM - 11:15 AM",
-    "pickupDate":1492544152941,
-    "isConfirmed":true,
-    "dropoff":"LGRC",
-    "pickup":"FAC",
-    "van":-1,
-    "user":{
-      "lastname":"He",
-      "firstname":"Jucong"
-    }
-  }]
 
 class RequestPassengerBox extends React.Component{
   constructor(props){
     super(props);
     this.state = {
       passengers:passengerData,
-      requests:requestData,
+      requests:[],
       passengerView: false
     }
     this.handleSwitchTab = this.handleSwitchTab.bind(this);
@@ -35,9 +22,9 @@ class RequestPassengerBox extends React.Component{
 
   componentDidMount() {
     getAllPendingRideData((pendingRides)=> {
-      console.log(pendingRides);
+      // console.log(pendingRides);
       this.setState({requests:pendingRides});
-    })
+    });
   }
 
   handleSwitchTab() {
@@ -50,12 +37,13 @@ class RequestPassengerBox extends React.Component{
     let passengers = this.state.passengers;
     let passengerView = this.state.passengerView;
     let requests = this.state.requests;
+    let vans = this.state.availableVans;
     let list = null;
     if(passengerView){
       list = <ListGoup items={passengers}/>
     }
     else {
-      list = <CollapsibleRequests items={requests} />
+      list = <CollapsibleRequests items={requests} vans={vans}/>
     }
     return(
 

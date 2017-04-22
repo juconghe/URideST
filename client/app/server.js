@@ -99,6 +99,13 @@ export function getLocationData(cb) {
     cb(JSON.parse(xhr.responseText));
   });
 }
+
+export function getAvailableVan(cb) {
+  sendXHR('GET','/vailableVan',undefined,(xhr) => {
+    // console.log(xhr.responseText);
+    cb(JSON.parse(xhr.responseText));
+  });
+  }
 export function submitRequest(user, contents,cb) {
   const rideData = {
     pickupTime: contents.pickUpTime,

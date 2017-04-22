@@ -219,6 +219,24 @@ MongoClient.connect(url, function(err, db) {
           }
         });
       });
+
+      app.get('/vailableVan',function(req,res) {
+        db.collection('vans').find({availableSeat:{$gt:0}},
+          function(err,vanData) {
+            if(err) {
+              res.status(401).end();
+            } else {
+              vanData.toArray(function(err,vanArray) {
+                if(err) {
+                  res.status(401).end();
+                } else {
+                  // console.log("Sending data back");
+                  res.status(200).send(vanArray);
+                }
+              });
+            }
+        });
+      });
     /**
      * Translate JSON Schema Validation failures into error 400s.
      */

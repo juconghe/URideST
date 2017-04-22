@@ -177,7 +177,38 @@ var initialData = {
       "_id":new ObjectID("000000000000000000000020"),
       "building":"Chancellor's House"
     }
-
+  },
+  "vans": {
+    "1":{
+      "_id":new ObjectID("000000000000000000000001"),
+      "number":1,
+      "availableSeat":8
+    },
+    "2":{
+      "_id":new ObjectID("000000000000000000000002"),
+      "number":2,
+      "availableSeat":3
+    },
+    "3":{
+      "_id":new ObjectID("000000000000000000000003"),
+      "number":3,
+      "availableSeat":0
+    },
+    "4":{
+      "_id":new ObjectID("000000000000000000000004"),
+      "number":4,
+      "availableSeat":1
+    },
+    "5":{
+      "_id":new ObjectID("000000000000000000000005"),
+      "number":5,
+      "availableSeat":5
+    },
+    "6":{
+      "_id":new ObjectID("000000000000000000000006"),
+      "number":6,
+      "availableSeat":4
+    }
   }
 };
 
