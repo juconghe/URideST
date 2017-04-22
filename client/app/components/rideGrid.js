@@ -1,44 +1,19 @@
 const React = require('react');
 const ReactDataGrid = require('react-data-grid');
+import {getAllRideData} from '../server';
 
 class RideGrid extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {rows: this.createRows(30)}
-    this.getRandomDate = this.getRandomDate.bind(this);
-    this.createRows = this.createRows.bind(this);
-    this.rowGetter = this.rowGetter.bind(this);
+    this.state = {row:[]}
     this.handleGridRowsUpdated = this.handleGridRowsUpdated.bind(this);
     this.handleGridSort = this.handleGridSort.bind(this);
   }
-
-  getRandomDate(start, end) {
-    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())).toLocaleDateString();
+  componentDidMount() {
+    getAllRideData('confirmedRides',(confirmedRideData)=> {
+      this.setState({row:confirmedRideData});
+    })
   }
-
-  createRows(numberOfRows) {
-    let rows = [];
-    const locations = ['FAC', 'LGRC','ILC','Morill'];
-    for (let i = 1; i < numberOfRows; i++) {
-      rows.push({
-        id: i,
-        firstName: 'First Name' + i,
-        lastName: 'Last Name' + i,
-        date:this.getRandomDate(new Date(2015, 3, 1), new Date()),
-        time:"Now",
-        pickupLocation:locations[Math.floor((Math.random() * 4))],
-        dropoffLocation: ['FAC', 'LGRC','ILC', 'Morill'][Math.floor((Math.random() * 4))],
-        van: Math.floor((Math.random() * 20)),
-        isApproved:['Approved', 'Pending','Deny'][Math.floor((Math.random() * 3))]
-      });
-    }
-    return rows;
-  }
-
-  rowGetter(i) {
-    return this.state.rows[i];
-  }
-
   handleGridRowsUpdated({ fromRow, toRow, updated }) {
     let rows = this.state.rows;
 
@@ -65,6 +40,20 @@ class RideGrid extends React.Component {
   }
 
   render() {
+    const newrows = this.state.row.map(function(req) {
+       var row = {
+         id:req._id,
+         firstName:req.user.firstname,
+         lastName:req.user.lastname,
+         date:req.pickupDate,
+         time:req.pickupTime,
+         pickupLocation:req.pickup,
+         dropoffLocation:req.dropoff,
+         van:req.van,
+         isApproved:req.isConfirmed ? 'Yes' : 'No'
+       }
+       return row;
+    });
     return  (
       <ReactDataGrid
         enableCellSelect={true}
@@ -72,7 +61,6 @@ class RideGrid extends React.Component {
             {
               key: 'id',
               name: 'ID',
-              width: 50,
               sortable: true
 
             },
@@ -138,9 +126,9 @@ class RideGrid extends React.Component {
               sortable: true
             },
           ]}
-        rowGetter={this.rowGetter}
+        rowGetter={(i)=>newrows[i]}
         onGridSort={this.handleGridSort}
-        rowsCount={this.state.rows.length}
+        rowsCount={newrows.length}
         minHeight={500}
         onGridRowsUpdated={this.handleGridRowsUpdated} />);
   }

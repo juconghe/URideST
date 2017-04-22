@@ -2,18 +2,14 @@ const React = require('react');
 const RideGrid = require('./rideGrid');
 const VanDay = require('./vanDay');
 const RequestPassengerBox = require('./requestPassengerBox');
+import {getAllRideData} from '../server';
 
 
 class DispatcherView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      items:[[0,"Dapibus ac facilisis","HAHAHAH"],
-            [1,"Dapibus ac facilisis","HAHAHAH"],
-            [2,"Dapibus ac facilisis","HAHAHAH"],
-            [3,"Dapibus ac facilisis","HAHAHAH"],
-            [4,"Dapibus ac facilisis","HAHAHAH"]]
-
+      requests:[]
     }
     this.handlePreviousweek = this.handlePreviousweek.bind(this);
     this.handleNextweek = this.handleNextweek.bind(this);
@@ -21,6 +17,12 @@ class DispatcherView extends React.Component {
   }
 
 
+  componentDidMount() {
+    getAllRideData('pendingRides',(pendingRides)=> {
+      // console.log(pendingRides);
+      this.setState({requests:pendingRides});
+    });
+  }
   handlePreviousweek(){
     console.log("handlePrevousWeek");
   }
@@ -55,7 +57,7 @@ class DispatcherView extends React.Component {
         </nav>
         <div className="col-md-12">
           <div className="container-fluid">
-            <RequestPassengerBox/>
+            <RequestPassengerBox requests={this.state.requests}/>
             <VanDay/>
             <div className="col-md-7 nopadding">
               <div className="panel panel-default">

@@ -1,7 +1,7 @@
 const React = require('react');
 const ListGoup = require('./listGroup');
 const CollapsibleRequests = require('./collapsibleRequests');
-import {getAllPendingRideData} from '../server';
+
 
 const passengerData = [[0, "Dennis Reynolds", "12345534"],
              [1, "Deandra Reynolds", "3466221"],
@@ -14,17 +14,9 @@ class RequestPassengerBox extends React.Component{
     super(props);
     this.state = {
       passengers:passengerData,
-      requests:[],
       passengerView: false
     }
     this.handleSwitchTab = this.handleSwitchTab.bind(this);
-  }
-
-  componentDidMount() {
-    getAllPendingRideData((pendingRides)=> {
-      // console.log(pendingRides);
-      this.setState({requests:pendingRides});
-    });
   }
 
   handleSwitchTab() {
@@ -36,7 +28,7 @@ class RequestPassengerBox extends React.Component{
   render(){
     let passengers = this.state.passengers;
     let passengerView = this.state.passengerView;
-    let requests = this.state.requests;
+    let requests = this.props.requests;
     let vans = this.state.availableVans;
     let list = null;
     if(passengerView){

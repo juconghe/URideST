@@ -86,8 +86,8 @@ export function getPreviousRideData(user,cb) {
   });
 }
 
-export function getAllPendingRideData(cb) {
-  sendXHR('GET','/allPendingRides',undefined,(xhr) => {
+export function getAllRideData(ride_type,cb) {
+  sendXHR('GET','/allRides/'+ride_type,undefined,(xhr) => {
     // console.log(xhr.responseText);
     cb(JSON.parse(xhr.responseText));
   });

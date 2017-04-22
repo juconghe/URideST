@@ -195,8 +195,9 @@ MongoClient.connect(url, function(err, db) {
         });
       });
 
-      app.get('/allPendingRides',function(req,res) {
-        db.collection('pendingRides').find(function(err,rideData) {
+      app.get('/allRides/:ride_type',function(req,res) {
+        const ride_type = req.params.ride_type;
+        db.collection(ride_type).find(function(err,rideData) {
           if (err) {
             res.status(401).end();
           } else {
