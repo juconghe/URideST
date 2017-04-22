@@ -74,7 +74,7 @@ export function getConfirmedRideData(user,cb) {
 
 export function getPendingRideData(user,cb) {
   sendXHR('GET','/ride/'+user+'/pendingRides',undefined,(xhr) => {
-    // console.log(xhr.responseText);
+    console.log("Getting data for pendingRides");
     cb(JSON.parse(xhr.responseText));
   });
 }
