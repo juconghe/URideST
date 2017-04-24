@@ -5,12 +5,10 @@ class ListGroupWithOnClick extends React.Component {
     super(props);
   }
 
-  handleAssignVan(e,request) {
-    // this.props.refresh();
+  handleAssignVan(e,van) {
     e.preventDefault()
-    assignRequest(request,(message)=>{
-      console.log(message);
-      console.log(this.props.request);
+    assignRequest(van,this.props.request,()=>{
+      this.props.refresh();
     });
   }
 

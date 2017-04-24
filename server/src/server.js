@@ -238,6 +238,10 @@ MongoClient.connect(url, function(err, db) {
             }
         });
       });
+
+      app.post('/assignRide',function(req,res) {
+        console.log('Got the request');
+      });
     /**
      * Translate JSON Schema Validation failures into error 400s.
      */

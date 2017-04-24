@@ -121,7 +121,9 @@ export function submitRequest(user, contents,cb) {
   });
 }
 
-export function assignRequest(contents,cb) {
-  console.log(contents);
-  cb("Got it")
+export function assignRequest(van,request,cb) {
+  request.van = van[0];
+  sendXHR('POST','/assignRide',request,(xhr)=> {
+    console.log(SON.parse(xhr.responseText));
+  });
 }

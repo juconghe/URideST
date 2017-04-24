@@ -24,7 +24,7 @@ class DispatcherView extends React.Component {
 
   getPendingRideData() {
     getAllRideData('pendingRides',(pendingRides)=> {
-      // console.log('Getting pendingRides data');
+      console.log('Getting pendingRides data');
       this.setState({requests:pendingRides});
     });
   }

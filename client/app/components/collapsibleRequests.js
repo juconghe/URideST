@@ -17,11 +17,6 @@ class CollapsibleRequests extends React.Component {
     });
   }
 
-  handleselecteRequest(e,request) {
-    // this.setState({selectedRequest:request});
-    console.log(request);
-  }
-
   render() {
     const items = this.props.items;
     const vans = this.state.availableVans.map(function(van) {
