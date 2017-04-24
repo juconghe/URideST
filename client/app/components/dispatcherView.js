@@ -13,16 +13,22 @@ class DispatcherView extends React.Component {
     }
     this.handlePreviousweek = this.handlePreviousweek.bind(this);
     this.handleNextweek = this.handleNextweek.bind(this);
+    this.getPendingRideData = this.getPendingRideData.bind(this);
     console.log(this.state);
   }
 
 
   componentDidMount() {
+    this.getPendingRideData();
+  }
+
+  getPendingRideData() {
     getAllRideData('pendingRides',(pendingRides)=> {
-      // console.log(pendingRides);
+      // console.log('Getting pendingRides data');
       this.setState({requests:pendingRides});
     });
   }
+
   handlePreviousweek(){
     console.log("handlePrevousWeek");
   }
@@ -57,7 +63,7 @@ class DispatcherView extends React.Component {
         </nav>
         <div className="col-md-12">
           <div className="container-fluid">
-            <RequestPassengerBox requests={this.state.requests}/>
+            <RequestPassengerBox requests={this.state.requests} refresh={this.getPendingRideData}/>
             <VanDay/>
             <div className="col-md-7 nopadding">
               <div className="panel panel-default">

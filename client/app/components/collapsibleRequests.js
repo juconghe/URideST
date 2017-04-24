@@ -1,13 +1,14 @@
 const React = require('react');
 import Collapsible from 'react-collapsible';
-import ListGroup from './listGroup';
+import ListGroupWithOnClick from './listGroupWithOnClick';
 import {getAvailableVan} from '../server';
 
 class CollapsibleRequests extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      availableVans:[]
+      availableVans:[],
+      selectedRequest:0,
     }
   }
   componentDidMount() {
@@ -15,17 +16,22 @@ class CollapsibleRequests extends React.Component {
       this.setState({availableVans:vans});
     });
   }
+
+  handleselecteRequest(e,request) {
+    // this.setState({selectedRequest:request});
+    console.log(request);
+  }
+
   render() {
     const items = this.props.items;
     const vans = this.state.availableVans.map(function(van) {
       return [van._id,"Van "+van.number];
     });
-    let listVan = <ListGroup items={vans}/>
     return (
       <div>
           {items.map((i)=>
               <Collapsible trigger={
-                <button className="btn btn-raised btn-default btn-block">
+                <a type="button" className="btn btn-raised btn-default btn-block">
                 <span>{i.user.firstname} {i.user.lastname} </span>
                 <br/>
                 <span>{i.pickupDate}</span>
@@ -33,8 +39,8 @@ class CollapsibleRequests extends React.Component {
                 <span>{i.pickupTime}</span>
                 <br/>
                 <span>{i.pickup} -> {i.dropoff}</span>
-              </button>} key={i._id}>
-              {listVan}
+              </a>} key={i._id}>
+              <ListGroupWithOnClick items={vans} refresh={this.props.refresh} request={i}/>
               </Collapsible>
           )}
       </div>

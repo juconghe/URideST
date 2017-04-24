@@ -116,10 +116,12 @@ export function submitRequest(user, contents,cb) {
     pickup: contents.pickUp,
     specialAccess:contents.specialAccess
   }
-  console.log(rideData);
   sendXHR('POST','/ride/'+user,rideData,(xhr) => {
-    console.log(xhr.responseText);
     cb(JSON.parse(xhr.responseText));
   });
-  cb("Got you");
+}
+
+export function assignRequest(contents,cb) {
+  console.log(contents);
+  cb("Got it")
 }

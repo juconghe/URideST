@@ -35,7 +35,7 @@ class RequestPassengerBox extends React.Component{
       list = <ListGoup items={passengers}/>
     }
     else {
-      list = <CollapsibleRequests items={requests} vans={vans}/>
+      list = <CollapsibleRequests items={requests} vans={vans} refresh={this.props.refresh}/>
     }
     return(
 
