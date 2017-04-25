@@ -5,15 +5,18 @@ import {getAllRideData} from '../server';
 class RideGrid extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {row:[]}
+    this.state = {
+      row:[]
+    }
     this.handleGridRowsUpdated = this.handleGridRowsUpdated.bind(this);
     this.handleGridSort = this.handleGridSort.bind(this);
   }
   componentDidMount() {
     getAllRideData('confirmedRides',(confirmedRideData)=> {
       this.setState({row:confirmedRideData});
-    })
+    });
   }
+
   handleGridRowsUpdated({ fromRow, toRow, updated }) {
     let rows = this.state.rows;
 

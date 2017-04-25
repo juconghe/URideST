@@ -240,7 +240,39 @@ MongoClient.connect(url, function(err, db) {
       });
 
       app.post('/assignRide',function(req,res) {
-        console.log('Got the request');
+        var contents = req.body
+        db.collection('vans').findOneAndUpdate(
+          {_id:new ObjectID(contents.vanId)},{$inc:{availableSeat:-1}},
+          function(err,insertedVan) {
+            if (err) {
+              res.status(401).end();
+            } else {
+              db.collection('pendingRides').findOneAndDelete(
+                {_id:new ObjectID(contents.rideId)},function(err,deletedRide) {
+                  if (err) {
+                    res.status(401).end();
+                  } else {
+                    var pendingRide = deletedRide.value;
+                    const postRide = {
+                      pickupTime:pendingRide.pickupTime,
+                      pickUpDate:pendingRide.pickUpDate,
+                      isConfirmed:true,
+                      dropoff:pendingRide.dropoff,
+                      pickup:pendingRide.pickup,
+                      van:insertedVan.value.number,
+                      user:pendingRide.user
+                    }
+                    db.collection('confirmedRides').insertOne(postRide,function(err) {
+                      if (err) {
+                        res.status(401).end();
+                      } else {
+                        res.status(200).send();
+                      }
+                    });
+                  }
+                });
+            }
+          });
       });
     /**
      * Translate JSON Schema Validation failures into error 400s.
