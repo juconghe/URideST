@@ -9,7 +9,8 @@ class DispatcherView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      requests:[]
+      requests:[],
+      force:true
     }
     this.handlePreviousweek = this.handlePreviousweek.bind(this);
     this.handleNextweek = this.handleNextweek.bind(this);
@@ -24,8 +25,10 @@ class DispatcherView extends React.Component {
 
   getPendingRideData() {
     getAllRideData('pendingRides',(pendingRides)=> {
-      console.log('Getting pendingRides data');
-      this.setState({requests:pendingRides});
+      this.setState(prevState => ({
+        requests:pendingRides,
+        force:!prevState.force
+      }));
     });
   }
 
@@ -67,7 +70,7 @@ class DispatcherView extends React.Component {
             <VanDay/>
             <div className="col-md-7 nopadding">
               <div className="panel panel-default">
-                <RideGrid />
+                <RideGrid force={this.state.force}/>
               </div>
             </div>
           </div>

@@ -6,17 +6,18 @@ class RideGrid extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      row:[]
+      row:[],
+      force:null
     }
     this.handleGridRowsUpdated = this.handleGridRowsUpdated.bind(this);
     this.handleGridSort = this.handleGridSort.bind(this);
   }
-  componentDidMount() {
+
+  componentWillReceiveProps(nextProps) {
     getAllRideData('confirmedRides',(confirmedRideData)=> {
-      this.setState({row:confirmedRideData});
+      this.setState({row:confirmedRideData,force:nextProps.force});
     });
   }
-
   handleGridRowsUpdated({ fromRow, toRow, updated }) {
     let rows = this.state.rows;
 
