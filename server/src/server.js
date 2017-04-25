@@ -239,8 +239,9 @@ MongoClient.connect(url, function(err, db) {
         });
       });
 
-      app.post('/assignRide',function(req,res) {
+      app.post('/assignRide/:user_id',function(req,res) {
         var contents = req.body
+        var user_id = new ObjectID(req.params.user_id);
         db.collection('vans').findOneAndUpdate(
           {_id:new ObjectID(contents.vanId)},{$inc:{availableSeat:-1}},
           function(err,insertedVan) {
@@ -262,11 +263,21 @@ MongoClient.connect(url, function(err, db) {
                       van:insertedVan.value.number,
                       user:pendingRide.user
                     }
-                    db.collection('confirmedRides').insertOne(postRide,function(err) {
+                    db.collection('confirmedRides').insertOne(postRide,function(err,insertRide) {
                       if (err) {
                         res.status(401).end();
                       } else {
-                        res.status(200).send();
+                        db.collection('users').findOneAndUpdate(
+                          {_id:user_id},
+                          {$pullAll:{pendingRides:[deletedRide.value._id]},
+                          $addToSet:{confirmedRides:insertRide.insertedId}},
+                        function(err) {
+                          if(err) {
+                            res.status(401).end();
+                          } else {
+                            res.status(200).send();
+                          }
+                        });
                       }
                     });
                   }

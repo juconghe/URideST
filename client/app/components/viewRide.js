@@ -8,36 +8,9 @@ class ViewRide extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-            pendingRideArray:[{
-                _id:null,
-                pickupTime:null,
-                pickupDate:null,
-                isConfirmed:null,
-                dropoff:null,
-                pickup:null,
-                van:null,
-                user:null
-            }],
-            confirmedRideArray:[{
-                _id:null,
-                pickupTime:null,
-                pickupDate:null,
-                isConfirmed:null,
-                dropoff:null,
-                pickup:null,
-                van:null,
-                user:null
-            }],
-            previousRideArray:[{
-                _id:null,
-                pickupTime:null,
-                pickupDate:null,
-                isConfirmed:null,
-                dropoff:null,
-                pickup:null,
-                van:null,
-                user:null
-            }]
+            pendingRideArray:[],
+            confirmedRideArray:[],
+            previousRideArray:[]
     }
   }
   componentWillMount() {

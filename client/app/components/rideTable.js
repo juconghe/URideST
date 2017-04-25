@@ -9,6 +9,7 @@ class RideTable extends React.Component {
   render() {
     let title = this.props.title;
     let rideData = this.props.rideData;
+    console.log(rideData);
     return (
       <div className="col-md-4">
           <div className="panel panel-default">

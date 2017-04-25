@@ -7,7 +7,7 @@ class ListGroupWithOnClick extends React.Component {
 
   handleAssignVan(e,van) {
     e.preventDefault()
-    assignRequest(van,this.props.request,()=>{
+    assignRequest("000000000000000000000001",van,this.props.request,()=>{
       console.log('Successfully post request');
       this.props.refresh();
     });

@@ -121,12 +121,12 @@ export function submitRequest(user, contents,cb) {
   });
 }
 
-export function assignRequest(van,request,cb) {
+export function assignRequest(user,van,request,cb) {
   const postRequest = {
     rideId:request._id,
     vanId:van[0]
   }
-  sendXHR('POST','/assignRide',postRequest,()=> {
+  sendXHR('POST','/assignRide/'+user,postRequest,()=> {
     cb();
   });
 }
