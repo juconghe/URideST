@@ -9,7 +9,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import AccountCircle from '@material-ui/icons/AccountCircle'
 
 const navbarStyle = {
-   root: {
+  root: {
     flexGrow: 1,
   },
   grow: {
