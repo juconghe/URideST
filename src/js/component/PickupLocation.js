@@ -23,10 +23,6 @@ const styles = theme => ({
 		  marginRight: 'auto',
 		},
 	  },
-	  container: {
-		display: 'flex',
-		flexWrap: 'wrap',
-	  },
 	formControl: {
 	  margin: theme.spacing.unit,
 	  minWidth: 400,
@@ -56,7 +52,7 @@ class PickupLocation extends Component {
 	const {classes} = this.props;
 	return (
 		<Grid container className={classes.root}>
-        	<Grid item xs={12}>
+			<Grid item xs={12}>
 				<Grid 
 					container
 					spacing={8}
@@ -75,7 +71,7 @@ class PickupLocation extends Component {
 								<Select
 									value={this.state.location} // state
 									onChange={this.handleLocationChange} // change function
- 									inputProps={{
+									inputProps={{
 										name: 'location',
 										id: 'age-simple',
 									}}
@@ -91,21 +87,21 @@ class PickupLocation extends Component {
 						</form>
 					</Grid>
 					<Grid>
-					<TextField
-						id="standard-full-width"
-						label="Custom Location"
-						style={{ margin: 8 }}
-						placeholder="Your Custom Address"
-						fullWidth
-						margin="normal"
-						InputLabelProps={{
-							shrink: true,
-						}}
-					/>
+						<TextField
+							id="standard-full-width"
+							label="Custom Location"
+							style={{ margin: 8 }}
+							placeholder="Your Custom Address"
+							fullWidth
+							margin="normal"
+							InputLabelProps={{
+								shrink: true,
+							}}
+						/>
 					</Grid>
 				</Grid>
-        	</Grid>
-      	</Grid>
+			</Grid>
+		</Grid>
 	)
   }
 }
