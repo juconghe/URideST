@@ -8,7 +8,7 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
   },
-  demo: {
+  screenCenter: {
     width: 'auto',
     display: 'block', // Fix IE 11 issue.
     marginTop: theme.spacing.unit * 50,
@@ -35,10 +35,10 @@ class SelectionButtons extends Component {
           <Grid 
             container
             spacing={16}
-            className={classes.demo}
+            className={classes.screenCenter}
             alignItems="center"
             direction="column"
-            justify="center"
+            justify="space-evenly"
           >
             <Grid item>
               <Button variant="contained" className={classes.button}>
