@@ -26,7 +26,6 @@ const styles = theme => ({
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
-    width: 400,
   },
   paper: {
     marginBottom: theme.spacing.unit * 2,
@@ -58,6 +57,7 @@ class Pickupdate extends Component {
                   <TextField
                     id="date"
                     type="date"
+                    fullWidth
                     defaultValue="2017-05-24"
                     className={classes.textField}
                     InputLabelProps={{

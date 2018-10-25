@@ -7,6 +7,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import TextField from '@material-ui/core/TextField';
 
 const styles = theme => ({
 	root: {
@@ -88,6 +89,19 @@ class PickupLocation extends Component {
 								</Select>
 							</FormControl>
 						</form>
+					</Grid>
+					<Grid>
+					<TextField
+						id="standard-full-width"
+						label="Custom Location"
+						style={{ margin: 8 }}
+						placeholder="Your Custom Address"
+						fullWidth
+						margin="normal"
+						InputLabelProps={{
+							shrink: true,
+						}}
+					/>
 					</Grid>
 				</Grid>
         	</Grid>
