@@ -6,13 +6,14 @@ import Footer from './component/Footer';
 import PickupDate from './component/Pickupdate';
 import PickupLocation from './component/PickupLocation';
 import SpecialAccess from './component/SpecialAccess';
+import Submitpage from './component/Submitpage';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Navbar />
-        <SpecialAccess />
+        <Submitpage />
         <Footer />
       </div>
     );
