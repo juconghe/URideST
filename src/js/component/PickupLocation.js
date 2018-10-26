@@ -8,6 +8,7 @@ import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
+import Footer from './Footer';
 
 const styles = theme => ({
 	root: {
@@ -51,7 +52,8 @@ class PickupLocation extends Component {
   render() {
 	const {classes} = this.props;
 	return (
-		<Grid container className={classes.root}>
+		<div>
+			<Grid container className={classes.root}>
 			<Grid item xs={12}>
 				<Grid 
 					container
@@ -102,6 +104,8 @@ class PickupLocation extends Component {
 				</Grid>
 			</Grid>
 		</Grid>
+		<Footer next='specialaccess' back='pickupdate' />
+		</div>
 	)
   }
 }

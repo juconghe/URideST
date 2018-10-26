@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button'
+import {Link} from 'react-router-dom';
 
 const styles = theme => ({
   root: {
@@ -41,7 +42,7 @@ class SelectionButtons extends Component {
             justify="space-evenly"
           >
             <Grid item>
-              <Button variant="contained" className={classes.button}>
+              <Button variant="contained" className={classes.button} component={Link} to='/pickupdate'>
                 Request A Ride
               </Button>
             </Grid>

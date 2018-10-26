@@ -4,6 +4,7 @@ import {withStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
+import Footer from './Footer';
 
 const styles = theme => ({
 	root: {
@@ -31,34 +32,37 @@ const styles = theme => ({
 	render() {
 		const {classes} = this.props;
 		return (
-			<Grid container className={classes.root}>
-				<Grid item xs={12}>
-					<Grid 
-						container
-						spacing={8}
-						alignItems="center"
-						direction="column"
-						justify="center"
-						className={classes.screenCenter}
-					>
-						<Grid item>
-							<Paper className={classes.paper}>Enter your special need message</Paper> 
-						</Grid>
-						<Grid>
-							<TextField
-								id="standard-multiline-flexible"
-								label="Special Need Message"
-								style={{ margin: 8 }}
-								placeholder="Your Message"
-								fullWidth
-								multiline
-								rowsMax="5"
-								margin="normal"
-							/>
+			<div>
+				<Grid container className={classes.root}>
+					<Grid item xs={12}>
+						<Grid 
+							container
+							spacing={8}
+							alignItems="center"
+							direction="column"
+							justify="center"
+							className={classes.screenCenter}
+						>
+							<Grid item>
+								<Paper className={classes.paper}>Enter your special need message</Paper> 
+							</Grid>
+							<Grid>
+								<TextField
+									id="standard-multiline-flexible"
+									label="Special Need Message"
+									style={{ margin: 8 }}
+									placeholder="Your Message"
+									fullWidth
+									multiline
+									rowsMax="5"
+									margin="normal"
+								/>
+							</Grid>
 						</Grid>
 					</Grid>
 				</Grid>
-			</Grid>
+				<Footer next='submit' back='pickuplocation' />
+			</div>
 		)
 	  }
 }

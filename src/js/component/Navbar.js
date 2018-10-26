@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import HomeIcon from '@material-ui/icons/Home';
 import AccountCircle from '@material-ui/icons/AccountCircle'
+import {Link} from 'react-router-dom';
 
 const navbarStyle = {
   root: {
@@ -28,7 +29,7 @@ class Navbar extends Component {
       <div className={classes.root} >
       <AppBar position="static" color="default">
         <Toolbar>
-          <IconButton className={classes.menuButton}>
+          <IconButton className={classes.menuButton} component={Link} to='/'>
             <HomeIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.grow}>

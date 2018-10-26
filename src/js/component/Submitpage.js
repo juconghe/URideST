@@ -6,7 +6,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import '../../css/App.css';
+import {Link} from 'react-router-dom';
 
 const styles = theme => ({
 	screenCenter: {
@@ -42,7 +42,7 @@ class Submitpage extends Component {
 				</Typography>
 			</CardContent>
 			<CardActions>
-				<Button size="Large" fullWidth >View Your Ride</Button>
+				<Button size="Large" fullWidth component={Link} to='/'>View Your Ride</Button>
 			</CardActions>
 		</Card>
 	);
