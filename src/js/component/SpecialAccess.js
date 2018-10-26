@@ -5,20 +5,11 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Footer from './Footer';
+import '../../css/App.css';
 
 const styles = theme => ({
 	root: {
 		flexGrow: 1,
-	  },
-	  screenCenter: {
-		width: 'auto',
-		display: 'block', // Fix IE 11 issue.
-		marginTop: theme.spacing.unit * 50,
-		[theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
-		  width: 400,
-		  marginLeft: 'auto',
-		  marginRight: 'auto',
-		},
 	  },
 	paper: {
 		marginBottom: theme.spacing.unit * 2,
@@ -41,7 +32,7 @@ const styles = theme => ({
 							alignItems="center"
 							direction="column"
 							justify="center"
-							className={classes.screenCenter}
+							className="centered"
 						>
 							<Grid item>
 								<Paper className={classes.paper}>Enter your special need message</Paper> 

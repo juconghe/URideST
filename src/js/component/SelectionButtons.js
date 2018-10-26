@@ -4,20 +4,11 @@ import { withStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button'
 import {Link} from 'react-router-dom';
+import '../../css/App.css';
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
-  },
-  screenCenter: {
-    width: 'auto',
-    display: 'block', // Fix IE 11 issue.
-    marginTop: theme.spacing.unit * 50,
-    [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
-      width: 400,
-      marginLeft: 'auto',
-      marginRight: 'auto',
-    },
   },
   button: {
     padding: theme.spacing.unit * 2,
@@ -36,7 +27,7 @@ class SelectionButtons extends Component {
           <Grid 
             container
             spacing={16}
-            className={classes.screenCenter}
+            className='centered'
             alignItems="center"
             direction="column"
             justify="space-evenly"
