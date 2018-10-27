@@ -1,1 +1,1 @@
-export const GONEXTPAGE = 'GO_NEXT_PAGE';
+export const SETPAGES = 'SET_PAGES';

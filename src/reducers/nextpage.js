@@ -1,10 +1,10 @@
 import {
-	GONEXTPAGE
+	SETPAGES
 } from '../actions/constances'
 
 const nextPage = (state = {back:'', next:''}, action) => {
 	switch (action.type) {
-		case GONEXTPAGE:
+		case SETPAGES:
 			return {
 				back: action.back,
 				next: action.next

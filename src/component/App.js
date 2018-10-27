@@ -6,6 +6,8 @@ import PickupDate from './Pickupdate';
 import PickupLocation from './PickupLocation';
 import SpecialAccess from './SpecialAccess';
 import Submitpage from './Submitpage';
+import Footer from './Footer';
+
 import { BrowserRouter as Router, Route} from 'react-router-dom';
 import { createStore, applyMiddleware} from 'redux'
 import URideST from '../reducers'
@@ -26,6 +28,7 @@ class App extends Component {
             <Route path='/pickuplocation' component={PickupLocation}/>
             <Route path='/specialaccess' component={SpecialAccess}/>
             <Route path='/submit' component={Submitpage}/>
+            <Footer  />
           </div>
         </Router>
       </Provider>
