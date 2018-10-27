@@ -1,14 +1,24 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {Link} from 'react-router-dom';
+import  {setPages} from '../actions'
+import { connect } from 'react-redux';
 import '../css/App.css';
 
+const mapDispatchToProps = dispatch => ({
+	setPages: (back, next) => dispatch(setPages(back, next))
+})
+
 class Submitpage extends Component {
+
+	componentDidMount() {
+    this.props.setPages('', '')
+	}
+
   render() {
 	return (
 		<Card className="centered">
@@ -22,15 +32,11 @@ class Submitpage extends Component {
 				</Typography>
 			</CardContent>
 			<CardActions>
-				<Button size="Large" fullWidth component={Link} to='/'>View Your Ride</Button>
+				<Button size="large" fullWidth component={Link} to='/'>View Your Ride</Button>
 			</CardActions>
 		</Card>
 	);
   }
 }
 
-Submitpage.propTypes = {
-	classes: PropTypes.object.isRequired,
-}
-
-export default Submitpage;
+export default connect(null, mapDispatchToProps)(Submitpage);
