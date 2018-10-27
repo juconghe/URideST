@@ -5,6 +5,8 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button'
 import {Link} from 'react-router-dom';
 import '../css/App.css';
+import  {setPages} from '../actions'
+import { connect } from 'react-redux';
 
 const styles = theme => ({
   root: {
@@ -18,7 +20,16 @@ const styles = theme => ({
   },
 });
 
+const mapDispatchToProps = dispatch => ({
+  setPages: (back, next) => dispatch(setPages(back, next))
+})
+
 class SelectionButtons extends Component {
+
+  componentDidMount() {
+    this.props.setPages('', '')
+  }
+
   render() {
     const {classes} = this.props;
     return (
@@ -52,4 +63,4 @@ class SelectionButtons extends Component {
 SelectionButtons.propTypes = {
   classes: PropTypes.object.isRequired,
 }
-export default withStyles(styles)(SelectionButtons);
+export default withStyles(styles)(connect(null, mapDispatchToProps)(SelectionButtons));

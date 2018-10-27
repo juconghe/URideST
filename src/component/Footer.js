@@ -25,17 +25,24 @@ class Footer extends Component {
   render() {
       console.log(this.props);
       const {classes} = this.props;
+      let temp;
+
+      if(this.props.back !== '' || this.props.next !== '') {
+        temp = <AppBar position="fixed" color="primary" className={classes.footer}>
+                    <Toolbar className={classes.toolbar}>
+                    <Button variant="contained" component={Link} to={'/'+this.props.back}>
+                        Back
+                    </Button>
+                    <Button variant="contained" component={Link} to={'/'+this.props.next}>
+                        Next
+                    </Button>
+                    </Toolbar>
+                </AppBar>
+        } else {
+            temp = <div />
+        }
     return (
-        <AppBar position="fixed" color="primary" className={classes.footer}>
-            <Toolbar className={classes.toolbar}>
-            <Button variant="contained" component={Link} to={'/'+this.props.back}>
-                Back
-            </Button>
-            <Button variant="contained" component={Link} to={'/'+this.props.next}>
-                Next
-            </Button>
-            </Toolbar>
-      </AppBar>
+        <div>{temp}</div>
     )
   }
 }
