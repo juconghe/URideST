@@ -15,3 +15,8 @@ export const setPickupLocation = (location) => ({
 	type: constants.SETPICKUPLOCATION,
 	location,
 })
+
+export const setSpecialNeeds = (message) => ({
+	type: constants.SETSPECIALNEEDS,
+	message
+})

@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import '../css/App.css';
-import  {setPages} from '../actions'
+import  {setPages, setSpecialNeeds} from '../actions'
 import { connect } from 'react-redux';
 
 const styles = theme => ({
@@ -21,16 +21,24 @@ const styles = theme => ({
   });
 
 const mapDispatchToProps = dispatch => ({
-	setPages: (back, next) => dispatch(setPages(back, next))
+	setPages: (back, next) => dispatch(setPages(back, next)),
+	setSpecialNeeds: (message) => dispatch(setSpecialNeeds(message))
 })
 
 
  class SpecialAccess extends Component {
 
+	constructor(props) {
+		super();
+		this.handleTextInput = this.handleTextInput.bind(this);
+	}
 	componentDidMount() {
 		this.props.setPages('pickuplocation', 'submit')
 	}
 
+	handleTextInput(e) {
+		this.props.setSpecialNeeds(e.target.value)
+	}
 	render() {
 		const {classes} = this.props;
 		return (
@@ -57,6 +65,7 @@ const mapDispatchToProps = dispatch => ({
 								multiline
 								rowsMax="5"
 								margin="normal"
+								onChange={this.handleTextInput}
 							/>
 						</Grid>
 					</Grid>
