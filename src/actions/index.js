@@ -10,3 +10,8 @@ export const setPickupDate = (date) => ({
 	type: constants.SETPICKUPDATE,
 	date,
 })
+
+export const setPickupLocation = (location) => ({
+	type: constants.SETPICKUPLOCATION,
+	location,
+})
