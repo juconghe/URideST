@@ -5,3 +5,8 @@ export const setPages = (back, next) => ({
 	back,
 	next
 })
+
+export const setPickupDate = (date) => ({
+	type: constants.SETPICKUPDATE,
+	date,
+})
