@@ -18,7 +18,8 @@ const footerStyler = theme => ({
 });
 
 const mapStateToProps = state => ({
-    ...state.nextPage
+    ...state.nextPage,
+    isDisable: state.isDisable
 })
 
 class Footer extends Component {
@@ -33,7 +34,7 @@ class Footer extends Component {
                     <Button variant="contained" component={Link} to={'/'+this.props.back}>
                         Back
                     </Button>
-                    <Button variant="contained" component={Link} to={'/'+this.props.next}>
+                    <Button variant="contained" disabled={this.props.isDisable} component={Link} to={'/'+this.props.next}>
                         Next
                     </Button>
                     </Toolbar>

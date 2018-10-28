@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import '../css/App.css';
-import  {setPages, setSpecialNeeds} from '../actions'
+import  {setPages, setSpecialNeeds, setButtonDisable} from '../actions'
 import { connect } from 'react-redux';
 
 const styles = theme => ({
@@ -22,7 +22,8 @@ const styles = theme => ({
 
 const mapDispatchToProps = dispatch => ({
 	setPages: (back, next) => dispatch(setPages(back, next)),
-	setSpecialNeeds: (message) => dispatch(setSpecialNeeds(message))
+	setSpecialNeeds: (message) => dispatch(setSpecialNeeds(message)),
+	setButtonDisable: (isDisable) => dispatch(setButtonDisable(isDisable))
 })
 
 
@@ -34,10 +35,16 @@ const mapDispatchToProps = dispatch => ({
 	}
 	componentDidMount() {
 		this.props.setPages('pickuplocation', 'submit')
+		this.props.setButtonDisable(true);
 	}
 
 	handleTextInput(e) {
 		this.props.setSpecialNeeds(e.target.value)
+		if(e.target.value !== '') {
+			this.props.setButtonDisable(false);
+		} else {
+			this.props.setButtonDisable(true);
+		}
 	}
 	render() {
 		const {classes} = this.props;

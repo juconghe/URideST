@@ -20,3 +20,8 @@ export const setSpecialNeeds = (message) => ({
 	type: constants.SETSPECIALNEEDS,
 	message
 })
+
+export const setButtonDisable = (isDisable) => ({
+	type: constants.SETBUTTONACTIVE,
+	isDisable
+})

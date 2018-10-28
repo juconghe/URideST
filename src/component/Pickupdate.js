@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import  {setPages, setPickupDate} from '../actions'
+import  {setPages, setPickupDate, setButtonDisable} from '../actions'
 import { connect } from 'react-redux';
 
 import '../css/App.css';
@@ -31,7 +31,8 @@ const styles = theme => ({
 
 const mapDispatchToProps = dispatch => ({
   setPages: (back, next) => dispatch(setPages(back, next)),
-  setPickupDate: (date) => dispatch(setPickupDate(date))
+  setPickupDate: (date) => dispatch(setPickupDate(date)),
+  setButtonDisable: (isDisable) => dispatch(setButtonDisable(isDisable))
 })
 
 class Pickupdate extends Component {
@@ -42,11 +43,12 @@ class Pickupdate extends Component {
   }
   componentDidMount() {
     this.props.setPages('', 'pickuplocation')
+    this.props.setButtonDisable(true)
   }
 
   handlePickdateOnChange(e) {
-    console.log(e.target.value);
     this.props.setPickupDate(e.target.value)
+    this.props.setButtonDisable(false)
   }
 
   render() {

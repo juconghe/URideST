@@ -8,7 +8,7 @@ import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
-import  {setPages, setPickupLocation} from '../actions'
+import  {setPages, setPickupLocation, setButtonDisable} from '../actions'
 import { connect } from 'react-redux';
 
 const styles = theme => ({
@@ -29,7 +29,8 @@ const styles = theme => ({
 
 const mapDispatchToProps = dispatch => ({
 	setPages: (back, next) => dispatch(setPages(back, next)),
-	setPickupLocation: (location) => dispatch(setPickupLocation(location))
+	setPickupLocation: (location) => dispatch(setPickupLocation(location)),
+	setButtonDisable: (isDisable) => dispatch(setButtonDisable(isDisable))
 })
 
 class PickupLocation extends Component {
@@ -42,12 +43,18 @@ class PickupLocation extends Component {
 	}
 
 	componentDidMount() {
-    this.props.setPages('pickupdate', 'specialaccess')
+		this.props.setButtonDisable(true);
+    	this.props.setPages('pickupdate', 'specialaccess');
 	}
 	
 	handleLocationChange(e) {
 		this.setState({ [e.target.name]: e.target.value });
 		this.props.setPickupLocation(e.target.value)
+		if(e.target.value !== '') {
+			this.props.setButtonDisable(false);
+		} else {
+			this.props.setButtonDisable(true);
+		}
 	}
   render() {
 	const {classes} = this.props;
